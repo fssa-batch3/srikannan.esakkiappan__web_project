@@ -1,4 +1,6 @@
 # parkin
+
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=fssa-batch3_srikannan.esakkiappan__web_project&metric=bugs)](https://sonarcloud.io/summary/new_code?id=fssa-batch3_srikannan.esakkiappan__web_project)
  
 	Chennai is the third largest fleet of two wheelers in the country next only to New Delhi and Bangalore . 
 	Definitely each home had one bike, some houses had more than one bike. But all the people did not have a parking place.
