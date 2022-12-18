@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&family=Rubik+Vinyl&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/payment.css">
+    <link rel="icon" href="../assets/Images/Logo.png">
+    <title>parkin</title>
+</head>
+<body>
+    <header>
+        <!-- header -->
+        <div class="header_logo">
+            <img id="head_logo" src="../assets/Images/lgo.png" alt="logo">
+        </div>
+        <nav id="nav">
+
+            <!-- Navigation links -->
+            <a href="about.html">About</a>
+            <a href="../index.html">Back to home</a>
+        </nav>
+    </header>
+    <main>
+        <div class="main-container">
+            <div id="head">Amount Details</div>
+            <div class="amount-details">
+                <div id="duration">Parking duration</div>
+                <div id="time">1 Hour</div><br>
+                <hr>
+                <p id="amount">Payable Amount</p>
+                <div id="rupee">&#8377; 25</div>
+              
+            </div>
+            <a id="btn" href="../index.html">Proceed</a>
+            <div class="payment_options">
+                <div id="upi">Please select your UPI:</div>
+                <form >
+                    <div id="phon_box">
+                    <input type="radio" id="phonpay" name="options">
+                    <label for="phonpay"><img id="phon_pay" src="../assets/Images/phonpay.png" alt="phon_pay"></label><br>
+                    </div>
+                    <div id="g_box">
+                    <input type="radio" id="gpay" name="options">
+                    <label for="gpay"><img id="g_pay" src="../assets/Images/gpay.png" alt="gpay"></label><br>
+                    </div>
+                    <div id="pay_box">
+                    <input type="radio" id="paytm" name="options">
+                    <label for="paytm"><img id="pay_tm" src="../assets/Images/paytm.png" alt="paytm"></label>
+                    </div>
+                </form>
+                  <hr>
+                  <p id="enter">Enter your UPI Number or UPI ID:</p>
+                <form>
+                    <input type="search" id="searc">
+                    <label for="sear"></label><br>
+                    <div class="or">
+                    <div id="choice"><span class="check" >or</span>
+                    </div>
+                </form>
+                <img id="qr" src="../assets/Images/parkqr.png" alt="qr-code">
+                <p id="qrcode">Scan this QR code and pay the amount</p>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

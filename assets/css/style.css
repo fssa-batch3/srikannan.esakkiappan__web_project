@@ -1,0 +1,555 @@
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    width: fit-content;
+    font-size: 20px;
+    background-color: #f2f2f2;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 120px;
+    width: 1480px;
+    background-color: #4b1df2;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 7.9px;
+    z-index: 2;
+    color: white;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    margin-right: 80px;
+    font-family: 'Luckiest Guy', cursive;
+    letter-spacing: 2px;
+}
+
+#nav a {
+    text-decoration: none;
+    color: white;
+    padding: 6px 15px;
+}
+
+#nav a:hover {
+    background-color: white;
+    color: #4b1df2;
+    display: inline;
+    padding: 6px 15px;
+    border-radius: 5px;
+}
+
+#head_logo {
+    height: 120px;
+    width: 160px;
+    background-color: #4b1df2;
+    margin: -10px 0 10px 20px;
+}
+
+.head_line {
+    position: absolute;
+    top: 35%;
+    left: 10%;
+    color: white;
+}
+
+h1 {
+    margin-left: 100px;
+    font-family: 'Unbounded', cursive;
+}
+
+h2 {
+    word-spacing: 2px;
+    margin-left: 29%;
+
+}
+
+#search a {
+    text-decoration: none;
+}
+
+h3 {
+    color: white;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 80px;
+    height: 30px;
+    margin-left: 49%;
+    padding: 5px 2px 15px 15px;
+    background-color: black;
+    font-size: 25px;
+    font-family: 'Oswald', sans-serif;
+    animation-name: blink;
+    animation-duration: 3s;
+    animation-iteration-count: infinite;
+}
+
+h3:hover {
+    color: #000000;
+    background-color: white;
+}
+
+@keyframes blink {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.4);
+    }
+
+}
+
+a {
+    color: white;
+    text-decoration: none;
+}
+
+main {
+    background-color: #696969;
+    background-image: url("../Images/background1.png");
+    background-blend-mode: multiply;
+    height: 600px;
+    width: 1280px;
+    position: absolute;
+    top: 17%;
+}
+
+.child1 {
+    width: 950px;
+    height: 300px;
+    position: absolute;
+    top: 110%;
+    left: 10%;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-between;
+}
+
+img#gif1 {
+    height: 250px;
+    width: 350px;
+    border-radius: 30px;
+}
+
+h4 {
+    font-family: sans-serif;
+    font-size: 25px;
+}
+
+.child2 {
+    width: 950px;
+    height: 350px;
+    position: absolute;
+    top: 170%;
+    left: 10%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+img#gif2 {
+    height: 250px;
+    width: 350px;
+    border-radius: 30px;
+}
+
+
+.faq {
+    position: absolute;
+    top: 222%;
+    left: 3.4%;
+    border: 1px solid black;
+    border-radius: 20px;
+    width: 1100px;
+    padding-left: 90px;
+    background-color: #7c6bf2;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 30px 4px;
+}
+
+#faq {
+    font-size: 25px;
+    color: white;
+    margin-left: 32%;
+}
+
+#faq::after {
+    content: '';
+    height: 5px;
+    background-color: black;
+    display: block;
+    width: 285px;
+}
+
+#note {
+    margin-left: 30%;
+    word-spacing: 4px;
+    color: white;
+}
+
+#answer1 {
+    position: relative;
+    top: 4px;
+    left: 20px;
+}
+
+#checkbox1 {
+    position: relative;
+    left: -160px;
+    top: 1px;
+    opacity: 1;
+
+}
+
+.question1 {
+    height: 150px;
+}
+
+.question2 {
+    height: 150px;
+    position: relative;
+    bottom: 50px;
+}
+
+.question3 {
+    height: 150px;
+}
+
+.question4 {
+    height: 150px;
+}
+
+.question5 {
+    height: 320px;
+}
+
+.question1 label {
+    position: relative;
+    right: 20px;
+}
+
+.question1 p {
+    display: none;
+    color: white;
+
+}
+
+.question1 input:checked~p {
+    display: block;
+}
+
+label#q1 {
+    position: relative;
+    top: 10px;
+    left: -19px;
+    color: white;
+}
+
+#checkbox2 {
+    position: relative;
+    top: 0px;
+    right: 160px;
+    opacity: 1;
+}
+
+.question2 label {
+    margin-bottom: 20px;
+}
+
+.question2 p {
+    position: relative;
+    top: 30px;
+    display: none;
+    color: white;
+}
+
+.question2 input:checked~p {
+    display: block;
+}
+
+label#q2 {
+    position: relative;
+    top: 10px;
+    right: 20px;
+    color: white;
+}
+
+p#answer2 {
+    position: relative;
+    margin-top: -10px;
+    left: 25px;
+}
+
+input#checkbox3 {
+    position: relative;
+    left: -350px;
+    top: 1px;
+    opacity: 1;
+}
+
+.question3 label {
+    position: relative;
+    top: 80px;
+}
+
+.question3 p {
+    position: relative;
+    top: 70px;
+    display: none;
+    color: white;
+}
+
+.question3 input:checked~p {
+    display: block;
+}
+
+label#q3 {
+    position: relative;
+    right: 20px;
+    top: -85px;
+    color: white;
+}
+
+p#answer3 {
+    position: relative;
+    top: 3px;
+    left: 30px;
+}
+
+input#checkbox4 {
+    position: relative;
+    left: -340px;
+    top: -1px;
+    opacity: 1;
+}
+
+.question4 label {
+    position: relative;
+    top: 140px;
+}
+
+.question4 p {
+    position: relative;
+    top: 110px;
+    display: none;
+    color: white;
+}
+
+.question4 input:checked~p {
+    display: block;
+}
+
+label#q4 {
+    position: relative;
+    right: 20px;
+    top: -105px;
+    color: white;
+}
+
+p#answer4 {
+    position: relative;
+    top: -4px;
+    left: 30px;
+}
+
+input#checkbox5 {
+    position: relative;
+    left: -230px;
+    top: 0px;
+
+}
+
+.question5 p {
+    position: relative;
+    top: 150px;
+    display: none;
+    color: white;
+}
+
+.question5 #mindmap_picture {
+    display: none;
+}
+
+.question5 input:checked~p {
+    display: block;
+}
+
+.question5 input:checked~#mindmap_picture {
+    display: block;
+}
+
+label#q5 {
+    position: relative;
+    right: 20px;
+    top: -145px;
+    color: white;
+}
+
+p#answer5 {
+    position: relative;
+    top: -5px;
+    left: 20px;
+}
+
+#mindmap_picture {
+    height: 305px;
+    position: relative;
+    /* bottom: 1px; */
+    width: 660px;
+}
+
+
+#road {
+    border: 1px solid black;
+    height: 2900px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    background-color: black;
+    margin-left: 1290px;
+
+}
+
+#bar {
+    border: 1px solid black;
+    height: 40px;
+    width: 10px;
+    background-color: white;
+}
+
+img#car {
+    background-color: black;
+    height: 95px;
+    width: 70px;
+    position: fixed;
+    top: 150px;
+}
+
+
+.feedback {
+    height: 100px;
+    position: absolute;
+    top: 430%;
+    left: 5%;
+}
+
+h5 {
+    position: absolute;
+    bottom: 310px;
+    left: 497px;
+    font-size: 34px;
+}
+
+button {
+    position: relative;
+    top: -16px;
+    right: 119px;
+    padding: 10px;
+}
+
+label#feedback {
+    position: relative;
+    bottom: 55px;
+}
+
+textarea {
+    resize: none;
+    margin-left: -240px;
+}
+
+#feedback_name {
+    position: relative;
+    bottom: 150px;
+    right: -290px;
+    height: 40px;
+    width: 264px;
+}
+
+#feedback_email {
+    position: relative;
+    bottom: 150px;
+    right: -300px;
+    height: 40px;
+    width: 240px;
+}
+
+form.feedback {
+    height: 300px;
+    margin-left: 20px;
+}
+
+
+
+
+
+
+footer {
+    height: 200px;
+    width: 1472px;
+    background-color: #4218d9;
+    color: white;
+}
+
+#footer_contact {
+    float: right;
+    margin-right: 50px;
+    font-size: 18px;
+    margin-top: 5px;
+}
+
+#foot {
+    position: absolute;
+    height: 100px;
+    margin-left: 10px;
+    margin-top: 20px;
+}
+
+#play {
+    position: absolute;
+    height: 35px;
+    margin-left: 150px;
+    margin-top: 50px;
+}
+
+h6 {
+    position: absolute;
+    top: 3060px;
+    left: 5%;
+}
+
+.credits {
+    float: right;
+    margin-top: 150px;
+    margin-right: -240px;
+    font-size: 18px;
+    font-family: 'Oswald', sans-serif;
+}
+
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: grey;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    color: #000000, #ffffff;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: black;
+}
