@@ -1,0 +1,143 @@
+body{
+    font-size: 20px;
+    background-color: #f2f2f2;
+}
+header{
+    display: flex;
+    justify-content: space-between;
+    height: 120px;
+    background-color: #0d131f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 7.5px;
+    z-index: 2;
+}
+#nav a{
+    text-decoration: none;
+    color: white;
+    padding: 6px 15px;
+}
+#nav a:hover{
+    background-color: #0182ff;
+    color: white;
+    display: inline;
+    padding: 6px 15px;  
+    border-radius: 5px;
+}
+#nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    margin-right: 80px;
+    font-family: 'Luckiest Guy', cursive;
+    letter-spacing: 2px;
+}
+#logo{
+    height: 120px;
+    width: 160px;
+    background-color: #0d131f;
+     margin: -10px 0 10px 20px; 
+}
+
+a{
+    color: white;
+    text-decoration: none;
+}
+#imag{
+    height: 180px;
+}
+#imge{
+    height: 330px;
+    width: 200px;
+}
+.present_box{
+    
+    border-right: 50px solid #0182ff;
+    border-left: 50px solid #0182ff;
+    margin-top: 200px;
+    padding: 30px;
+    margin-left: 215px;
+    height: 290px;
+    width: 900px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: white;
+}
+#accept-html{
+    border: 1px solid black;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
+    text-decoration: none;
+}
+#histo{
+    margin-top: 70px;
+    position: absolute;
+    font-size: 32px;
+}
+.history{
+    margin-top: 150px;
+    display: flex;
+    justify-content: space-around;
+    /* border: 1px solid #4218d9; */
+    border-top: 15px solid #0d131f;
+    border-bottom: 15px solid #0d131f;
+    width: 400px;
+    margin-left: 10px;
+    background-color: white;
+}
+.history_box{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+#foot{
+    margin-top: 10%;
+    background-color: #0d1e38;
+    padding: 3%;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#flogo{
+    height: 60%;
+    width: 32%;
+}
+#contact{
+    margin-left: -35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#flt{
+    height: 60%;
+    width: 20%;
+}
+#ct{
+    float: right;
+    margin-left: -10%;
+}
+h5#ftc{
+    float: right;
+    margin-top: -29%;
+    margin-left: -50%;
+}
+h5#fc{
+    float:right;
+    margin-top: -47%;
+}
+#ftnav{
+    display: flex;
+    flex-direction: column;
+}
+#blk{
+    background-color: black;
+    border: 2px solid black;
+    padding: 2%;
+}

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="../assets/css/tenant-choos-place.css">
+    <title>Document</title>
+</head>
+<header>
+    <div class="logo">
+        <img id="logo" src="../assets/Images/lgo.png" alt="logo">
+    </div>
+    <!-- Navigation link -->
+    <nav id="nav">
+
+        <input id="search" type="search" placeholder=" Use leaser name to search here"> 
+        <button type="submit"><i class="fa fa-search"></i></button>
+        <a href="../index.html">Log out</a>
+    </nav>
+</header>
+<body>
+    <main>
+    <div class="main">
+    </div>
+    </main>
+    <script>
+       let div_list;
+       let div_profile_box;
+       let div_image;
+       let imag;
+       let div_detail;
+       let parag;
+       let parag1;
+
+       const name_list = [
+            {
+                "name": "Arun",
+                "image": { source: "../assets/images/hme.png", alt: "avatar of Arun" },
+                "address": "Raniyammal nagar , taramani"
+            },
+            {
+                "name": "Ajith",
+                "image": { source: "../assets/images/parpl.png", alt: "avatar of Ajith" },
+                "address": "Anna thedal salai, taramani"
+            },
+            {
+                "name": "Bala",
+                "image": { source: "../assets/images/hme.png", alt: "avatar of Bala" },
+                "address": "MGR nagar, Taramani"
+            },
+             {
+                 "name": "Deva",
+                 "image": { source: "../assets/images/parpl.png", alt: "avatar of Deva" },
+                 "address": "MG nagar, Taramani"
+             },
+             {
+                 "name": "sri",
+                 "image": { source: "../assets/images/hme.png", alt: "avatar of Deva" },
+                 "address": "KGF nagar, Taramani"
+             },
+             {
+                 "name": "kingston",
+                 "image": { source: "../assets/images/parpl.png", alt: "avatar of Deva"},
+                 "address": "KGF nagar, Taramani"
+             }
+        ]
+       
+        const name_list_length = name_list.length
+
+       div_list=document.createElement("div")
+       div_list.setAttribute("class", "main_list")
+       console.log(div_list)
+
+        for(let i=0;i<name_list_length;i++){
+
+        const user = name_list[i]
+
+        console.log(user["name"])
+        console.log(user["address"])
+        console.log(user["image"])
+
+
+      
+
+       div_profile_box = document.createElement("div");
+       div_profile_box.setAttribute("class", "profile_box");
+       div_list.append(div_profile_box);
+
+       div_image = document.createElement("div");
+       div_image.setAttribute("class", "image");
+       div_profile_box.append(div_image);
+
+       imag = document.createElement("img");
+       imag.setAttribute("src", user["image"]["source"]);
+       imag.setAttribute("alt", user["image"]["alt"]);
+       imag.setAttribute("id", "imag");
+       div_image.append(imag);
+
+       div_detail = document.createElement("div");
+       div_detail.setAttribute("class", "detail");
+       div_profile_box.append(div_detail);
+
+       parag = document.createElement("p");
+       parag.setAttribute("id" , "nam")
+       parag.innerText = user.name;
+       div_detail.append(parag);
+
+       parag1 = document.createElement("p");
+       parag1.setAttribute("id" , "addr")
+       parag1.innerText = user.address;
+       div_detail.append(parag1);
+
+
+       document.querySelector("main").append(div_list);
+
+        }
+    </script>
+</body>
+</html>

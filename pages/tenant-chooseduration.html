@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/tenant-choosetime.css">
+    <link rel="icon" href="../assets/Images/Logo.png">
+    <title>parkin</title>
+</head>
+
+<body>
+    <!-- header -->
+    <header>
+        <!-- header -->
+        <div class="header_logo">
+            <img id="head_logo" src="../assets/Images/lgo.png" alt="logo">
+        </div>
+        <nav id="nav">
+    
+            <!-- Navigation links -->
+            <a href="tenant-choose-place.html">Explore other places</a>
+            <a href="../index.html">Log out</a>
+            
+        </nav>
+      
+    </header>
+    <!-- main -->
+    <main>
+        <!-- parking images -->
+        <div class="images">
+            <div id="heading">Parking place Image</div>
+            <img id="parking-image1" src="../assets/images/parking_place.jpg" alt="parking_place">
+        </div>
+            <!-- Leaser details -->
+            <div class="leaser_detail">
+                <div id="name-number">
+                <p>Name:&nbsp;Suresh</p>
+                <p>Phone&nbsp;Number:&nbsp;9843212241</p>
+                </div>
+                <!-- Time choosing space -->
+                <form action="tenant-request.html">
+                    <h3>Choose the duration of your parking :</h3>
+                    <br><br><br><br><br>
+                    <label for="time-start">start-time</label>&nbsp;&nbsp;&nbsp;
+                    <input type="datetime-local" required><br><br>
+                    <label for="time-end">End-time</label>&nbsp;&nbsp;&nbsp;
+                    <input type="datetime-local" required><br><br><br><br>
+                    <br>
+                    <!-- request button -->
+                    <button id="request-btn">Give Request</button>
+                </form>
+            </div>
+    </main>
+    <!-- footer -->
+    <footer>
+        <div id="foot">
+            <div id="park">
+            <img id="flogo" src="../assets/images/lgo.png" alt="logo">
+            <p>Parkin is an website that helps<br> to connect both Tenant and Leaser</p>
+            </div>
+            <div id="contact">
+                <h2>Get in touch</h2>
+                <img id="flt" src="../assets/images/lt.png" alt="symbol">
+                <div id="ct">
+                <h5 id="fc">Taramani,chennai</h5><br>
+                <h5 id="ftc">www.parkin.com</h5>
+                </div>
+            </div>
+            <div id="ftnav"><br>
+                <a href="#">Home</a><br>
+                <a href="leaser-log.html">Leaser</a><br>
+                <a href="Tenant-log.html">Tenant</a><br>
+                <a href="about.html">About</a><br>
+            </div>
+        </div>
+        <div id="blk">
+        </div>
+    </footer>
+</body>
+</html>

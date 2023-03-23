@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <title>Document</title>
+</head>
+<header>
+  
+        <!-- header -->
+        <div class="header_logo">
+            <img id="head_logo" src="assets/images/logo.png" alt="logo">
+        </div>
+        <a id="h" href="#">Home</a>
+        <nav id="nav">
+            <!-- Navigation links -->
+            
+            <a href="pages/leaser-log.html">Leaser</a>
+            <a href="pages/Tenant-log.html">Tenant</a>
+            <a href="pages/about.html">About</a>
+        </nav>
+</header>
+<body>
+    <main>
+        <div class="main_container">
+            <!-- main section -->
+            <div class="head_line">
+                <h1>Get vehicle Parking for Time rent</h1>
+                <h2>Find Parking place on Map Near you</h2>
+                <div id="search">
+                    <!-- Map_search -->
+                    <a href="https://www.google.com/maps/search/parking+garage/@13.0350916,80.2062335,12z/data=!3m1!4b1"
+                        rel="noopener" target="_blank">
+                        <h3 id="map">search</h3>
+                    </a>
+                </div>
+            </div>
+    </main>
+    <div class="child1">
+        <img id="gif1" src="assets/images/parkplace.gif" alt="img">
+        <div class="ct">
+            <h4 id="cot">Check nearest available parking spaces here<br>
+                Get affortable garage or parking place<br> on rent for your vehicle.
+            </h4>
+        </div>
+    </div>
+    <h3 id="q">FAQ</h3>
+    <p id="qt">(Click the question and get the answer)</p>
+    <div id="faq">
+        <button class="accordion">Who is leaser?</button>
+<div class="panel">
+  <p>The person who had a parking place</p>
+</div>
+
+<button class="accordion">Who is Tenant?</button>
+<div class="panel">
+  <p>The person who had a Bike or car.</p>
+</div>
+
+<button class="accordion">How this website is helping for leaser?</button>
+<div class="panel">
+  <p>Leaser can generate money from Unused land of their own using this website.</p>
+</div>
+
+<button class="accordion">How this website is helping for Tenant?</button>
+<div class="panel">
+  <p>Lorem ipsum...</p>
+</div>
+    </div>
+    
+    <div class="child2">
+        <img id="gif2" src="assets/images/placepark.gif" alt="img">
+        <div class="fq">
+            <h4 id="cont">Take advantage of unused space in your home or office<br> in order to earn money.
+                Get in touch with<br> people quickly for parking needs.
+            </h4>
+        </div>
+    </div>
+    <div class="leas">
+        <img id="rt" src="assets/images/rent.png" alt="img">
+    </div>
+    <div class="bimg">
+        <div class="hd">
+            <h3 id="tpic">Rent out your home's Empty space or Garage</h3>
+        </div>
+    </div>
+    <div id="feed">
+        <div id="fdbx">
+            <img id="phone" src="assets/images/phon.png" alt="phone">
+            <form>
+                <h2>Ask us anything you want</h2><br>
+               
+                <label for="fname">Name</label>
+                <input type="text" id="feedname" name="firstname" placeholder="Your name.."><br><br>
+                <label for="email">Email</label>
+                <input type="email" id="feedname" name="user_email"><br><br>
+                <label for="subject">Feedback</label>
+                <textarea id="fedname" name="subject" placeholder="Write something.." style="height:80px"></textarea>
+            </form>
+           
+        </div>
+        <button id="btn">Get answers</button>
+    </div>
+</body>
+<footer>
+    <div id="foot">
+        <div id="park">
+        <img id="flogo" src="assets/images/lgo.png" alt="logo">
+        <p>Parkin is an website that helps<br> to connect both Tenant and Leaser</p>
+        </div>
+        <div id="contact">
+            <h2>Get in touch</h2>
+            <img id="flt" src="assets/images/lt.png" alt="symbol">
+            <div id="ct">
+            <h5 id="fc">Taramani,chennai</h5><br>
+            <h5 id="ftc">www.parkin.com</h5>
+            </div>
+        </div>
+        <div id="ftnav"><br>
+            <a href="#">Home</a><br>
+            <a href="pages/leaser-log.html">Leaser</a><br>
+            <a href="pages/Tenant-log.html">Tenant</a><br>
+            <a href="pages/about.html">About</a><br>
+        </div>
+    </div>
+    <div id="blk">
+    </div>
+</footer>
+<script>
+var acc = document.getElementsByClassName("accordion");
+var i;
+
+for (i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.display === "block") {
+      panel.style.display = "none";
+    } else {
+      panel.style.display = "block";
+    }
+  });
+}
+
+</script>
+</html>

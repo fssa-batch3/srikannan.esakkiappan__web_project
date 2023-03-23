@@ -1,0 +1,122 @@
+body{
+    font-size: 20px;
+}
+header{
+display:flex;
+justify-content: space-between;
+height: 115px;
+background-color: #0d131f;
+position: fixed;
+top: 0;
+left: 0;
+right: 7.5px;
+z-index: 2;
+color: white;
+}
+a{
+color: white;
+text-decoration: none;
+}
+#nav{
+display: flex;
+justify-content: space-between;
+align-items: center;
+width: 500px;
+margin-right: -200px;
+font-family: 'Luckiest Guy', cursive;
+letter-spacing: 2px;
+}
+#logo{
+height: 120px;
+width: 160px;
+background-color: #0d131f;
+ margin: -10px 0 10px 20px; 
+}
+#nav a{
+    text-decoration: none;
+    color: white;
+    padding: 6px 15px;
+}
+#nav a:hover{
+    background-color: #0182ff;
+    color: white;
+    display: inline;
+    padding: 6px 15px;  
+    border-radius: 5px;
+}
+#thumb-image{
+    margin-left: 6%;
+    height: 240px;
+    animation-name: emoji;
+    animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-fill-mode: both;
+    animation-iteration-count: infinite;
+}
+@keyframes emoji{
+    0%{transform: rotate(0deg);}
+    50%{transform: rotate(-20deg)}
+    60%{transform: rotate(-10deg)}
+    70%{transform: rotate(-5deg)}
+    80%{transform: rotate(0deg)}
+    90%{transform: rotate(10deg)}
+}
+.main_container{
+    margin-top: 180px;
+    margin-left: 40%;
+    margin-bottom: 158px;
+}
+h1{
+    margin-left: -15%;
+}
+h3{
+    margin-left: -3%;
+}
+#foot{
+    margin-top: 10%;
+    background-color: #0d1e38;
+    padding: 3%;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#park{
+    margin-left: -10%;
+}
+#flogo{
+    height: 60%;
+    width: 32%;
+}
+#contact{
+    margin-left: -30%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#flt{
+    height: 60%;
+    width: 20%;
+}
+#ct{
+    float: right;
+    margin-left: -10%;
+}
+h5#ftc{
+    float: right;
+    margin-top: -29%;
+    margin-left: -50%;
+}
+h5#fc{
+    float:right;
+    margin-top: -47%;
+}
+#ftnav{
+    display: flex;
+    flex-direction: column;
+}
+#blk{
+    background-color: black;
+    border: 2px solid black;
+    padding: 2%;
+}

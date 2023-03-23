@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/signup-edit.css">
+    <title>Document</title>
+</head>
+<body>
+  <header>
+    <!-- header -->
+    <div class="header_logo">
+        <img id="head_logo" src="../assets/Images/lgo.png" alt="logo">
+    </div>
+    <nav id="nav">
+
+        <!-- Navigation links -->
+        <a href="leaser-profile.html" id="save">Save</a>
+        <a href="leaser-log.html" id="del">Delete</a>
+        <a href="../index.html">Log out</a>
+        
+    </nav>
+  
+</header>
+<div id="hed">
+  <h2>Edit your profile Info</h2>
+</div>
+    <div class="container">
+        <form >
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">First Name</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="fname" name="firstname" placeholder="Your name..">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="lname">Last Name</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="lname" name="lastname" placeholder="Your last name..">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="email">Email</label>
+            </div>
+            <div class="col-75">
+                <input type="email" id="email" name="user_email">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="name">Phone number</label>
+            </div>
+            <div class="col-75">
+                <input type="number" id="numb" name="numb" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="name">Another number</label>
+            </div>
+            <div class="col-75">
+                <input type="number" id="number" name="numb" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}">
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-25">
+              <label for="subject">Address</label>
+            </div>
+            <div class="col-75">
+              <textarea id="subject" name="subject" placeholder="Write something.." style="height:50px"></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="name">Password</label>
+            </div>
+            <div class="col-75">
+                <input type="password" id="pass" name="numb" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="name">Confirm Password</label>
+            </div>
+            <div class="col-75">
+                <input type="password" id="password" name="numb" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="name">Upload pics</label>
+            </div>
+            <div class="col-75">
+                <input type="file" id="numbe" name="numb">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="name">Upload docs</label>
+            </div>
+            <div class="col-75">
+                <input type="file" id="num" name="numb">
+            </div>
+          </div>
+
+          <div class="row">
+            <!-- <button id="save">save</button>
+            <button id="del">Delete</button> -->
+            <!-- <input type="submit" value="sign up"> -->
+          </div>
+
+        </form>
+        <script>
+          let fname = document.getElementById("fname")
+          let lname = document.getElementById("lname")
+          let email = document.getElementById("email")
+          let numb = document.getElementById("numb")
+          let number = document.getElementById("number")
+          let address = document.getElementById("subject")
+          let pass = document.getElementById("pass")
+          let password = document.getElementById("password")
+          let datas = JSON.parse(localStorage.getItem("Tenant"))
+          let profile = JSON.parse(localStorage.getItem("Tenant_details"));
+          console.log(datas)
+          console.log(profile)
+          let check;
+        datas.find(e=>{
+          if(e["Email"]==profile["Email"]){
+          
+            return check=e;
+          }
+        })
+        console.log(check);
+        
+          fname.value=check["Firstname"]
+          lname.value=check["Lastname"]
+          email.value=check["Email"]
+          numb.value=check["phone_number"]
+          number.value=check["phone_number1"]
+          address.value=check["Address"]
+          pass.value=check["password"]
+          password.value=check["confirm_password"]
+        
+          document.getElementById("save").addEventListener("click",e=>{
+            e.preventDefault();
+            check["Firstname"]=document.getElementById("fname").value;
+            check["Lastname"]=document.getElementById("lname").value;
+            check["Email"]=document.getElementById("email").value;
+            check["phone_number"]=document.getElementById("numb").value;
+            check["phone_number1"]=document.getElementById("number").value;
+            check["Address"]=document.getElementById("subject").value;
+            check["password"]=document.getElementById("pass").value;
+            check["confirm_password"]=document.getElementById("password").value;
+    
+            localStorage.setItem("Tenant",JSON.stringify(datas))
+            window.location.href = "tenant-profile.html"
+        })
+        document.getElementById("del").addEventListener("click",e=>{
+            e.preventDefault();
+            console.log(check) 
+            let num=datas.indexOf(check) 
+            datas.splice(num,1)
+            alert("It's ok to delete your account")
+            localStorage.setItem("Tenant",JSON.stringify(datas))
+
+        })
+    
+        </script>
+</body>
+</html>

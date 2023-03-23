@@ -1,0 +1,100 @@
+*{
+    margin: 0;
+    padding: 0;
+    
+}
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 130px;
+    width: 1500px;
+    background-color: #0d131f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 7.9px;
+    z-index: 2;
+    color: white;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    margin-right: 80px;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 2px;
+}
+
+#nav a {
+    text-decoration: none;
+    color: white;
+    padding: 6px 15px;
+}
+#nav a:hover {
+    background-color: #0182ff;
+    color: white;
+    display: inline;
+    padding: 6px 15px;
+    border-radius: 5px;
+}
+
+#head_logo {
+    height: 90px;
+    width: 120px;
+    background-color: #0d131f;
+    margin: 10px 0 10px 80px; 
+}
+main{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: space-around;
+    background-image: url("assets/images/background2.jpg");
+}
+#avatar_img{
+    height: 130px;
+    width: 120px;
+    margin-top: 25%;
+   
+}
+.profile{
+    border-radius: 25px;
+    height: 600px;
+    width: 450px;
+    background-color: #cecece;
+    margin:96px auto;
+    margin-top: 13%;
+    /* margin-left: 60%; */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* justify-content: space-around; */
+    animation-name: dropin;
+    animation-duration: 3s;
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset;
+}
+
+#bike1{
+    height: 7%;
+    width: 17%;
+    margin-left: 19%;
+    margin-top: 20%;
+}
+#park_place{
+    height: 30%;
+    width: 37%;
+    margin-left: 12%;
+    margin-top: 21%;
+}
+.details{
+    margin-left: -38%;
+}
+#name{
+    margin-top: 50%;
+}
+#phn,#addres{
+    margin-top: 30%;
+}
+
+

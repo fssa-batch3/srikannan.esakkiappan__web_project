@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/profile.css">
+    <link rel="icon" href="../assets/Images/Logo.png">
+    <title>parkin</title>
+</head>
+<body>
+    <header>
+        <!-- header -->
+        <div class="header_logo">
+            <img id="head_logo" src="../assets/images/lgo.png" alt="logo">
+        </div>
+        <!-- <a id="h" href="#">Home</a> -->
+        <nav id="nav">
+            <!-- Navigation links -->
+            <a href="tenant-choose-place.html">Parking places</a>
+            <a href="Tenant-edit.html" id="edi">Edit profile</a>
+            <a href="../index.html">Log out</a>
+        </nav>
+</header>
+    <!-- main -->
+    <main>
+        <!-- <div id="head">My profile</div>
+        <button id="edi" >Edit</button> -->
+        <div class="profile">
+            <img id="avatar_img" src="../assets/Images/avatar_img.png" alt="avatar_img">
+            
+            <div class="details">
+            <h3 id="name">Name:&nbsp;&nbsp;<span id="input1"></span></h3>
+            <h3 id="phn">Phone number:&nbsp;&nbsp;<span id="input2"></span></h3>
+            <h3 id="addres">Address:&nbsp;&nbsp;<span id="input3"></span></h3>
+            </div>
+        </div>
+        <!-- <div id="bike-img"> -->
+            <img id="bike1" src="../assets/Images/bik1..jpg" alt="bike">
+          <!--  <img id="bike2" src="../assets/Images/bik2..jpg" alt="bike1"> -->
+        <!-- </div> -->
+    </main>
+    <script>
+
+        console.log("1")
+
+    
+        let user= JSON.parse(localStorage.getItem("Tenant"));
+        let input1 = document.getElementById("input1")
+        let input2 = document.getElementById("input2")
+        let input3 = document.getElementById("input3")
+
+
+        let res=1;
+
+        console.log(user)
+
+        user.find(e=>{
+                 if(res==1){
+                    input1.innerText=e["Firstname"]
+                    input2.innerText=e["Address"]
+                    input3.innerText=e["phone_number"]
+
+                 }
+        })
+        document.getElementById("edi").addEventListener("click",(e)=>{
+            console.log("clicked")
+            window.location.href="Tenant-edit.html"
+        })
+
+    </script>
+</body>
