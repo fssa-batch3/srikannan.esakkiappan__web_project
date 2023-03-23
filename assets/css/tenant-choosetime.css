@@ -1,0 +1,159 @@
+
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 130px;
+    width: 1500px;
+    background-color: #0d131f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 7.9px;
+    z-index: 2;
+    color: white;
+}
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    margin-right: 80px;
+    font-family: 'Open Sans', sans-serif;
+    letter-spacing: 2px;
+}
+
+#nav a {
+    text-decoration: none;
+    color: white;
+    padding: 6px 15px;
+}
+#nav a:hover {
+    background-color: #0182ff;
+    color: white;
+    display: inline;
+    padding: 6px 15px;
+    border-radius: 5px;
+}
+
+#head_logo {
+    height: 90px;
+    width: 120px;
+    background-color: #0d131f;
+    margin: 10px 0 10px 80px;
+}
+main{
+    margin-top: 200px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 1400px;
+}
+.images{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    margin-left: 100px;
+}
+#heading{
+    font-size: 35px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+#parking-image1{
+    height: 400px;
+    width: 550px;
+}
+.leaser_detail{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    width: 250px;
+    height: 570px;
+    padding-right: 300px;
+    margin-bottom: 1px;
+    margin-left: 223px;
+    border-top-left-radius: 60px;
+    border: 3px solid #0182ff;
+    background-color: #f2f2f2;
+}
+#name-number{
+    font-size: 30px;
+    margin-left: 60px;
+}
+form{
+    margin-left: 60px;
+}
+h3{
+    font-size: 27px;
+    position: absolute;
+}
+label{
+    font-size: 28px;
+}
+input{
+    height: 30px;
+    width: 200px;
+    border-radius: 10px;
+}
+
+button{
+    text-decoration: none;
+    margin-left: 180px;
+    color: #0182ff;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 20%;
+    cursor: pointer;
+}
+button:hover{
+    color: white;
+    background-color: #0182ff;
+}
+
+#foot{
+    margin-top: 10%;
+    background-color: #0d1e38;
+    padding: 3%;
+    color: #ffffff;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+#flogo{
+    height: 60%;
+    width: 32%;
+}
+#contact{
+    margin-left: -35%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+#flt{
+    height: 60%;
+    width: 20%;
+}
+#ct{
+    float: right;
+    margin-left: -10%;
+}
+h5#ftc{
+    float: right;
+    margin-top: -29%;
+    margin-left: -50%;
+}
+h5#fc{
+    float:right;
+    margin-top: -47%;
+}
+#ftnav{
+    display: flex;
+    flex-direction: column;
+}
+#blk{
+    background-color: black;
+    border: 2px solid black;
+    padding: 2%;
+}

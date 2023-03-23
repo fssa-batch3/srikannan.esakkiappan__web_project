@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/signup-edit.css">
+    <title>Document</title>
+</head>
+<body>
+  <header>
+    <!-- header -->
+    <div class="header_logo">
+        <img id="head_logo" src="../assets/images/lgo.png" alt="logo">
+    </div>
+    
+    <nav id="nav">
+        <!-- Navigation links -->
+        <a href="../index.html">Home</a>
+        <a href="leaser-log.html">Leaser</a>
+        <a href="Tenant-log.html">Tenant</a>
+        <a href="about.html">About</a>
+    </nav>
+</header>
+<div id="hed">
+  <h2>Tenant Registration</h2>
+</div>
+    <div class="container">
+        <form >
+          <div class="row">
+            <div class="col-25">
+              <label for="fname">First Name</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+              <label for="lname">Last Name</label>
+            </div>
+            <div class="col-75">
+              <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="email">Email</label>
+            </div>
+            <div class="col-75">
+                <input type="email" id="email" name="user_email" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="name">Phone number</label>
+            </div>
+            <div class="col-75">
+                <input type="number" id="numb" name="numb" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="name">Another number</label>
+            </div>
+            <div class="col-75">
+                <input type="number" id="number" name="numb" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" required>
+            </div>
+          </div>
+          
+          <div class="row">
+            <div class="col-25">
+              <label for="subject">Address</label>
+            </div>
+            <div class="col-75">
+              <textarea id="subject" name="subject" placeholder="Write something.." style="height:50px" required></textarea>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="name">Password</label>
+            </div>
+            <div class="col-75">
+                <input type="password" id="pass" name="numb" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="name">Confirm Password</label>
+            </div>
+            <div class="col-75">
+                <input type="password" id="password" name="numb" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="name">Upload pics</label>
+            </div>
+            <div class="col-75">
+                <input type="file" id="number" name="numb">
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-25">
+                <label for="name">Upload docs</label>
+            </div>
+            <div class="col-75">
+                <input type="file" id="number" name="numb">
+            </div>
+          </div>
+
+          <div class="row">
+            
+            <input id="sig" type="submit" value="sign up">
+          </div>
+
+        </form>
+        <script>
+          //  document.getElementById("sig").addEventListener("click",(e)=>{
+          //   console.log("clicked")
+          //   window.location.href="Tenant-log.html"
+          let form = document.querySelector("form")
+    form.addEventListener("submit", e => {
+      e.preventDefault()
+            // function checkdata(){
+
+const first_name = document.getElementById("fname").value 
+const  last_name= document.getElementById("lname").value 
+const email=document.getElementById("email").value
+const number_1 =document.getElementById("numb").value 
+const number_2 =document.getElementById("number").value 
+const Address =document.getElementById("subject").value
+const password_1 =document.getElementById("pass").value 
+const password_2 =document.getElementById("password").value  
+let user_data= {
+    "Firstname": first_name,
+    "Lastname": last_name,
+    "Email": email,
+    "phone_number" : number_1,
+    "phone_number1": number_2,
+    "Address": Address,
+    "password" : password_1,
+    "confirm_password" : password_2     
+  }
+let Tenant= localStorage.getItem("Tenant")
+?JSON.parse(localStorage.getItem("Tenant")):
+ [];
+Tenant.push(user_data)
+localStorage.setItem("Tenant",JSON.stringify(Tenant))
+window.location.href="Tenant-log.html"
+          })
+        </script>
+</body>
+</html>

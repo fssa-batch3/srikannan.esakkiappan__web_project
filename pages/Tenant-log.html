@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Labrada:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;600;800&display=swap" rel="stylesheet">
+    <title>Document</title>
+    <link rel="stylesheet" href="../assets/css/login-style.css">
+</head>
+<body>
+  <header>
+    <!-- header -->
+    <div class="header_logo">
+        <img id="head_logo" src="../assets/images/logo.png" alt="logo">
+    </div>
+    
+    <nav id="nav">
+        <!-- Navigation links -->
+        <a href="../index.html">Home</a>
+        <a href="leaser-log.html">Leaser</a>
+        <a href="Tenant-log.html">Tenant</a>
+        <a href="about.html">About</a>
+    </nav>
+</header>
+    <div id="hd"><br>
+        <a href="#" id="bak-hom">Back to Home</a>
+    </div>
+    <main>
+        <h2 class="content-leftside">&nbsp; &nbsp; &nbsp;Choose the best parking spot on the map, and<br>
+           connect directly with the owner of the space through &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+           &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parkin.com</h2>
+
+          
+         <!-- login box -->
+    <form class="formm" action="tenant-profile.html">
+        <div class="imgcontainer">
+          <img src="../assets/Images/tenant-log-imag.png" alt="Avatar" class="avatar-img">
+        </div>
+        <div class="container1">
+          <label for="uname"><b>Email</b></label>
+          <input id="email" type="Email" placeholder="Email" name="uname"  required><br><br>
+  
+          <label for="psw"><b>Password</b></label>
+          <input id="password_" type="password" placeholder="Enter Password" name="psw" required 
+          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"><br>
+  
+          <button type="submit" >Login</button><br>
+        </div>
+        <div class="container2">
+          <a id="cancelbtn" href="../index.html"> cancel</a>
+          <div><a id="forgot-password" href="#">Forgot password?</a></div>
+        </div>
+      </form>
+    </main>
+    <div id="sign">
+        <h3>
+            If you are a new user create a account use 
+        </h3>
+        <a id="sign-up" href="Tenant-signup.html">Sign up</a>
+    </div>
+    <script>
+      let form = document.querySelector("form")
+    form.addEventListener("submit", e => {
+      e.preventDefault()
+      const email = document.getElementById("email").value
+      const password = document.getElementById("password_").value
+
+      const User_details = JSON.parse(localStorage.getItem("Tenant"))
+      let datas = {
+        "Email": email,
+        "password": password
+      }
+      let check;
+      User_details.find(element => {
+
+        if (element["Email"] == email && element["password"] == password) {
+          localStorage.setItem("Tenant_details", JSON.stringify(datas))
+
+          return check = 1
+        }
+        else {
+          return check = 0
+        }
+      })
+
+      if (check == 1) {
+        window.location.href = "tenant-profile.html"
+      }
+      else {
+        alert("Invalid")
+      }
+    }
+    )
+    </script>
+</body>
+</html>
