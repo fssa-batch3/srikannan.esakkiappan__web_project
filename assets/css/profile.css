@@ -88,13 +88,15 @@ main{
     margin-top: 21%;
 }
 .details{
-    margin-left: -38%;
+     margin-left: -12%;
+    height: 55%;
+    width: 80%;
 }
 #name{
-    margin-top: 50%;
+    margin-top: 20%;
 }
 #phn,#addres{
-    margin-top: 30%;
+   margin-top: 20%;
 }
 
 
