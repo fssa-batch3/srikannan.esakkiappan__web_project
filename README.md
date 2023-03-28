@@ -21,6 +21,8 @@ Live server:https://sri-inovator.github.io/parkin/
 	Parkin is an idea that helps to connect the two people, the one who had a bike and another one who had a parking place 
 	in their home. It helps to reduce the street congestion and also reduce bike theft.</p>
 
+<h2>List of Features</h2>
+
 <h3>CRUD operation</h3>
 <ul>
 <li>Leaser and Tenant signup</li>
@@ -28,6 +30,17 @@ Live server:https://sri-inovator.github.io/parkin/
 <li>Leaser and Tenant edit profile</li>
 <li>Leaser and Tenant delete account</li>
 </ul>
+
+<h3>Leaser module</h3>
+<p>Showing Tenant Request</p>
+<p>Choosing Accept or unaccept</p>
+<p>History</p>
+
+<h3>Tenant module</h3>
+<p>Search bar</p>
+<p>Giving request</p>
+<p>choose parking duration</p>
+<p>Track location</p>
 
 <h1>Parkin</h1>
 <p>If you into my website you can get a index page. In the index page have little idea about our website.</p>
