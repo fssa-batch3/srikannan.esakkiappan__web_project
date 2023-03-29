@@ -46,7 +46,7 @@
         console.log("1")
 
     
-        let user= JSON.parse(localStorage.getItem("leaser"));
+        let user1= JSON.parse(localStorage.getItem("leaser"));
         let input1 = document.getElementById("input1")
         let input2 = document.getElementById("input2")
         let input3 = document.getElementById("input3")
@@ -54,9 +54,9 @@
 
         let res=1;
 
-        console.log(user)
+        console.log(user1)
 
-        user.find(e=>{
+        user1.find(e=>{
                  if(res==1){
                     input1.innerText=e["firstname"]
                     input2.innerText=e["phone_number"]
