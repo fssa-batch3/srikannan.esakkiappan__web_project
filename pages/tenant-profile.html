@@ -47,23 +47,30 @@
 
     
         let user= JSON.parse(localStorage.getItem("Tenant"));
+        let tenan_log=JSON.parse(localStorage.getItem("Tenant_details"))
         let input1 = document.getElementById("input1")
         let input2 = document.getElementById("input2")
         let input3 = document.getElementById("input3")
 
+        console.log(user);
+        console.log(tenan_log);
 
-        let res=1;
+        let res;
 
-        console.log(user)
 
         user.find(e=>{
-                 if(res==1){
-                    input1.innerText=e["Firstname"]
-                    input2.innerText=e["phone_number"]
-                    input3.innerText=e["Address"]
-
-                 }
+            if(e["Email"]==tenan_log["Email"]){
+                return res=e;
+            }
+                 
         })
+
+       
+                    input1.innerText=res["Firstname"]
+                    input2.innerText=res["phone_number"]
+                    input3.innerText=res["Address"]
+
+        
         document.getElementById("edi").addEventListener("click",(e)=>{
             console.log("clicked")
             window.location.href="Tenant-edit.html"

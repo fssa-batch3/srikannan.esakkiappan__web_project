@@ -82,7 +82,7 @@
       User_details.find(element => {
 
         if (element["email"] == email && element["password"] == pass_word) {
-
+          localStorage.setItem("profile_details", JSON.stringify(datas))
           return check = 1
         }
         else {
@@ -91,7 +91,7 @@
       })
 
       if (check == 1) {
-        localStorage.setItem("profile_details", JSON.stringify(datas))
+        
         window.location.href = "leaser-profile.html"
       }
       else {
