@@ -26,36 +26,27 @@
     <main>
         <div class="main">
             <div class="profile_box">
-                <div class="image">
                 <img id="imag" src="../assets/images/hme.png" alt="profile_image">
-                </div>
                 <div class="detail">
-                    <p>Suresh</p><br>
-                    <p>Raniyammal nagar, taramani</p><br>
-                    
-                    <a id="request" href="tenant-chooseduration.html">Give Request</a>
+                    <p>Suresh</p>
+                    <p>Raniyammal nagar, taramani</p>
+                    <p>9876543210</p>
                 </div>
             </div>
             <div class="profile_box">
-                <div class="image">
                 <img id="imag" src="../assets/images/parpl.png" alt="profile_image">
-                </div>
                 <div class="detail">
-                    <p>Dharun</p><br>
-                    <p>Anna thedal salai, taramani</p><br>
-                    
-                    <a id="request" href="tenant-chooseduration.html">Give Request</a>
+                    <p>Dharun</p>
+                    <p>Anna thedal salai, taramani</p>
+                    <p>9876543211</p>
                 </div>
             </div>
             <div class="profile_box">
-                <div class="image">
                 <img id="imag" src="../assets/images/hme.png" alt="profile_image">
-                </div>
                 <div class="detail">
-                    <p>Deva</p><br>
-                    <p>MG nagar, Taramani</p><br>
-                    
-                    <a id="request" href="tenant-chooseduration.html">Give Request</a>
+                    <p>Deva</p>
+                    <p>MG nagar, Taramani</p>
+                    <p>9876543110</p>
                 </div>
             </div>
         </div>
@@ -72,63 +63,11 @@
         let lease = JSON.parse(localStorage.getItem("leaser"))
         console.log(lease);
 
-
-
-        const name_list = [
-            {
-                "name": "Arun",
-                "image": { source: "../assets/images/hme.png", alt: "avatar of Arun" },
-                
-            },
-            {
-                "name": "Ajith",
-                "image": { source: "../assets/images/parpl.png", alt: "avatar of Ajith" },
-                "address": ""
-            },
-            {
-                "name": "Bala",
-                "image": { source: "../assets/images/hme.png", alt: "avatar of Bala" },
-                "address": "MGR nagar, Taramani"
-            },
-            {
-                "name": "",
-                "image": { source: "../assets/images/parpl.png", alt: "avatar of Deva" },
-                "address": ""
-            },
-            {
-                "name": "sri",
-                "image": { source: "../assets/images/hme.png", alt: "avatar of Deva" },
-                "address": "KGF nagar, Taramani"
-            },
-            {
-                "name": "kingston",
-                "image": { source: "../assets/images/parpl.png", alt: "avatar of Deva" },
-                "address": "KGF nagar, Taramani"
-            },
-            {
-                "name": "",
-                "image": { source: "../assets/images/parpl.png", alt: "avatar of Deva" },
-                "address": "KGF nagar, Taramani"
-            }
-        ]
-
-        const name_list_length = name_list.length
-
-        for (let i = 0; i < lease.length; i++) {
-
             div_list = document.createElement("div")
             div_list.setAttribute("class", "main_list")
             console.log(div_list)
 
-            for (let i = 0; i < name_list_length; i++) {
-
-                const user = name_list[i]
-
-                // console.log(user["name"])
-                // console.log(user["address"])
-                // console.log(user["image"])
-
-
+            for (let i = 0; i <lease.length; i++) {
 
                 div_profile_box = document.createElement("div");
                 div_profile_box.setAttribute("class", "profile_box");
@@ -138,11 +77,11 @@
                 div_image.setAttribute("class", "image");
                 div_profile_box.append(div_image);
 
-                imag = document.createElement("img");
-                imag.setAttribute("src", user["image"]["source"]);
-                imag.setAttribute("alt", user["image"]["alt"]);
-                imag.setAttribute("id", "imag");
-                div_image.append(imag);
+                // imag = document.createElement("img");
+                // imag.setAttribute("src", user["image"]["source"]);
+                // imag.setAttribute("alt", user["image"]["alt"]);
+                // imag.setAttribute("id", "imag");
+                // div_image.append(imag);
 
                 div_detail = document.createElement("div");
                 div_detail.setAttribute("class", "detail");
@@ -157,12 +96,42 @@
                 parag1.setAttribute("id", "addr")
                 parag1.innerText = lease[i]["address"];
                 div_detail.append(parag1);
+                
+                phon_num = document.createElement("p");
+                phon_num.setAttribute("id", "phon")
+                phon_num.innerText = lease[i]["phone_number"];
+                div_detail.append(phon_num);
 
-
-                document.querySelector("main").append(div_list);
+                document.querySelector("main").prepend(div_list);
             }
 
-        }
+            // search engine
+
+            let search=document.getElementById("search");
+        search.addEventListener("keyup",(e)=>{
+            // console.log(e.target.value.toLowerCase())
+            let search_value=e.target.value.toLowerCase();
+            let places=document.querySelectorAll(".profile_box");
+
+            // console.log(course[1])
+            places.forEach(element => {
+                // console.log(element)
+                let details=element.children[1].textContent.toLowerCase();
+                // console.log(element.children[1].textContent)
+                if(details.includes(search_value)){
+                    // console.log("matched");
+                    element.style.display="block";
+                }
+                else{
+                    // console.log("none")
+                    element.style.display="none";
+                }
+                
+            });
+
+
+        })
+        
     </script>
 </body>
 

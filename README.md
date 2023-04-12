@@ -32,12 +32,13 @@ Live server:https://sri-inovator.github.io/parkin/
 </ul>
 
 <h3>Leaser module</h3>
+<p>Listing the leaser place</p>
+<p>Search bar</p>
 <p>Showing Tenant Request</p>
 <p>Choosing Accept or unaccept</p>
 <p>History</p>
 
 <h3>Tenant module</h3>
-<p>Search bar</p>
 <p>Giving request</p>
 <p>choose parking duration</p>
 <p>Track location</p>
@@ -46,7 +47,10 @@ Live server:https://sri-inovator.github.io/parkin/
 <p>If you into my website you can get a index page. In the index page have little idea about our website.</p>
 <h3>Create an account Scenario 1:</h3>
 	<h4>Successfully create an account Steps(for both Leaser and Tenant):</h4>
-	<p>Click the login button if your are a new user sign up in registration page. Enter the required information such as name, email,phone number and password. Result: The user is redirected to the login page.</p>
+	<p>If you are a leaser click the leaser button and then you seen leaser login page If you are a new user click the sign up link in left of the login box and then it redirected to sign up page, Enter the required information such as name,email,phone number,address and password. If you entered all the information then click the sign up</p>
+	
+<p> If you are a Tenant click the Tenant button and then you seen Tenant login page If you are a new user click the sign up link in left of the login box and then it redirected to sign up page, Enter the required information such as name,email,phone number,address and password. If you entered all the information then click the sign up </p>
+
 <h3>Login Scenario 1:</h3>
 <h4>Successfully login in to account Steps:</h4>
 <p> Navigate to the login page. Enter the required information such as email,and password. Click the "login" button.</p>
@@ -54,3 +58,6 @@ Live server:https://sri-inovator.github.io/parkin/
 <p>Your Profile: Click Edit</p>
 <p>Result: The user is redirected to Edit page</p>
 <p>There you can update your information </p>
+
+<h3>Tenant place searching page</h3>
+<p>Go to tenant account profile and click the parking places and then you seen the new account created Leaser details</p> 
