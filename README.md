@@ -32,12 +32,13 @@ Live server:https://sri-inovator.github.io/parkin/
 </ul>
 
 <h3>Leaser module</h3>
+<p>Listing the leaser place</p>
+<p>Search bar</p>
 <p>Showing Tenant Request</p>
 <p>Choosing Accept or unaccept</p>
 <p>History</p>
 
 <h3>Tenant module</h3>
-<p>Search bar</p>
 <p>Giving request</p>
 <p>choose parking duration</p>
 <p>Track location</p>
@@ -57,3 +58,6 @@ Live server:https://sri-inovator.github.io/parkin/
 <p>Your Profile: Click Edit</p>
 <p>Result: The user is redirected to Edit page</p>
 <p>There you can update your information </p>
+
+<h3>Tenant place searching page</h3>
+<p>Go to tenant account profile and click the parking places and then you seen the new account created Leaser details</p> 
