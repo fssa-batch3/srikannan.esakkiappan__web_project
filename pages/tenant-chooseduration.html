@@ -32,13 +32,13 @@
         <!-- parking images -->
         <div class="images">
             <div id="heading">Parking place Image</div>
-            <img id="parking-image1" src="../assets/images/parking_place.jpg" alt="parking_place">
+            <div id="parking_image1"></div>
         </div>
             <!-- Leaser details -->
             <div class="leaser_detail">
                 <div id="name-number">
-                <p>Name:&nbsp;Suresh</p>
-                <p>Phone&nbsp;Number:&nbsp;9843212241</p>
+                <p>Name: <span id="leaser_name"></span></p>
+                <p>Phone&nbsp;Number:<span id="leaser_number"></span></p>
                 </div>
                 <!-- Time choosing space -->
                 <form action="tenant-request.html">
@@ -80,4 +80,44 @@
         </div>
     </footer>
 </body>
+<script>
+    const leaser_details = JSON.parse(localStorage.getItem("leaser"))
+
+    html_data = [{"firstname":"suresh","phone_number":"9876543210"},
+                 {"firstname":"Dharun","phone_number":"9876543211"},
+                 {"firstname":"Deva","phone_number":"9876543110"}]
+
+    const url = window.location.search;
+    const urlParams = new URLSearchParams(url)
+    let name = urlParams.get('name');//{name:"Deva"}
+    console.log(Object.keys(html_data));
+    // console.log(name);
+
+    let details = leaser_details.find( el => {
+
+        let first_name = el["firstname"]
+
+        if(name == first_name){
+            return true
+        }
+        else{
+            return false
+        }
+
+    });
+
+    console.log(details)
+
+
+    let first_name = document.getElementById("leaser_name")
+    let phon_num = document.getElementById("leaser_number")
+    let parkin_img = document.getElementById("parking_image1")
+
+    first_name.innerText = details["firstname"]
+    phon_num.innerText = details["phone_number"]
+    parkin_img.innerHTML = `<img src="${details["upload_image"]}" alt="Hv4a2Tv.jpg" border="0" height="255px" width="430px" id="parking_image1">` 
+    
+
+
+</script>
 </html>

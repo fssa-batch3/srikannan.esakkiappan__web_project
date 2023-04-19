@@ -28,7 +28,7 @@
         <!-- <div id="head">My profile</div>
         <button id="edi" >Edit</button> -->
         <div class="profile">
-            <img id="avatar_img" src="../assets/images/avatar_img.png" alt="avatar_img">
+            <div id="avatar_img"></div>
             
             <div class="details">
             <h3 id="name">Name:&nbsp;&nbsp;<span id="input1"></span></h3>
@@ -37,7 +37,7 @@
             </div>
         </div>
         <!-- <div id="bike-img"> -->
-            <img id="park_place" src="../assets/images/parking_place.jpg" alt="parking_place">
+            <div id="park_place"></div>
           <!--  <img id="bike2" src="../assets/Images/bik2..jpg" alt="bike1"> -->
         <!-- </div> -->
     </main>
@@ -65,7 +65,12 @@
                     input1.innerText=res["firstname"]
                     input2.innerText=res["phone_number"]
                     input3.innerText=res["address"]
+        
+        let place = document.getElementById("park_place")
+        place.innerHTML = `<img src="${res["upload_image"]}" border="0" height=400px width=600px>`
 
+        let user_img = document.getElementById("avatar_img");
+        user_img.innerHTML = `<img src="${res["user_image"]}" border="0" height=130px width=120px>`
                 
         document.getElementById("edi").addEventListener("click",(e)=>{
             console.log("clicked")

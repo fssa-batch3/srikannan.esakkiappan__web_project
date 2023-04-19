@@ -43,8 +43,7 @@
           <input id="email" type="Email" placeholder="Email" name="uname"  required><br><br>
   
           <label for="psw"><b>Password</b></label>
-          <input id="password_" type="password" placeholder="Enter Password" name="psw" required 
-          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"><br>
+          <input id="password_" type="password" required placeholder="Enter Password" name="psw" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="Your password must be at least 8 characters long, contain at least one digit or special character, one uppercase letter, and one lowercase letter, and must not contain dots or newline characters."><br>
   
           <button type="submit" >Login</button><br>
         </div>

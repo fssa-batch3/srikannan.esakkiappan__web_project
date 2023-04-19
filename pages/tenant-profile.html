@@ -28,7 +28,7 @@
         <!-- <div id="head">My profile</div>
         <button id="edi" >Edit</button> -->
         <div class="profile">
-            <img id="avatar_img" src="../assets/images/avatar_img.png" alt="avatar_img">
+            <div id="avatar_img" ></div>
             
             <div class="details">
             <h3 id="name">Name:&nbsp;&nbsp;<span id="input1"></span></h3>
@@ -37,7 +37,7 @@
             </div>
         </div>
         <!-- <div id="bike-img"> -->
-            <img id="bike1" src="../assets/images/bik1..jpg" alt="bike">
+            <div id="bike1"></div>
           <!--  <img id="bike2" src="../assets/Images/bik2..jpg" alt="bike1"> -->
         <!-- </div> -->
     </main>
@@ -56,21 +56,25 @@
         console.log(tenan_log);
 
         let res;
-
-
         user.find(e=>{
             if(e["Email"]==tenan_log["Email"]){
                 return res=e;
             }
                  
         })
+        console.log(res);
 
-       
                     input1.innerText=res["Firstname"]
                     input2.innerText=res["phone_number"]
                     input3.innerText=res["Address"]
 
+        let vehicle = document.getElementById("bike1")
+        vehicle.innerHTML = `<img src="${res["upload_image"]}" border="0" height=500px width=300px>`
+
+        let user_img = document.getElementById("avatar_img");
+        user_img.innerHTML = `<br><img src="${res["user_image"]}" border="0" height=130px width=120px>`
         
+
         document.getElementById("edi").addEventListener("click",(e)=>{
             console.log("clicked")
             window.location.href="Tenant-edit.html"

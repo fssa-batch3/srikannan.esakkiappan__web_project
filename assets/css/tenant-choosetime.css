@@ -61,8 +61,7 @@ main{
     margin-bottom: 40px;
 }
 #parking-image1{
-    height: 400px;
-    width: 550px;
+    margin-left: 50%;
 }
 .leaser_detail{
     display: flex;
