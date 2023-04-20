@@ -29,11 +29,11 @@
         <!-- New request -->
     <div class="present_box">
         <div class="image">
-            <img id="imge" src="../assets/images/bik1..jpg" alt="profile_image">
+            <div id="imge"></div>
         </div>
         <div class="detail">
-            <p>Name :&nbsp;Joel</p><br>
-            <p>phone number: 9675436508</p><br>
+            <p>Name :&nbsp;<span id="nam"></span></p><br>
+            <p>phone number: <span id="phon"></span></p><br>
             <a id="accept-html" href="leaser-accept.html">Accept</a>
         </div>
     </div>
@@ -130,5 +130,28 @@
         </div>
     </footer>
 </body>
+<script>
+    const tenan = JSON.parse(localStorage.getItem("Tenanat"))
+    const leaser_log = JSON.parse(localStorage.getItem("profile_details"))
 
+    console.log(leaser_log);
+
+    let name = document.getElementById("nam")
+    let phone = document.getElementById("phon")
+    let imag = document.getElementById("imge")
+
+    let ans;
+    tenan.find(e =>{
+        if(e["Request_person_email"]==leaser_log["username"]){
+            return ans=e;
+        }
+    })
+
+    console.log(ans);
+
+        name.innerText=ans["Firstname"]
+        phone.innerText=ans["phone_number"]
+        imag.innerHTML = `<img src="${ans["upload_image"]}" border="0" height=300px width=200px>`
+
+</script>
 </html>

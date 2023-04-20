@@ -26,36 +26,6 @@
     <main>
         <div class="main">
             <div class="main_list">
-                <a id="html_details">
-                <div class="profile_box">
-                    <img id="imag" src="../assets/images/hme.png" alt="profile_image">
-                    <div class="detail">
-                        <p>Suresh</p>
-                        <p>Raniyammal nagar, taramani</p>
-                        <p>9876543210</p>
-                    </div>
-                </div>
-                </a>
-                <a id="html_details">
-                <div class="profile_box">
-                    <img id="imag" src="../assets/images/parpl.png" alt="profile_image">
-                    <div class="detail">
-                        <p>Dharun</p>
-                        <p>Anna thedal salai, taramani</p>
-                        <p>9876543211</p>
-                    </div>
-                </div>
-                </a>
-                <a id="html_details">
-                <div class="profile_box">
-                    <img id="imag" src="../assets/images/hme.png" alt="profile_image">
-                    <div class="detail">
-                        <p>Deva</p>
-                        <p>MG nagar, Taramani</p>
-                        <p>9876543110</p>
-                    </div>
-                </div>
-                </a>
             </div>
         </div>
 
@@ -68,15 +38,6 @@
         let div_detail;
         let parag;
         let parag1;
-        let link=document.querySelectorAll("#html_details");
-
-        html_data = [{"firstname":"suresh","phone_number":"9876543210"},
-        {"firstname":"Dharun","phone_number":"9876543211"},
-        {"firstname":"Deva","phone_number":"9876543110"}]
-
-        for(let j=0;j<html_data.length;j++){
-            link[j].setAttribute("href", "tenant-chooseduration.html?name=" + html_data[j]["firstname"]);
-        }
 
 
         let lease = JSON.parse(localStorage.getItem("leaser"))

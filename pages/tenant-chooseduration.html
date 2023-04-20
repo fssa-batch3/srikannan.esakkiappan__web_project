@@ -19,13 +19,13 @@
             <img id="head_logo" src="../assets/images/lgo.png" alt="logo">
         </div>
         <nav id="nav">
-    
+
             <!-- Navigation links -->
             <a href="tenant-choose-place.html">Explore other places</a>
             <a href="../index.html">Log out</a>
-            
+
         </nav>
-      
+
     </header>
     <!-- main -->
     <main>
@@ -34,39 +34,41 @@
             <div id="heading">Parking place Image</div>
             <div id="parking_image1"></div>
         </div>
-            <!-- Leaser details -->
-            <div class="leaser_detail">
-                <div id="name-number">
+        <!-- Leaser details -->
+        <div class="leaser_detail">
+            <div id="name-number">
                 <p>Name: <span id="leaser_name"></span></p>
                 <p>Phone&nbsp;Number:<span id="leaser_number"></span></p>
-                </div>
-                <!-- Time choosing space -->
-                <form action="tenant-request.html">
-                    <h3>Choose the duration of your parking :</h3>
-                    <br><br><br><br><br>
-                    <label for="time-start">start-time</label>&nbsp;&nbsp;&nbsp;
-                    <input type="datetime-local" required><br><br>
-                    <label for="time-end">End-time</label>&nbsp;&nbsp;&nbsp;
-                    <input type="datetime-local" required><br><br><br><br>
-                    <br>
-                    <!-- request button -->
-                    <button id="request-btn">Give Request</button>
-                </form>
             </div>
+            <!-- Time choosing space -->
+            <form>
+                <h3>Choose the duration of your parking :</h3>
+                <br><br><br><br><br>
+                <label for="time-start">start-time</label>&nbsp;&nbsp;&nbsp;
+                <input type="datetime-local" id="start-time" required><br><br>
+                <label for="time-end">End-time</label>&nbsp;&nbsp;&nbsp;
+                <input type="datetime-local" id="End-time" required><br><br>
+                <!-- <label>Enter registered email</label>
+                <input type="email" id="emil" required> -->
+                <br>
+                <!-- request button -->
+                <button id="request-btn">Give Request</button>
+            </form>
+        </div>
     </main>
     <!-- footer -->
     <footer>
         <div id="foot">
             <div id="park">
-            <img id="flogo" src="../assets/images/lgo.png" alt="logo">
-            <p>Parkin is an website that helps<br> to connect both Tenant and Leaser</p>
+                <img id="flogo" src="../assets/images/lgo.png" alt="logo">
+                <p>Parkin is an website that helps<br> to connect both Tenant and Leaser</p>
             </div>
             <div id="contact">
                 <h2>Get in touch</h2>
                 <img id="flt" src="../assets/images/lt.png" alt="symbol">
                 <div id="ct">
-                <h5 id="fc">Taramani,chennai</h5><br>
-                <h5 id="ftc">www.parkin.com</h5>
+                    <h5 id="fc">Taramani,chennai</h5><br>
+                    <h5 id="ftc">www.parkin.com</h5>
                 </div>
             </div>
             <div id="ftnav"><br>
@@ -83,24 +85,19 @@
 <script>
     const leaser_details = JSON.parse(localStorage.getItem("leaser"))
 
-    html_data = [{"firstname":"suresh","phone_number":"9876543210"},
-                 {"firstname":"Dharun","phone_number":"9876543211"},
-                 {"firstname":"Deva","phone_number":"9876543110"}]
 
     const url = window.location.search;
     const urlParams = new URLSearchParams(url)
-    let name = urlParams.get('name');//{name:"Deva"}
-    console.log(Object.keys(html_data));
-    // console.log(name);
+    let name = urlParams.get('name');
 
-    let details = leaser_details.find( el => {
+    let details = leaser_details.find(el => {
 
         let first_name = el["firstname"]
 
-        if(name == first_name){
+        if (name == first_name) {
             return true
         }
-        else{
+        else {
             return false
         }
 
@@ -115,9 +112,39 @@
 
     first_name.innerText = details["firstname"]
     phon_num.innerText = details["phone_number"]
-    parkin_img.innerHTML = `<img src="${details["upload_image"]}" alt="Hv4a2Tv.jpg" border="0" height="255px" width="430px" id="parking_image1">` 
-    
+    parkin_img.innerHTML = `<img src="${details["upload_image"]}" alt="Hv4a2Tv.jpg" border="0" height="255px" width="430px" id="parking_image1">`
 
+    const tenant_details = JSON.parse(localStorage.getItem("Tenant"))
+    console.log(tenant_details);
+
+    const tenant_login = JSON.parse(localStorage.getItem("Tenant_details"))
+    console.log(tenant_login);
+
+    // validation of Email
+
+    document.querySelector("form").addEventListener("submit", l => {
+        l.preventDefault();
+
+        let valid;
+        let key;
+        tenant_details.find(e=>{
+            if(e["Email"]==tenant_login["Email"]) {
+                return key = e;
+            }
+        })
+            const star_time = document.getElementById("start-time").value;
+            const end_time = document.getElementById("End-time").value;
+
+            key["parking_start_time"] = star_time;
+            key["parking_end_time"] = end_time;
+            key["Request_person_email"] = details["email"]
+
+
+            localStorage.setItem("Tenanat", JSON.stringify(tenant_details))
+            window.location.href="tenant-request.html";
+
+    })
 
 </script>
+
 </html>
