@@ -349,7 +349,7 @@ h5#fc{
         height: 10%;
     }
     #head_logo{
-        transform: scale(1.3);
+        transform: scale(1.8);
         margin-top: 25%;
     }
     #nav{
@@ -358,7 +358,7 @@ h5#fc{
     #bttn{
         position: relative;
         top: 25%;
-        left: 30%;
+        left: -60%;
     }
     .respons_nav{
         display: block;
@@ -376,7 +376,7 @@ h5#fc{
         display: block;
         text-decoration: none;
         color: black;
-        font-size: 18px;
+        font-size: 28px;
         margin: 10px 0 10px 10px;
         font-weight: 600;
         font-family: 'Source Sans Pro', sans-serif;
@@ -389,12 +389,20 @@ h5#fc{
         position: absolute;
         top: 30px;
         right: 0px;
-        width: 120px;
+        width: 170px;
+        height: 80%;
         /* background-color: skyblue; */
         border-radius: 5px;
         box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.5);
     }
-
+    #hde1{
+       margin-left: 25%; 
+       width: 130%;
+    }
+    #hde2{
+        margin-left: 25%;
+        width: 130%;
+    }
     main{
         margin-top: 30%;
         height: 170%;
