@@ -28,14 +28,14 @@
     <main>
         <!-- New request -->
     <div class="present_box">
-        <div class="image">
+        <!-- <div class="image">
             <div id="imge"></div>
         </div>
         <div class="detail">
             <p>Name :&nbsp;<span id="nam"></span></p><br>
             <p>phone number: <span id="phon"></span></p><br>
             <a id="accept-html" href="leaser-accept.html">Accept</a>
-        </div>
+        </div> -->
     </div>
     <!-- history -->
     <div class="history_box">
@@ -131,14 +131,53 @@
     </footer>
 </body>
 <script>
+
+    let main_box = document.querySelector(".present_box")
+
+    let image;
+    let img;
+    let detail;
+    let p1;
+    let p2;
+    let rqdate;
+    let parkdur;
+
+    image = document.createElement("div");
+    image.setAttribute("class", "image");
+    main_box.append(image)
+    console.log(image);
+
+    img = document.createElement("div")
+    img.setAttribute("id" , "imge")
+    image.append(img)
+
+    detail = document.createElement("div")
+    detail.setAttribute("class" , "detail")
+    main_box.append(detail)
+
+    p1 = document.createElement("p")
+    p1.setAttribute("id" , "nam")
+    detail.append(p1)
+
+    p2 = document.createElement("p")
+    p2.setAttribute("id" , "phon")
+    detail.append(p2)
+
+    rqdate = document.createElement("p")
+    rqdate.setAttribute("id" , "redatm")
+    detail.append(rqdate)
+
+    parkdur = document.createElement("p")
+    parkdur.setAttribute("id" , "dur")
+    detail.append(parkdur)
+
+
+
     const tenan = JSON.parse(localStorage.getItem("Tenanat"))
     const leaser_log = JSON.parse(localStorage.getItem("profile_details"))
 
     console.log(leaser_log);
 
-    let name = document.getElementById("nam")
-    let phone = document.getElementById("phon")
-    let imag = document.getElementById("imge")
 
     let ans;
     tenan.find(e =>{
@@ -149,9 +188,11 @@
 
     console.log(ans);
 
-        name.innerText=ans["Firstname"]
-        phone.innerText=ans["phone_number"]
-        imag.innerHTML = `<img src="${ans["upload_image"]}" border="0" height=300px width=200px>`
+        p1.innerHTML=`<p> Name : ${ans["Firstname"]} </p>`
+        p2.innerHTML=`<p> Phone number : ${ans["phone_number"]} </p>`
+        img.innerHTML = `<img src="${ans["upload_image"]}" border="0" height=300px width=200px>`
+        rqdate.innerHTML = `<p> Requesting Date and Time : ${ans["parking_start_time"]} </p>`
+        parkdur.innerHTML = `<p> parking Duration : </p>`
 
 </script>
 </html>
