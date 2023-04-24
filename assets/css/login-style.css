@@ -259,19 +259,22 @@ h3{
     .content-leftside{
         display: none;
     }
+    main{
+        height: 40%;
+    }
     .formm{
         transform: scale(0.9);
-        margin-top: 50%;
+        margin-top: 120%;
     }
     div#sign{
-        margin-top: -15%;
-        height: 130%;
+        margin-top: -235%;
+        height: 180%;
         width: 70%;
-        margin-bottom: 10%;
+        margin-bottom: -250%;
     }
     a#sign-up{
-        margin-top: -7%;
-        margin-left: 32%;
+        margin-top: -7.5%;
+        margin-left: 35%;
         position: absolute;
     }
 }
