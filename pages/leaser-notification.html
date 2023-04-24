@@ -27,80 +27,13 @@
     <!-- Main -->
     <main>
         <!-- New request -->
-    <div class="present_box">
-        <div class="image">
-            <img id="imge" src="../assets/images/bik1..jpg" alt="profile_image">
+        <div class="present_box">
         </div>
-        <div class="detail">
-            <p>Name :&nbsp;Joel</p><br>
-            <p>phone number: 9675436508</p><br>
-            <a id="accept-html" href="leaser-accept.html">Accept</a>
+        <!-- history -->
+        <div class="history_box">
+            <div id="histo">History</div>
+           
         </div>
-    </div>
-    <!-- history -->
-    <div class="history_box">
-        <div id="histo">History</div>
-        <div class="history">
-            <div class="image">
-                <img id="imag" src="../assets/images/caar.png" alt="profile_image">
-            </div>
-            <div class="detail">
-                <p>Name</p><br>
-                <p>phone number</p><br>
-                <p>see profile</p>
-            </div>
-        </div>
-        <div class="history">
-            <div class="image">
-                <img id="imag" src="../assets/images/cycle.png" alt="profile_image">
-            </div>
-            <div class="detail">
-                <p>Name</p><br>
-                <p>phone number</p><br>
-                <p>see profile</p>
-            </div>
-        </div>
-        <div class="history">
-            <div class="image">
-                <img id="imag" src="../assets/images/caar.png" alt="profile_image">
-            </div>
-            <div class="detail">
-                <p>Name</p><br>
-                <p>phone number</p><br>
-                <p>see profile</p>
-            </div>
-        </div>
-        <div class="history">
-            <div class="image">
-                <img id="imag" src="../assets/images/cycle.png" alt="profile_image">
-            </div>
-            <div class="detail">
-                <p>Name</p><br>
-                <p>phone number</p><br>
-                <p>see profile</p>
-            </div>
-        </div>
-        <div class="history">
-            <div class="image">
-                <img id="imag" src="../assets/images/caar.png" alt="profile_image">
-            </div>
-            <div class="detail">
-                <p>Name</p><br>
-                <p>phone number</p><br>
-                <p>see profile</p>
-            </div>
-        </div>
-        <div class="history">
-            <div class="image">
-                <img id="imag" src="../assets/images/cycle.png" alt="profile_image">
-            </div>
-            <div class="detail">
-                <p>Name</p><br>
-                <p>phone number</p><br>
-                <p>see profile</p>
-            </div>
-        </div>
-    </div>
     </main>
     <br>
     <br>
@@ -108,15 +41,15 @@
     <footer>
         <div id="foot">
             <div id="park">
-            <img id="flogo" src="../assets/images/lgo.png" alt="logo">
-            <p>Parkin is an website that helps<br> to connect both Tenant and Leaser</p>
+                <img id="flogo" src="../assets/images/lgo.png" alt="logo">
+                <p>Parkin is an website that helps<br> to connect both Tenant and Leaser</p>
             </div>
             <div id="contact">
                 <h2>Get in touch</h2>
                 <img id="flt" src="../assets/images/lt.png" alt="symbol">
                 <div id="ct">
-                <h5 id="fc">Taramani,chennai</h5><br>
-                <h5 id="ftc">www.parkin.com</h5>
+                    <h5 id="fc">Taramani,chennai</h5><br>
+                    <h5 id="ftc">www.parkin.com</h5>
                 </div>
             </div>
             <div id="ftnav"><br>
@@ -130,5 +63,188 @@
         </div>
     </footer>
 </body>
+<script>
+
+    let main_box = document.querySelector(".present_box")
+
+    let histo = document.querySelector(".history_box")
+
+    let image;
+    let img;
+    let detail;
+    let p1;
+    let p2;
+    let rqdate;
+    let parkdur;
+    let htag;
+    let but;
+    let history;
+    let him;
+    let hi;
+    let det;
+    let hp;
+    let hp1;
+    let acp;
+    const tenan = JSON.parse(localStorage.getItem("Tenanat"))
+    const leaser_log = JSON.parse(localStorage.getItem("profile_details"))
+    const loger_mail = leaser_log["username"];
+    console.log(loger_mail);
+
+    console.log(leaser_log);
+    let res=0;
+
+    tenan.find(e => {
+    if(e["Request_person_email"]!=loger_mail) {
+        
+        main_box.style.display = "none";
+    }
+    else{
+        return res=1;
+    
+    }
+    })
+    if(res==1){
+    htag = document.createElement("h2");
+    htag.setAttribute("id", "headi");
+    htag.innerHTML = `New <br> Request:`;
+    main_box.append(htag);
+
+    image = document.createElement("div");
+    image.setAttribute("class", "image");
+    main_box.append(image)
+
+    img = document.createElement("div")
+    img.setAttribute("id", "imge")
+    image.append(img)
+
+    detail = document.createElement("div")
+    detail.setAttribute("class", "detail")
+    main_box.append(detail)
+
+    p1 = document.createElement("p")
+    p1.setAttribute("id", "nam")
+    detail.append(p1)
+
+    p2 = document.createElement("p")
+    p2.setAttribute("id", "phon")
+    detail.append(p2)
+
+    rqdate = document.createElement("p")
+    rqdate.setAttribute("id", "redatm")
+    detail.append(rqdate)
+
+    parkdur = document.createElement("p")
+    parkdur.setAttribute("id", "dur")
+    detail.append(parkdur)
+
+    but = document.createElement("button")
+    but.setAttribute("id", "accept-html")
+    but.innerText = "Accept";
+    detail.append(but)
+    }
+
+    let ans;
+    tenan.find(e => {
+        if (e["Request_person_email"] == leaser_log["username"]) {
+            return ans = e;
+        }
+    })
+
+    console.log(ans);
+
+    let sttime = ans["parking_start_time"];
+    let d = sttime.substring(0, 10)
+    let h = sttime.substring(11, 16)
+
+    let edtime = ans["parking_end_time"]
+    let ed = edtime.substring(0, 10)
+    let eh = edtime.substring(11, 16)
+
+    function convertTime(h) {
+        var ho = parseInt(h.substring(0, 2));
+        var min = h.substring(3, 5);
+        var ap = ho >= 12 ? "PM" : "AM";
+
+        ho = ho % 12 || 12;
+        return ho + ":" + min + ap;
+    }
+    let a = convertTime(h);
+    let z = d + " " + a;
+
+    let e = convertTime(eh);
+    let x = ed + " " + e;
+
+    p1.innerHTML = `<p> Name : ${ans["Firstname"]} </p>`
+    p2.innerHTML = `<p> Phone number : ${ans["phone_number"]} </p>`
+    img.innerHTML = `<img src="${ans["upload_image"]}" border="0" height=300px width=200px>`
+    rqdate.innerHTML = `<p> Starting Date and Time : ${z} </p>`
+    parkdur.innerHTML = `<p> Ending Date and Time : ${x}</p>`
+
+    // console.log(act);
+    let act;
+
+    act = JSON.parse(localStorage.getItem("Accepted_Tenant")) ?? [];
+    but.addEventListener("click", e => {
+        e.preventDefault()
+        // alert("hi")
+        
+
+        ans["Request status"] = "accepted";
+        histo.style.display = "flex";
+        act.push(ans)
+        localStorage.setItem("Accepted_Tenant", JSON.stringify(act));
+
+        window.location.href = "leaser-accept.html";
+        
+       
+
+    });
+
+    display_history()
+   
+    function display_history() {
+
+        for(let i=0;i<act.length;i++){
+
+        if (act[i]["Request_person_email"] == loger_mail){
+
+        history = document.createElement("div")
+        history.setAttribute("class", "history")
+        histo.append(history)
+
+        him = document.createElement("div")
+        him.setAttribute("class", "image")
+        history.append(him)
+
+        hi = document.createElement("div")
+        hi.setAttribute("id", "imag")
+        hi.innerHTML = `<img src=${act[i]["upload_image"]} height=180px width=110px>`
+        him.append(hi)
+
+        det = document.createElement("div")
+        det.setAttribute("class", "detail")
+        history.append(det)
+
+        hp = document.createElement("p")
+        hp.setAttribute("id", "hname")
+        hp.innerHTML = `<p> ${act[i]["Firstname"]}</p>`
+        det.append(hp)
+
+        hp1 = document.createElement("p")
+        hp1.setAttribute("id", "hnum")
+        hp1.innerHTML = `<p> ${act[i]["phone_number"]} </p>`
+        det.append(hp1)
+
+        acp = document.createElement("p")
+        acp.setAttribute("id", "acp")
+        acp.innerHTML = `<p> ${z}`
+        det.append(acp)
+        }
+        }
+
+
+    }
+
+</script>
 
 </html>

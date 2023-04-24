@@ -8,6 +8,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Labrada:wght@400;500;600&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;600;800&display=swap" rel="stylesheet">
   <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../assets/css/login-style.css">
 </head>
 
@@ -26,6 +29,15 @@
         <a href="Tenant-log.html">Tenant</a>
         <a href="about.html">About</a>
     </nav>
+    <div class="respons_nav">
+      <i class="fa-solid fa-bars" id="bttn"></i>
+      <div class="menu-list">
+        <a href="../index.html">Home</a>
+        <a href="leaser-log.html">Leaser</a>
+        <a href="Tenant-log.html">Tenant</a>
+        <a href="about.html">About</a>
+      </div>
+    </div>
 </header>
   <div id="hd"><br>
     <a href="../index.html" id="bak-hom">Back to Home</a>
@@ -49,8 +61,7 @@
         <input id="emai" type="email" placeholder="Email" name="uname" required><br><br>
 
         <label for="psw"><b>Password</b></label>
-        <input id="password" type="password" placeholder="Enter Password" name="psw" required
-          pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$"><br>
+        <input id="password" type="password" placeholder="Enter Password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="Your password must be at least 8 characters long, contain at least one digit or special character, one uppercase letter, and one lowercase letter, and must not contain dots or newline characters." required><br>
 
         <button type="submit" id="log">Login</button><br>
       </div>
@@ -60,10 +71,10 @@
       </div>
     </form>
   </main>
-  <div id="sign">
+  <div class="sign">
     <h3>
-      If you are a new user create a account use
-    </h3>
+      If you are a new user create a account using
+    </h3><br><br>
     <a id="sign-up" href="leaser-signup.html">Sign up</a>
   </div>
   <script>

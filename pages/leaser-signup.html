@@ -1,162 +1,185 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;600;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/signup-edit.css">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/css/signup-edit.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>Document</title>
 </head>
+
 <body>
   <header>
-  
+
     <!-- header -->
     <div class="header_logo">
-        <img id="head_logo" src="../assets/images/lgo.png" alt="logo">
+      <img id="head_logo" src="../assets/images/lgo.png" alt="logo">
     </div>
-    
+
     <nav id="nav">
-        <!-- Navigation links -->
+      <!-- Navigation links -->
+      <a href="../index.html">Home</a>
+      <a href="leaser-log.html">Leaser</a>
+      <a href="Tenant-log.html">Tenant</a>
+      <a href="about.html">About</a>
+    </nav>
+    <div class="respons_nav">
+      <i class="fa-solid fa-bars" id="bttn"></i>
+      <div class="menu-list">
         <a href="../index.html">Home</a>
         <a href="leaser-log.html">Leaser</a>
         <a href="Tenant-log.html">Tenant</a>
         <a href="about.html">About</a>
-    </nav>
-</header>
-<div id="hed">
-  <h2>Leaser Registration</h2>
-</div>
-    <div class="container">
-        <form>
-          <div class="row">
-            <div class="col-25">
-              <label for="fname">First Name</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="fname" name="firstname" placeholder="Your name.." required>
-            </div>
-          </div>
+      </div>
+    </div>
+  </header>
+  <div id="hed">
+    <h2 id="hedi">Leaser Registration</h2>
+  </div>
+  <div class="container">
+    <form method="post">
+      <div class="row">
+        <div class="col-25">
+          <label for="fname">First Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="fname" name="firstname" placeholder="Your name.." maxlength="30" pattern="[a-zA-Z]+"
+            required>
+        </div>
+      </div>
 
-          <div class="row">
-            <div class="col-25">
-              <label for="lname">Last Name</label>
-            </div>
-            <div class="col-75">
-              <input type="text" id="lname" name="lastname" placeholder="Your last name.." required>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="lname">Last Name</label>
+        </div>
+        <div class="col-75">
+          <input type="text" id="lname" name="lastname" placeholder="Your last name.." pattern="[a-zA-Z]+" required>
+        </div>
+      </div>
 
-          <div class="row">
-            <div class="col-25">
-                <label for="email">Email</label>
-            </div>
-            <div class="col-75">
-                <input type="email" id="email" name="user_email" required>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="email">Email</label>
+        </div>
+        <div class="col-75">
+          <input type="email" id="email" name="user_email"
+            pattern="^[a-zA-Z0-9][a-zA-Z0-9._%+-]*@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$" required>
+        </div>
+      </div>
 
-          <div class="row">
-            <div class="col-25">
-                <label for="name">Phone number</label>
-            </div>
-            <div class="col-75">
-                <input type="number" id="numb" name="numb" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" required>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="name">Phone number</label>
+        </div>
+        <div class="col-75">
+          <input type="number" id="numb" name="numb" pattern="[0-9]{10}" required>
+        </div>
+      </div>
 
-          <div class="row">
-            <div class="col-25">
-                <label for="name">Another number</label>
-            </div>
-            <div class="col-75">
-                <input type="number" id="number" name="numb" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" required>
-            </div>
-          </div>
-          
-          <div class="row">
-            <div class="col-25">
-              <label for="subject">Address</label>
-            </div>
-            <div class="col-75">
-              <textarea id="subject" name="subject" placeholder="Write something.." style="height:50px" required></textarea>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="name">Another number</label>
+        </div>
+        <div class="col-75">
+          <input type="number" id="number" name="numb" pattern="[0-9]{10}" required>
+        </div>
+      </div>
 
-          <div class="row">
-            <div class="col-25">
-                <label for="name">Password</label>
-            </div>
-            <div class="col-75">
-                <input type="password" id="pass" name="numb" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="subject">Address</label>
+        </div>
+        <div class="col-75">
+          <textarea id="subject" name="subject" placeholder="Write something.." style="height:50px" required></textarea>
+        </div>
+      </div>
 
-          <div class="row">
-            <div class="col-25">
-                <label for="name">Confirm Password</label>
-            </div>
-            <div class="col-75">
-                <input type="password" id="password" name="numb" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="name">Password</label>
+        </div>
+        <div class="col-75">
+          <input type="password" id="pass" name="numb"
+            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+            title="Your password must be at least 8 characters long, contain at least one digit or special character, one uppercase letter, and one lowercase letter, and must not contain dots or newline characters."
+            required>
+        </div>
+      </div>
 
-          <div class="row">
-            <div class="col-25">
-                <label for="name">Upload pics</label>
-            </div>
-            <div class="col-75">
-                <input type="file" id="number" name="numb">
-            </div>
-          </div>
+      <div class="row">
+        <div class="col-25">
+          <label for="name">Confirm Password</label>
+        </div>
+        <div class="col-75">
+          <input type="password" id="password" name="numb"
+            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+            title="Your password must be at least 8 characters long, contain at least one digit or special character, one uppercase letter, and one lowercase letter, and must not contain dots or newline characters."
+            required>
+        </div>
+      </div>
 
-          <div class="row">
-            <div class="col-25">
-                <label for="name">Upload docs</label>
-            </div>
-            <div class="col-75">
-                <input type="file" id="number" name="numb">
-            </div>
-          </div>
+      <div class="row">
 
-          <div class="row">
-            
-            <input type="submit" value="sign up" >
-          </div>
+        <input type="submit" value="sign up">
+      </div>
 
-        </form>
-        <script>
-             let form = document.querySelector("form")
-    form.addEventListener("submit", e => {
-      e.preventDefault()
+    </form>
+    <script>
 
-const firstname = document.getElementById("fname").value 
-const  lastname= document.getElementById("lname").value 
-const email=document.getElementById("email").value
-const number1 =document.getElementById("numb").value 
-const number2 =document.getElementById("number").value 
-const address =document.getElementById("subject").value
-const password1 =document.getElementById("pass").value 
-const password2 =document.getElementById("password").value  
-let user_data= {
-    "firstname": firstname,
-    "lastname": lastname,
-    "email": email,
-    "phone_number" : number1,
-    "phone_number1": number2,
-    "address": address,
-    "password" : password1,
-    "confirm_password" : password2     
-  }
 
-let leaser= localStorage.getItem("leaser")
-?JSON.parse(localStorage.getItem("leaser")):
- [];
-leaser.push(user_data)
-localStorage.setItem("leaser",JSON.stringify(leaser))
-window.location.href="leaser-log.html"
-          })
-        </script>
+      let form = document.querySelector("form")
+      form.addEventListener("submit", e => {
+        e.preventDefault()
+
+        const firstname = document.getElementById("fname").value.trim()
+        const lastname = document.getElementById("lname").value.trim()
+        const email = document.getElementById("email").value.trim()
+        const number1 = document.getElementById("numb").value.trim()
+        const number2 = document.getElementById("number").value.trim()
+        const address = document.getElementById("subject").value.trim()
+        const password1 = document.getElementById("pass").value.trim()
+        const password2 = document.getElementById("password").value.trim()
+        
+        
+
+        if (password1 != password2) {
+          alert("Oops !! password and confirm password doesn't match.")
+        }
+        else {
+          let leaser = JSON.parse(localStorage.getItem("leaser")) ?? [];
+          let j = 0;
+          for (let i = 0; i < leaser.length; i++) {
+            if (leaser[i]["email"] === email) {
+              j = 1;
+              break;
+            }
+          }
+          if (j == 1) {
+            alert("email already registered")
+          }
+          else {
+            let user_data = {
+              "firstname": firstname,
+              "lastname": lastname,
+              "email": email,
+              "phone_number": number1,
+              "phone_number1": number2,
+              "address": address,
+              "password": password1,
+              "confirm_password": password2
+            }
+            leaser.push(user_data)
+            localStorage.setItem("leaser", JSON.stringify(leaser))
+            window.location.href = "leaser-log.html"
+          }
+        }
+      })
+    </script>
 </body>
 <script>
 
