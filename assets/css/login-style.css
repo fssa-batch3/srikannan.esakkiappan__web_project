@@ -27,6 +27,10 @@ header {
     letter-spacing: 2px;
 }
 
+.respons_nav{
+    display: none;
+}
+
 #nav a {
     text-decoration: none;
     color: white;
@@ -64,12 +68,12 @@ main{
     font-size: 20px;
     background-image: url("../images/background2.jpg");
 }
-img#logo{
+/* img#logo{
     height: 105%;
     width: 90%;
     background-color: #0182ff;
      margin: -10px 0 10px 20px; 
-}
+} */
 .content-leftside{
     margin-top: 9%;
     margin-left: 14%;
@@ -196,4 +200,78 @@ h3{
     font-size: 20px;
     margin-left: 13%;
     margin-top: 7%;
+}
+
+@media only screen and (max-width: 800px){
+    header{
+        width: 100%;
+        height: 27%;
+    }
+    #head_logo{
+        transform: scale(1.1);
+        margin-top: 28%;
+        margin-left: 10%;
+    }
+    #nav{
+        display: none;
+    }
+    #bttn{
+        position: relative;
+        top: 30%;
+        left: 180%;
+        color: white;
+    }
+    .respons_nav{
+        display: block;
+        margin-left: auto;
+        font-size: 24px;
+        z-index: 5;
+        color: white;
+        margin-right: 60px;
+        position: relative;
+    }
+    .respons_nav:hover .menu-list{
+        visibility: visible;
+    }
+    .menu-list a{
+        display: block;
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        margin: 10px 0 10px 10px;
+        font-weight: 100;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .menu-list a:hover{
+        color: skyblue;
+    }
+    .menu-list{
+        visibility: hidden;
+        position: absolute;
+        top: 30px;
+        right: 0px;
+        width: 100px;
+        height: 75%;
+        /* background-color: skyblue;  */
+        border-radius: 5px;
+        box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.5);
+    }
+    .content-leftside{
+        display: none;
+    }
+    .formm{
+        transform: scale(0.9);
+        margin-top: 50%;
+    }
+    div#sign{
+        margin-top: -15%;
+        height: 130%;
+        width: 70%;
+        margin-bottom: 10%;
+    }
+    a#sign-up{
+        margin-top: -7%;
+        margin-left: 32%;
+        position: absolute;
+    }
 }

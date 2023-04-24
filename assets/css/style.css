@@ -174,9 +174,11 @@ main {
     margin-top: -10%;
     margin-left: 9%;
     margin-bottom: -1%;
+  
 }
 /* .faq{
     height: 200%;
+    /* transform: scale(2.0);
 } */
 .accordion {
     background-color: #eee;
@@ -357,7 +359,7 @@ h5#fc{
     }
     #bttn{
         position: relative;
-        top: 25%;
+        top: 30%;
         left: -60%;
     }
     .respons_nav{
@@ -405,7 +407,7 @@ h5#fc{
     }
     main{
         margin-top: 30%;
-        height: 170%;
+        height: 195%;
         width: 400%;
     }
     .head_line{
@@ -477,9 +479,10 @@ h5#fc{
     }
     #contact,#fc,#ftc{
         transform: scale(1.2);
+        margin-left: 3%;
     }
     #park{
-        transform: scale(1.1);
+        display: none;
     }
     
 }
