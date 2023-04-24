@@ -264,8 +264,8 @@ textarea{
 
   #hed{
     margin-top: 50%;
-    width: 110%;
-    transform: scale(1);
+    width: 130%;
+    transform: scale(.8);
     margin-left: -27%;
   }
   #hedi{
@@ -276,7 +276,7 @@ textarea{
   }
   .container{
     width: 80%;
-    margin-top: 90%;
+    margin-top: 110%;
     margin-left: 9.9%;
     transform: scale(1.3);
     margin-bottom: 50%;

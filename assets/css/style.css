@@ -1,6 +1,7 @@
 *{
-    margin: 0;
+    box-sizing: border-box;
     padding: 0;
+    margin: 0;
 }
 
 header {
@@ -112,8 +113,8 @@ main {
     background-color: #696969;
     background-image: url("../images/background1.png");
     background-blend-mode: multiply;
-    height: 700px;
-    width: 1508px;
+    height: 100%;
+    width: 101%;
     margin-left: -1%;
     margin-right: 0%;
     position: absolute;
@@ -133,14 +134,15 @@ main {
     background-color: #325178;
     height: 10%;
     padding: 10%;
-    width: 79.7%;
-    margin-top: 65%;
+    width: 100%;
+    margin-top: -30%;
     margin-left: 0%;
     margin-bottom: -10%;
 }
-.child1{
+/* .child1{
     margin-top: 5%;
-}
+    
+} */
 /* div.child2{
     margin-top: -20%;
     height: 10%;
@@ -150,9 +152,8 @@ main {
 #gif1{
     height: 35%;
     width: 30%;
-    margin-top: -140%;
-    margin-bottom: -93%;
-    margin-left: 5%;
+    margin-top: 87%;
+    margin-left: 12%;
     /* top: 125%;  */
     /* position: absolute; */
     border-radius: 7px;
@@ -164,8 +165,9 @@ main {
     font-size: 27px;
 }
 #qt{
-    margin-left: 66%;
+    margin-left: 63%;
     margin-top: 15%;
+    font-size: 21px;
     /* position: absolute; */
 }
 #faq{
@@ -213,15 +215,15 @@ main {
     border: 2px solid black;
     height: 40%;
     padding: 10%;
-    width: 79.5%;
-    margin-top: -25%;
+    width: 99.5%;
+    margin-top: -50%;
 }
 #gif2{
     height: 20%;
     width: 30%;
     margin-left: 64%;
     margin-top: 40%;
-    margin-bottom: -3%;
+    margin-bottom: 23%;
     border-radius: 5px;
 }
 img#rt{
@@ -264,6 +266,10 @@ form{
     flex-direction: column;
     justify-content: space-around;
     height: 70%;
+}
+#ask{
+    width: 100%;
+    margin-left: -1%;
 }
 #feedname{
     height: 30px;
@@ -345,14 +351,16 @@ h5#fc{
     background: black;
 } 
 
-@media only screen and (max-width: 800px){
+@media only screen and (max-width: 450px){
     header{
         width: 100%;
-        height: 10%;
+        height: 15%;
+        /* transform: scale(1.4); */
     }
     #head_logo{
-        transform: scale(1.8);
-        margin-top: 25%;
+        transform: scale(2.8);
+        margin-top: 135%;
+        margin-left: 150%;
     }
     #nav{
         display: none;
@@ -360,7 +368,8 @@ h5#fc{
     #bttn{
         position: relative;
         top: 30%;
-        left: -60%;
+        left: 5%;
+        transform: scale(2.1);
     }
     .respons_nav{
         display: block;
@@ -368,7 +377,7 @@ h5#fc{
         font-size: 24px;
         z-index: 5;
         color: black;
-        margin-right: 30px;
+        margin-right: 60px;
         position: relative;
     }
     .respons_nav:hover .menu-list{
@@ -380,7 +389,7 @@ h5#fc{
         color: black;
         font-size: 28px;
         margin: 10px 0 10px 10px;
-        font-weight: 600;
+        font-weight: 100;
         font-family: 'Source Sans Pro', sans-serif;
     }
     .menu-list a:hover{
@@ -389,10 +398,10 @@ h5#fc{
     .menu-list{
         visibility: hidden;
         position: absolute;
-        top: 30px;
-        right: 0px;
-        width: 170px;
-        height: 80%;
+        top: 26%;
+        right: 590%;
+        width: 150%;
+        height: 45%;
         /* background-color: skyblue; */
         border-radius: 5px;
         box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.5);
