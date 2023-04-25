@@ -416,7 +416,9 @@ h5#fc{
     }
     #hde2{
         margin-left: -65%;
-        width: 150%;
+        width: 170%;
+        transform: scale(0.8);
+        font-family: sans-serif;
     }
     main{
         margin-top: 30%;
