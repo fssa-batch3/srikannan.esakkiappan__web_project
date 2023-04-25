@@ -1,5 +1,7 @@
 body{
 font-size: 20px;
+margin: 0;
+padding: 0;
 }
 
 header {
@@ -171,14 +173,14 @@ h5#fc{
     }
     main{
         margin-top: 50%;
-        width: 90%;
+        width: 85%;
         transform: scale(.9);
     }
     #ftnav{
         display: none;
     }
     #foot{
-        width: 100%;
+        width: 96%;
         display: flex;
         height: 200%;
     }
