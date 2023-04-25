@@ -3,10 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable = no">
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/profile.css">
     <link rel="icon" href="../assets/images/Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>parkin</title>
 </head>
 <body>
@@ -22,6 +25,14 @@
             <a href="Tenant-edit.html" id="edi">Edit profile</a>
             <a href="../index.html">Log out</a>
         </nav>
+        <div class="respons_nav">
+            <i class="fa-solid fa-bars" id="bttn"></i>
+            <div class="menu-list">
+                <a href="tenant-choose-place.html">Parking places</a>
+                <a href="Tenant-edit.html" id="edi">Edit profile</a>
+                <a href="../index.html">Log out</a>
+            </div>
+        </div>
 </header>
     <!-- main -->
     <main>
@@ -69,7 +80,7 @@
                     input3.innerText=res["Address"]
 
         let vehicle = document.getElementById("bike1")
-        vehicle.innerHTML = `<img src="${res["upload_image"]}" border="0" height=500px width=300px>`
+        vehicle.innerHTML = `<img src="${res["upload_image"]}" border="0" id="prof_bike" height=500px width=300px>`
 
         let user_img = document.getElementById("avatar_img");
         user_img.innerHTML = `<br><img src="${res["user_image"]}" border="0" height=130px width=120px>`
