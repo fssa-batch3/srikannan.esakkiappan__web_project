@@ -354,22 +354,22 @@ h5#fc{
 @media only screen and (max-width: 450px){
     header{
         width: 100%;
-        height: 15%;
+        height: 25%;
         /* transform: scale(1.4); */
     }
     #head_logo{
-        transform: scale(2.8);
-        margin-top: 135%;
-        margin-left: 150%;
+        transform: scale(1);
+        margin-top: 50%;
+        margin-left: 25%;
     }
     #nav{
         display: none;
     }
     #bttn{
         position: relative;
-        top: 30%;
-        left: 5%;
-        transform: scale(2.1);
+        top: 70%;
+        left: 180%;
+        transform: scale(1.2);
     }
     .respons_nav{
         display: block;
@@ -387,7 +387,7 @@ h5#fc{
         display: block;
         text-decoration: none;
         color: black;
-        font-size: 28px;
+        font-size: 20px;
         margin: 10px 0 10px 10px;
         font-weight: 100;
         font-family: 'Source Sans Pro', sans-serif;
@@ -398,82 +398,111 @@ h5#fc{
     .menu-list{
         visibility: hidden;
         position: absolute;
-        top: 26%;
-        right: 590%;
-        width: 150%;
+        top: 30px;
+        right: 490%;
+        width: 5%;
         height: 45%;
         /* background-color: skyblue; */
         border-radius: 5px;
         box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.5);
     }
     #hde1{
-       margin-left: 25%; 
-       width: 130%;
+       margin-left: -55%; 
+       width: 185%;
+       height: 1%;
+       margin-top: -10%;
+       font-family: sans-serif;
+       transform: scale(.7); 
     }
     #hde2{
-        margin-left: 15%;
-        width: 130%;
+        margin-left: -57%;
+        width: 150%;
     }
     main{
         margin-top: 30%;
-        height: 195%;
-        width: 400%;
+        height: 109%;
+        width: 100%;
     }
     .head_line{
-        transform: scale(1.6);
+        transform: scale(0.9);
     }
-    .map{
-        transform: scale(0.1);
+    #map{
+        transform: scale(1);
+        
+    }
+    #search{
+        margin-left: -75%;
+        margin-top: 5%;
     }
     .child1{
-        margin-top: 80%;
-        width: 400%;
+        margin-top: 220%;
+        width: 100%;
         transform: scale(1.0);
     }
+    .ct{
+        height: 5%;
+
+    }
     #cot{
-        transform: scale(1.5);
+        transform: scale(1);
+        margin-top: 30%;
+        margin-left: 10%;
+        height: 1%;
     }
     .child2{
-        margin-top: -15%;
-        width: 400%;
+        margin-top: 40%;
+        width: 100%;
         
+    }
+    #gif2{
+        transform: scale(2);
+        margin-left: 35%;
+        margin-top: 40%;
+    }
+    #gif1{
+        transform: scale(2);
+        margin-top: 80%;
+        margin-left: 35%;
     }
     #cont{
         margin-left: 10%;
-        width: 65%;
-        transform: scale(1.4);
+        margin-top: 30%;
+        transform: scale(1);
     }
     .leas{
-        width: 400%;
-        margin-top: -10%;
-        margin-bottom: 20%;
+        width: 100%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+        transform: scaleY(2.5);
+        transform: scaleX(1);
     }
     .faq{
-        margin-top: 90%;
-        transform: scale(1.8);
+        margin-top: 80%;
+        margin-left: 0%;
+        transform: scale(0.8);
     }
     #q{
-        margin-left: 135%;
-        margin-top: 40%;
+        margin-left: 40%;
+        margin-top: 1%;
     }
     p#qt{
-        width: 60%;
-        margin-left: 110%;
+        width: 90%;
+        margin-left: 5%;
     }
     #faq{
-        margin-top: 79%;
+        margin-top: 20%;
         /* width: 105%; */
-        margin-left: 135%;
-        transform: scale(2.5);
+        margin-left: 6%;
+        transform: scale(1.2);
     }
     .bimg{
         display: none;
     }
     .accordion{
-        width: 140%;
+        width: 120%;
     }
     .panel{
-        width: 130%;
+        width: 120%;
     }
     #feed{
         display: none;
@@ -482,13 +511,13 @@ h5#fc{
         display: none;
     }
     #foot{
-        width: 390%;
+        width: 100%;
         display: flex;
-        height: 400%;
+        height: 200%;
     }
     #contact,#fc,#ftc{
-        transform: scale(1.2);
-        margin-left: 3%;
+        transform: scale(1);
+        margin-left: 1%;
     }
     #park{
         display: none;
