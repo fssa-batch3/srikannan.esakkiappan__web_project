@@ -32,7 +32,7 @@
         <!-- history -->
         <div class="history_box">
             <div id="histo">History</div>
-           
+
         </div>
     </main>
     <br>
@@ -76,6 +76,7 @@
     let p2;
     let rqdate;
     let parkdur;
+    let amont;
     let htag;
     let but;
     let history;
@@ -91,56 +92,61 @@
     console.log(loger_mail);
 
     console.log(leaser_log);
-    let res=0;
+    let res = 0;
 
     tenan.find(e => {
-    if(e["Request_person_email"]!=loger_mail) {
-        
-        main_box.style.display = "none";
-    }
-    else{
-        return res=1;
-    
-    }
+        if (e["Request_person_email"] != loger_mail) {
+
+            main_box.style.display = "flex";
+        }
+        else {
+            return res = 1;
+
+        }
     })
-    if(res==1){
-    htag = document.createElement("h2");
-    htag.setAttribute("id", "headi");
-    htag.innerHTML = `New <br> Request:`;
-    main_box.append(htag);
+    console.log(res);
+    if (res == 1) {
+        htag = document.createElement("h2");
+        htag.setAttribute("id", "headi");
+        htag.innerHTML = `New <br> Request:`;
+        main_box.append(htag);
 
-    image = document.createElement("div");
-    image.setAttribute("class", "image");
-    main_box.append(image)
+        image = document.createElement("div");
+        image.setAttribute("class", "image");
+        main_box.append(image)
 
-    img = document.createElement("div")
-    img.setAttribute("id", "imge")
-    image.append(img)
+        img = document.createElement("div")
+        img.setAttribute("id", "imge")
+        image.append(img)
 
-    detail = document.createElement("div")
-    detail.setAttribute("class", "detail")
-    main_box.append(detail)
+        detail = document.createElement("div")
+        detail.setAttribute("class", "detail")
+        main_box.append(detail)
 
-    p1 = document.createElement("p")
-    p1.setAttribute("id", "nam")
-    detail.append(p1)
+        p1 = document.createElement("p")
+        p1.setAttribute("id", "nam")
+        detail.append(p1)
 
-    p2 = document.createElement("p")
-    p2.setAttribute("id", "phon")
-    detail.append(p2)
+        p2 = document.createElement("p")
+        p2.setAttribute("id", "phon")
+        detail.append(p2)
 
-    rqdate = document.createElement("p")
-    rqdate.setAttribute("id", "redatm")
-    detail.append(rqdate)
+        rqdate = document.createElement("p")
+        rqdate.setAttribute("id", "redatm")
+        detail.append(rqdate)
 
-    parkdur = document.createElement("p")
-    parkdur.setAttribute("id", "dur")
-    detail.append(parkdur)
+        parkdur = document.createElement("p")
+        parkdur.setAttribute("id", "dur")
+        detail.append(parkdur)
 
-    but = document.createElement("button")
-    but.setAttribute("id", "accept-html")
-    but.innerText = "Accept";
-    detail.append(but)
+        amont = document.createElement("p")
+        amont.setAttribute("id", "money")
+        detail.append(amont)
+
+        but = document.createElement("button")
+        but.setAttribute("id", "accept-html")
+        but.innerText = "Accept";
+        detail.append(but)
     }
 
     let ans;
@@ -179,6 +185,7 @@
     img.innerHTML = `<img src="${ans["upload_image"]}" border="0" height=300px width=200px>`
     rqdate.innerHTML = `<p> Starting Date and Time : ${z} </p>`
     parkdur.innerHTML = `<p> Ending Date and Time : ${x}</p>`
+    amont.innerHTML = `<p> Your Receiving money : ${ans["parking_amount"]} </p>`
 
     // console.log(act);
     let act;
@@ -187,7 +194,7 @@
     but.addEventListener("click", e => {
         e.preventDefault()
         // alert("hi")
-        
+
 
         ans["Request status"] = "accepted";
         histo.style.display = "flex";
@@ -195,51 +202,51 @@
         localStorage.setItem("Accepted_Tenant", JSON.stringify(act));
 
         window.location.href = "leaser-accept.html";
-        
-       
+
+
 
     });
 
     display_history()
-   
+
     function display_history() {
 
-        for(let i=0;i<act.length;i++){
+        for (let i = 0; i < act.length; i++) {
 
-        if (act[i]["Request_person_email"] == loger_mail){
+            if (act[i]["Request_person_email"] == loger_mail) {
 
-        history = document.createElement("div")
-        history.setAttribute("class", "history")
-        histo.append(history)
+                history = document.createElement("div")
+                history.setAttribute("class", "history")
+                histo.append(history)
 
-        him = document.createElement("div")
-        him.setAttribute("class", "image")
-        history.append(him)
+                him = document.createElement("div")
+                him.setAttribute("class", "image")
+                history.append(him)
 
-        hi = document.createElement("div")
-        hi.setAttribute("id", "imag")
-        hi.innerHTML = `<img src=${act[i]["upload_image"]} height=180px width=110px>`
-        him.append(hi)
+                hi = document.createElement("div")
+                hi.setAttribute("id", "imag")
+                hi.innerHTML = `<img src=${act[i]["upload_image"]} height=180px width=110px>`
+                him.append(hi)
 
-        det = document.createElement("div")
-        det.setAttribute("class", "detail")
-        history.append(det)
+                det = document.createElement("div")
+                det.setAttribute("class", "detail")
+                history.append(det)
 
-        hp = document.createElement("p")
-        hp.setAttribute("id", "hname")
-        hp.innerHTML = `<p> ${act[i]["Firstname"]}</p>`
-        det.append(hp)
+                hp = document.createElement("p")
+                hp.setAttribute("id", "hname")
+                hp.innerHTML = `<p> ${act[i]["Firstname"]}</p>`
+                det.append(hp)
 
-        hp1 = document.createElement("p")
-        hp1.setAttribute("id", "hnum")
-        hp1.innerHTML = `<p> ${act[i]["phone_number"]} </p>`
-        det.append(hp1)
+                hp1 = document.createElement("p")
+                hp1.setAttribute("id", "hnum")
+                hp1.innerHTML = `<p> ${act[i]["phone_number"]} </p>`
+                det.append(hp1)
 
-        acp = document.createElement("p")
-        acp.setAttribute("id", "acp")
-        acp.innerHTML = `<p> ${z}`
-        det.append(acp)
-        }
+                acp = document.createElement("p")
+                acp.setAttribute("id", "acp")
+                acp.innerHTML = `<p> ${z}`
+                det.append(acp)
+            }
         }
 
 

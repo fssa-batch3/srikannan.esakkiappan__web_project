@@ -49,13 +49,12 @@ a{
     height: 180px;
 }
 .present_box{
-    
     border-right: 50px solid #0182ff;
     border-left: 50px solid #0182ff;
     margin-top: 200px;
     padding: 30px;
     margin-left: 215px;
-    height: 290px;
+    height: 320px;
     width: 900px;
     display: flex;
     justify-content: space-evenly;

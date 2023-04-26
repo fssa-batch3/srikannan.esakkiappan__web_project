@@ -8,8 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/signup-edit.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Document</title>
 </head>
 
@@ -74,7 +74,8 @@
           <label for="name">Phone number</label>
         </div>
         <div class="col-75">
-          <input type="number" id="numb" name="numb" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" required>
+          <input type="tel" id="numb" placeholder="Enter your number" title="please enter a valid phone number" required
+            minlength="10" maxlength="10">
         </div>
       </div>
 
@@ -83,7 +84,8 @@
           <label for="name">Another number</label>
         </div>
         <div class="col-75">
-          <input type="number" id="number" name="numb" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" required>
+          <input type="tel" id="number" placeholder="Enter your number" title="please enter a valid phone number"
+            required minlength="10" maxlength="10">
         </div>
       </div>
 
@@ -103,7 +105,7 @@
         <div class="col-75">
           <input type="password" id="pass" name="numb"
             title="Password length must be atleast 8, and must contain atleast 1 uppercase, 1 lowercase character and 1 digit"
-            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
         </div>
       </div>
 
@@ -114,7 +116,7 @@
         <div class="col-75">
           <input type="password" id="password" name="numb"
             title="Password length must be atleast 8, and must contain atleast 1 uppercase, 1 lowercase character and 1 digit"
-            pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" required>
+            pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required>
         </div>
       </div>
 

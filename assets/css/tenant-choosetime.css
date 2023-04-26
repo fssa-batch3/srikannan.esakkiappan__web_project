@@ -84,6 +84,18 @@ main{
 form{
     margin-left: 60px;
 }
+#ques{
+    position: absolute;
+    bottom: 16.9%;
+    right: 30.9%;
+    font-weight: 900;
+}
+#amount{
+    position: absolute;
+    left: 70%;
+    top: 80%;
+    transform: scale(2);
+}
 h3{
     font-size: 27px;
     position: absolute;
@@ -99,8 +111,8 @@ input{
 
 button{
     text-decoration: none;
-    margin-left: 180px;
-    margin-top: 20px;
+    margin-left: 190px;
+    margin-top: 85px;
     color: #0182ff;
     border: 1px solid black;
     padding: 10px;
