@@ -168,7 +168,7 @@ h5#fc{
         margin-left: -50%;
     }
     h1{
-        transform: scale(.7);
+        transform: scale(.5);
         margin-left: -101%;
         width: 235%;
     }
@@ -177,8 +177,8 @@ h5#fc{
     }
     #respon{
         display: inline;
-        margin-left: -59%;
-        font-size: 18px;
+        margin-left: -55%;
+        font-size: 17px;
     }
     #ftnav{
         display: none;
