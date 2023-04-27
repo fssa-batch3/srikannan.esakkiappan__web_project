@@ -122,7 +122,7 @@ img#imag{
         width: 80%;
         height: 20%;
         margin-top: 40%;
-        margin-left: -251%;
+        margin-left: -211%;
     }
     a{
         transform: scale(.9);
@@ -132,7 +132,7 @@ img#imag{
     }
     a#log{
        margin-left: 70%;
-       margin-top: -140%;
+       margin-top: -155%;
     }
     main{
         margin-top: 85%;
