@@ -169,15 +169,15 @@ h5#fc{
     }
     h1{
         transform: scale(.5);
-        margin-left: -101%;
-        width: 235%;
+        margin-left: -121%;
+        width: 285%;
     }
     #lap{
         display: none;
     }
     #respon{
         display: inline;
-        margin-left: -55%;
+        margin-left: -60%;
         font-size: 17px;
     }
     #ftnav{
