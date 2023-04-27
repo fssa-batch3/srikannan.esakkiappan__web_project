@@ -1,3 +1,7 @@
+*{
+    /* padding: 0;*/
+    margin: 0; 
+}
 body{
     font-size: 20px;
 }
@@ -39,6 +43,9 @@ header{
     font-family: 'Luckiest Guy', cursive;
     letter-spacing: 2px;
 }
+.respons_nav{
+    display: none;
+}
 #tick{
     height: 300px;
 }
@@ -51,7 +58,10 @@ h1{
     margin-left: -10%;
 }
 h3{
-    margin-left: -20%;
+    margin-left: -23%;
+}
+#respon{
+    display: none;
 }
 #foot{
     margin-top: 10%;
@@ -97,4 +107,92 @@ h5#fc{
     background-color: black;
     border: 2px solid black;
     padding: 2%;
+}
+
+@media only screen and (max-width: 800px){
+    header{
+        width: 100%;
+        height: 27%;
+    }
+    #head_logo{
+        transform: scale(1.1);
+        margin-top: 28%;
+        margin-left: 10%;
+    }
+    #nav{
+        display: none;
+    }
+    #bttn{
+        position: relative;
+        top: 30%;
+        left: 180%;
+        color: white;
+    }
+    .respons_nav{
+        display: block;
+        margin-left: auto;
+        font-size: 24px;
+        z-index: 5;
+        color: white;
+        margin-right: 60px;
+        position: relative;
+    }
+    .respons_nav:hover .menu-list{
+        visibility: visible;
+    }
+    .menu-list a{
+        display: block;
+        text-decoration: none;
+        color: white;
+        font-size: 20px;
+        margin: 10px 0 10px 10px;
+        font-weight: 100;
+        font-family: 'Source Sans Pro', sans-serif;
+    }
+    .menu-list a:hover{
+        color: skyblue;
+    }
+    .menu-list{
+        visibility: hidden;
+        position: absolute;
+        top: 30px;
+        right: 0px;
+        width: 100px;
+        height: 75%;
+        /* background-color: skyblue;  */
+        border-radius: 5px;
+        box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.5);
+    }
+    #tick{
+        transform: scale(.6);
+        margin-left: -50%;
+    }
+    h1{
+        transform: scale(.7);
+        margin-left: -101%;
+        width: 235%;
+    }
+    #lap{
+        display: none;
+    }
+    #respon{
+        display: inline;
+        margin-left: -59%;
+        font-size: 18px;
+    }
+    #ftnav{
+        display: none;
+    }
+    #foot{
+        width: 94%;
+        display: flex;
+        height: 200%;
+    }
+    #contact,#fc,#ftc{
+        transform: scale(1);
+        margin-left: 1%;
+    }
+    #park{
+        display: none;
+    }
 }
