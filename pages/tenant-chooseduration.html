@@ -4,10 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, user-scalable = no">
     <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/tenant-choosetime.css">
     <link rel="icon" href="../assets/images/Logo.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <title>parkin</title>
 </head>
 
@@ -25,6 +28,13 @@
             <a href="../index.html">Log out</a>
 
         </nav>
+        <div class="respons_nav">
+            <i class="fa-solid fa-bars" id="bttn"></i>
+            <div class="menu-list">
+                <a href="tenant-choose-place.html">Explore places</a>
+                <a href="../index.html">Log out</a>
+            </div>
+          </div>
 
     </header>
     <!-- main -->
@@ -37,7 +47,7 @@
         <!-- Leaser details -->
         <div class="leaser_detail">
             <div id="name-number">
-                <p>Name: <span id="leaser_name"></span></p>
+                <p>Name: <span id="leaser_name"></span></p><br>
                 <p>Phone&nbsp;Number:<span id="leaser_number"></span></p>
             </div>
             <!-- Time choosing space -->
@@ -48,12 +58,17 @@
                 <input type="datetime-local" id="start-time" required><br><br>
                 <label for="time-end">End-time</label>&nbsp;&nbsp;&nbsp;
                 <input type="datetime-local" id="End-time" required><br><br>
+                
                 <!-- <label>Enter registered email</label>
                 <input type="email" id="emil" required> -->
                 <br>
                 <!-- request button -->
                 <button id="request-btn">Give Request</button>
             </form>
+            <button id="ques">How much </button>
+            <div class="money">
+                <div id="amount">Rs: <span id="rupee"></span></div>
+            </div>
         </div>
     </main>
     <!-- footer -->
@@ -120,6 +135,8 @@
     const tenant_login = JSON.parse(localStorage.getItem("Tenant_details"))
     console.log(tenant_login);
 
+    let parking_amount;
+
     // validation of Email
 
     document.querySelector("form").addEventListener("submit", l => {
@@ -127,24 +144,72 @@
 
         let valid;
         let key;
-        tenant_details.find(e=>{
-            if(e["Email"]==tenant_login["Email"]) {
+        tenant_details.find(e => {
+            if (e["Email"] == tenant_login["Email"]) {
                 return key = e;
             }
         })
-            const star_time = document.getElementById("start-time").value;
-            const end_time = document.getElementById("End-time").value;
 
-            key["parking_start_time"] = star_time;
-            key["parking_end_time"] = end_time;
-            key["Request_person_email"] = details["email"]
-            key["Request status"] = "pending";
+        let star_time = document.getElementById("start-time").value;
+        let end_time = document.getElementById("End-time").value;
+
+        key["parking_start_time"] = star_time;
+        key["parking_end_time"] = end_time;
+        key["Request_person_email"] = details["email"];
+        key["Request status"] = "pending";
+        key["parking_amount"] = parking_amount;
 
 
-            localStorage.setItem("Tenanat", JSON.stringify(tenant_details))
-            window.location.href="tenant-request.html";
+        localStorage.setItem("Tenanat", JSON.stringify(tenant_details))
+        window.location.href = "tenant-request.html";
 
     })
+
+
+
+    document.getElementById("ques").addEventListener("click", e => {
+        let star_time = document.getElementById("start-time").value;
+        let end_time = document.getElementById("End-time").value;
+
+        e.preventDefault();
+
+        //time to money
+
+        let end = end_time.substring(11, 16)
+        end = end.split(":")
+        let ed = Number(end[0] + end[1]);
+
+        let start = star_time.substring(11, 16)
+        start = start.split(":")
+        let st = Number(start[0] + start[1]);
+
+        let min = (ed - st);
+        let minu = String(min);
+
+        if (minu.length == 3) {
+            minu = "0" + minu;
+        }
+        else {
+            minu;
+        }
+        var u = ":";
+        var output = [minu.slice(0, 2), u, minu.slice(2)].join('');
+        function convertH2M(th) {
+            var thpart = th.split(":");
+            return Number(thpart[0]) * 60 + Number(thpart[1]);
+        }
+        var minut = convertH2M(output);
+        console.log(minut);
+
+        let money = minut / 4;
+        parking_amount = money;
+
+        document.getElementById("rupee").innerText = money;
+
+    })
+
+
+
 
 </script>
 

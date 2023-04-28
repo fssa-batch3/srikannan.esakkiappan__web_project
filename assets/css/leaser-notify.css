@@ -48,18 +48,13 @@ a{
 #imag{
     height: 180px;
 }
-#imge{
-    height: 330px;
-    width: 200px;
-}
 .present_box{
-    
     border-right: 50px solid #0182ff;
     border-left: 50px solid #0182ff;
     margin-top: 200px;
     padding: 30px;
     margin-left: 215px;
-    height: 290px;
+    height: 320px;
     width: 900px;
     display: flex;
     justify-content: space-evenly;

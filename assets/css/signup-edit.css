@@ -1,6 +1,7 @@
 * {
-    box-sizing: border-box;
-    font-family: 'Merienda', cursive;
+  margin: 0;
+  padding: 0;
+  font-family: 'Merienda', cursive;
   }
   
   header {
@@ -40,6 +41,10 @@
     border-radius: 5px;
 }
 
+.respons_nav{
+  display: none;
+}
+
 #head_logo {
     height: 90px;
     width: 120px;
@@ -77,6 +82,12 @@ h2{
   width: 1475px;
   height: 30px;
 }
+textarea{
+  height:60px;
+  width: 250px;
+  resize: none;
+  border: none;
+}
 .row{
   width: 170%;
 }
@@ -92,6 +103,22 @@ h2{
     display: inline-block;
   }
   
+  .uplod {
+    overflow: visible;
+    /* position: relative; */
+    margin-right: 50%;
+    border: 0;
+    padding: 3px;
+    border-radius: 4px;
+    cursor: pointer;
+    height: 25px;
+    width: 80px;
+    font-size: 13px;
+    color: #fff;
+    text-transform: uppercase;
+    background: #198cff;
+    text-shadow: 0 -1px 0 rgba(0, 0 ,0, .3);
+}  
   input[type=submit] {
     background-color: #0182ff;
     color: white;
@@ -172,3 +199,110 @@ h2{
     display: table;
     clear: both;
   }
+
+  
+@media only screen and (max-width: 800px){
+  header{
+      width: 100%;
+      height: 25%;
+  }
+  #head_logo{
+      transform: scale(1.2);
+      margin-top: 25%;
+      margin-left: 10%;
+  }
+  #nav{
+      display: none;
+  }
+  #bttn{
+      position: relative;
+      top: 30%;
+      left: 180%;
+      color: white;
+  }
+  #btttn{
+    position: relative;
+    top: 30%;
+    left: 180%;
+    color: white;
+  }
+  .respons_nav{
+      display: block;
+      margin-left: auto;
+      font-size: 24px;
+      z-index: 5;
+      color: black;
+      margin-right: 60px;
+      position: relative;
+  }
+  .respons_nav:hover .menu-list{
+      visibility: visible;
+  }
+  .menu-list a{
+      display: block;
+      text-decoration: none;
+      color: white;
+      font-size: 20px;
+      margin: 10px 0 10px 10px;
+      font-weight: 100;
+      font-family: 'Source Sans Pro', sans-serif;
+  }
+  .menu-list a:hover{
+      color: #0182ff;
+  }
+  .menu-list{
+      visibility: hidden;
+      position: absolute;
+      top: 30px;
+      right: 0px;
+      width: 100px;
+      height: 85%;
+      /* background-color: skyblue; */
+      border-radius: 5px;
+      box-shadow: 0px 5px 15px rgba(255, 255, 255, 0.5);
+  }
+  /*  */
+
+  #hed{
+    margin-top: 60%;
+    width: 130%;
+    transform: scale(.8);
+    margin-left: -30%;
+  }
+  #hedi{
+    margin-bottom: -1%;
+  }
+  .row{
+    width: 80%;
+  }
+  .container{
+    width: 60%;
+    margin-top: 50%;
+    margin-left: 14.9%;
+    transform: scale(1.2);
+    margin-bottom: 50%;
+  }
+  input{
+    width: 153%;
+  }
+  textarea{
+    width: 153%;
+  }
+  input[type=submit]{
+    width: 80%;
+    transform: scale(0.8);
+  }
+  .col-25{
+    float: left;
+    margin-left: 10%;
+    width: 60%;
+  }
+  #lnd{
+    width: 100%;
+    height: 135%;
+  }
+  #lnd_doc{
+    width: 100%;
+    height: 115%;
+  }
+}
