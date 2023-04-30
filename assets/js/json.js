@@ -55,10 +55,10 @@ getUsers();
 
 const axios=require('axios')
 
-// const params = {
-//   access_key: '2b21b822261a7e3fb6069f54c65ac788',
-//   query: '1600 Pennsylvania Ave NW'
-// }
+const params = {
+  access_key: '2b21b822261a7e3fb6069f54c65ac788',
+  query: '1600 Pennsylvania Ave NW'
+}
 
 axios.get('http://api.positionstack.com/v1/forward?access_key=2b21b822261a7e3fb6069f54c65ac788&query=')
   .then(response => {

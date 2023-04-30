@@ -15,7 +15,7 @@
     </div>
     <!-- Navigation link -->
     <nav id="nav">
-    <input id="search" type="search" placeholder=" Use leaser name to search here">
+    <input id="search" type="search" placeholder=" Use your location to search">
     <a id="log" href="../index.html">Log out</a>
     </nav>
     
@@ -71,17 +71,17 @@
 
             parag = document.createElement("p");
             parag.setAttribute("id", "nam")
-            parag.innerText = lease[i]["firstname"];
+            parag.innerHTML = `<p>Name : ${lease[i]["firstname"]}</p>`;
             div_detail.append(parag);
-
+            
             parag1 = document.createElement("p");
             parag1.setAttribute("id", "addr")
-            parag1.innerText = lease[i]["address"];
+            parag1.innerHTML = `<p>Address : ${lease[i]["address"]}</p>`;
             div_detail.append(parag1);
 
             phon_num = document.createElement("p");
             phon_num.setAttribute("id", "phon")
-            phon_num.innerText = lease[i]["phone_number"];
+            phon_num.innerHTML = `<p>Phone number : ${lease[i]["phone_number"]}</p>`;
             div_detail.append(phon_num);
 
             main_lists.prepend(a)
@@ -97,7 +97,7 @@
 
             places.forEach(element => {
 
-                let details = element.children[1].textContent.toLowerCase();
+                let details = element.children[1].children[1].textContent.toLowerCase();
 
                 if (details.includes(search_value)) {
 

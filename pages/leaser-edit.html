@@ -194,9 +194,17 @@
       address.value=check["address"]
       pass.value=check["password"]
       password.value=check["confirm_password"]
+      if(check["upload_image"]=="undefined"){
+        land_img.value = "";
+        land_docs.value = "";
+        user_img.value = "";
+      }
+      else{
       land_img.value=check["upload_image"]
       land_docs.value=check["upload_docs"]
       user_img.value=check["user_image"]
+      }
+      
 
 
 
