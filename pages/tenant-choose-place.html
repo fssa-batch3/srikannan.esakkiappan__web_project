@@ -15,10 +15,11 @@
     </div>
     <!-- Navigation link -->
     <nav id="nav">
-    <input id="search" type="search" placeholder=" Use your location to search">
-    <a id="log" href="../index.html">Log out</a>
+        <input id="search" type="search" placeholder=" Use your location to search">
+        <a id="log" href="../index.html">Log out</a>
+        <button id="locat">Near by</button>
     </nav>
-    
+
 </header>
 
 <body>
@@ -41,14 +42,14 @@
 
         let lease = JSON.parse(localStorage.getItem("leaser"))
         console.log(lease);
-        let main_lists=document.querySelector(".main_list");
+        let main_lists = document.querySelector(".main_list");
 
 
 
         for (let i = 0; i < lease.length; i++) {
 
             let a = document.createElement("a");
-            a.setAttribute("id","link");
+            a.setAttribute("id", "link");
             a.setAttribute("href", "tenant-chooseduration.html?name=" + lease[i]["firstname"]);
             console.log(a)
 
@@ -73,7 +74,7 @@
             parag.setAttribute("id", "nam")
             parag.innerHTML = `<p>Name : ${lease[i]["firstname"]}</p>`;
             div_detail.append(parag);
-            
+
             parag1 = document.createElement("p");
             parag1.setAttribute("id", "addr")
             parag1.innerHTML = `<p>Address : ${lease[i]["address"]}</p>`;
@@ -113,7 +114,64 @@
 
         })
 
- 
+        const locat = document.getElementById("locat")
+        locat.addEventListener("click", function () {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(showPosition);
+            } else {
+                alert("Geolocation is not supported by this browser.")
+            }
+            function showPosition(position) {
+
+                let latitud = position.coords.latitude
+                let longitud = position.coords.longitude
+                console.log(latitud, longitud); // 13.0963045  80.2865916
+
+                let near;
+                for (let s = 0; s < lease.length; s++) {
+                    let lat2 = lease[s]["Lattitude"];
+                    let lon2 = lease[s]["Longitude"];
+
+                    const distan_km = distance(latitud, longitud, lat2, lon2);
+                    console.log(distan_km);
+
+                    if (distan_km <= 20) {
+                        near = `<a id="link" href="tenant-chooseduration.html?name=${lease[s]["firstname"]}">
+                            <div class="profile_box">
+                              <div class="image">
+                                <img id="imag" src="${lease[s]["upload_image"]}">
+                              </div>
+                             <div class="detail">
+                                <p>Name : ${lease[s]["firstname"]}</p>
+                                <p>Address : ${lease[s]["address"]}</p>
+                                <p>Phone number : ${lease[s]["phone_number"]}</p>
+                             </div>
+                            </div>
+                                </a>`
+                        main_lists.innerHTML = near;
+                        console.log("sucess");
+                    }
+                }
+            }
+        })
+
+        function distance(lat1, lon1, lat2, lon2) {
+            const R = 6371; // radius of the earth in km
+            const dLat = deg2rad(lat2 - lat1);
+            const dLon = deg2rad(lon2 - lon1);
+            const a =
+                Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+                Math.cos(deg2rad(lat1)) * Math.cos(deg2rad(lat2)) *
+                Math.sin(dLon / 2) * Math.sin(dLon / 2);
+            const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+            const d = R * c; // distance in km
+            return d;
+            console.log(d);
+        }
+
+        function deg2rad(deg) {
+            return deg * (Math.PI / 180)
+        }
 
 
 

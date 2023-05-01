@@ -274,10 +274,20 @@ form{
 #feedname{
     height: 30px;
 }
+#feedemail{
+    height: 30px;
+}
 #phone{
     height: 50%;
     width: 40%;
     margin-top: 1%;
+}
+input{
+    border: none;
+}
+textarea{
+    border: none;
+    resize: none;
 }
 button#btn{
     margin-left: 28%;
@@ -314,9 +324,8 @@ button#btn{
     margin-left: -10%;
 }
 h5#ftc{
-    float: right;
     margin-top: -29%;
-    margin-left: -50%;
+    margin-left: 25%;
 }
 h5#fc{
     float:right;

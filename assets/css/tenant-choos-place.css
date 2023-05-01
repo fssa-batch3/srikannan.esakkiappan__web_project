@@ -54,6 +54,9 @@ a{
     text-decoration: none;
     width: 100%;
 }
+#locat{
+    cursor: pointer;
+}
 #link{
     color: black;
 }
@@ -119,10 +122,10 @@ img#imag{
     }
     input#search{
         
-        width: 80%;
+        width: 70%;
         height: 20%;
         margin-top: 40%;
-        margin-left: -211%;
+        margin-left: -224%;
     }
     a{
         transform: scale(.9);
@@ -130,9 +133,14 @@ img#imag{
         margin-top: 3%;
         width: 80%;
     }
+    #locat{
+        margin-left: -105%;
+        margin-right: 15%;
+        height: 12%;
+    }
     a#log{
-       margin-left: 70%;
-       margin-top: -155%;
+       margin-left: 32%;
+       margin-top: -140%;
     }
     main{
         margin-top: 85%;

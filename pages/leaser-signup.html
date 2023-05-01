@@ -48,7 +48,7 @@
           <label for="fname">First Name</label>
         </div>
         <div class="col-75">
-          <input type="text" id="fname" name="firstname" value="kumar" placeholder="Your name.." maxlength="30" pattern="[a-zA-Z]+"
+          <input type="text" id="fname" name="firstname" value="kumar" placeholder="Your First name.." maxlength="30" pattern="[a-zA-Z]+"
             required>
         </div>
       </div>
@@ -97,7 +97,7 @@
           <label for="subject">Address</label>
         </div>
         <div class="col-75">
-          <textarea id="subject" name="subject" placeholder="Write something.." style="height:50px" required>12f,6st north street,Taramani,chennai</textarea>
+          <textarea id="subject" name="subject" placeholder="Enter your Address.." style="height:50px" required>12f,6st north street,Taramani,chennai</textarea>
         </div>
       </div>
 
@@ -165,6 +165,18 @@
             alert("email already registered")
           }
           else {
+
+          if (navigator.geolocation) {
+          navigator.geolocation.getCurrentPosition(showPosition);
+        } 
+        else {
+          alert("Geolocation is not supported by this browser.")
+        }
+        function showPosition(position) {
+          
+          let lattitude = position.coords.latitude
+          let longitude = position.coords.longitude
+          console.log(lattitude,longitude); // 13.0963045  80.2865916
             let user_data = {
               "firstname": firstname,
               "lastname": lastname,
@@ -173,12 +185,15 @@
               "phone_number1": number2,
               "address": address,
               "password": password1,
-              "confirm_password": password2
+              "confirm_password": password2,
+              "Lattitude" : lattitude,
+              "Longitude" : longitude
             }
             leaser.push(user_data)
             localStorage.setItem("leaser", JSON.stringify(leaser))
             window.location.href = "leaser-log.html"
           }
+        }
         }
       })
     </script>

@@ -108,15 +108,14 @@
     <div id="feed">
         <div id="fdbx">
             <img id="phone" src="assets/images/phon.png" alt="phone">
-            <form>
+            <form id="formm">
                 <h2 id="ask">Ask us anything you want</h2><br>
-
                 <label for="fname">Name</label>
                 <input type="text" id="feedname" name="firstname" placeholder="Your name.."><br><br>
                 <label for="email">Email</label>
-                <input type="email" id="feedname" name="user_email"><br><br>
+                <input type="email" id="feedemail" name="user_email" placeholder="Your Email"><br><br>
                 <label for="subject">Feedback</label>
-                <textarea id="fedname" name="subject" placeholder="Write something.." style="height:80px"></textarea>
+                <textarea id="fedname" name="subject" placeholder="Write your Feedback.." style="height:80px"></textarea>
             </form>
 
         </div>
@@ -135,7 +134,7 @@
             <img id="flt" src="assets/images/lt.png" alt="symbol">
             <div id="ct">
                 <h5 id="fc">Taramani,chennai</h5><br>
-                <h5 id="ftc">www.parkin.com</h5>
+                <h5 id="ftc">parkinn2023.sri@gmail.com</h5>
             </div>
         </div>
         <div id="ftnav"><br>
@@ -148,6 +147,7 @@
     <div id="blk">
     </div>
 </footer>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
     var acc = document.getElementsByClassName("accordion");
     var i;
@@ -163,6 +163,26 @@
             }
         });
     }
+
+    let form = document.querySelector("#btn")
+
+    form.addEventListener("click" , function() {
+
+      Email.send({
+      Host: "smtp.elasticemail.com",
+      Username: "srikann.2003@gmail.com",
+      Password: "4DB5AD9DEC3E8A5B5E3951B381AC456C5CBD",
+      To: 'parkinn2023.sri@gmail.com',
+      From:"srikann.2003@gmail.com",
+      Subject: "User Feedback",
+      Name :document.getElementById("feedname").value,
+      User_Email : document.getElementById("feedemail").value, 
+      Body: document.getElementById("fedname").value
+    }).then(
+      message => alert(message)
+    );
+
+    })
 
 </script>
 

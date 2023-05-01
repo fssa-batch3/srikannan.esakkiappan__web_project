@@ -47,7 +47,7 @@
           <label for="fname">First Name</label>
         </div>
         <div class="col-75">
-          <input type="text" id="fname" name="firstname" placeholder="Your name.." pattern="[a-zA-Z]+" required>
+          <input type="text" id="fname" name="firstname" placeholder="Your First name.." pattern="[a-zA-Z]+" required>
         </div>
       </div>
 
@@ -65,7 +65,7 @@
           <label for="email">Email</label>
         </div>
         <div class="col-75">
-          <input type="email" id="email" name="user_email" required>
+          <input type="email" id="email" name="user_email" placeholder="Your Email" required>
         </div>
       </div>
 
@@ -94,7 +94,7 @@
           <label for="subject">Address</label>
         </div>
         <div class="col-75">
-          <textarea id="subject" name="subject" placeholder="Write something.." required></textarea>
+          <textarea id="subject" name="subject" placeholder="Enter your Address.." required></textarea>
         </div>
       </div>
 
@@ -133,6 +133,7 @@
       let form = document.querySelector("form")
       form.addEventListener("submit", e => {
         e.preventDefault()
+       
         // function checkdata(){
 
         const first_name = document.getElementById("fname").value
@@ -173,9 +174,27 @@
             Tenant.push(user_data)
             localStorage.setItem("Tenant", JSON.stringify(Tenant))
             window.location.href = "Tenant-log.html"
+            console.log(user_data);
           }
         }
       })
+
+      // function location_api(){
+      //   if (navigator.geolocation) {
+      //     navigator.geolocation.getCurrentPosition(showPosition);
+      //   } else {
+      //     alert("Geolocation is not supported by this browser.")
+      //   }
+      //   function showPosition(position) {
+          
+      //     let latitude = position.coords.latitude
+      //     let longitude = position.coords.longitude
+      //     console.log(latitude,longitude); // 13.0963045  80.2865916
+      //     lattitud = latitude;
+      //     longitud = longitude;
+      //   }
+      // }
+    
     </script>
 </body>
 
