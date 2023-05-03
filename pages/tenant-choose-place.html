@@ -128,7 +128,7 @@
                 let longitud = position.coords.longitude
                 console.log(latitud, longitud); // 13.0963045  80.2865916
 
-                let near;
+                let near="";
                 for (let s = 0; s < lease.length; s++) {
                     let lat2 = lease[s]["Lattitude"];
                     let lon2 = lease[s]["Longitude"];
@@ -136,8 +136,9 @@
                     const distan_km = distance(latitud, longitud, lat2, lon2);
                     console.log(distan_km);
 
-                    if (distan_km <= 30) {
-                        near = `<a id="link" href="tenant-chooseduration.html?name=${lease[s]["firstname"]}">
+                    if (distan_km <= 1) {
+                        console.log(lease[s]);
+                        near += `<a id="link" href="tenant-chooseduration.html?name=${lease[s]["firstname"]}">
                             <div class="profile_box">
                               <div class="image">
                                 <img id="imag" src="${lease[s]["upload_image"]}">

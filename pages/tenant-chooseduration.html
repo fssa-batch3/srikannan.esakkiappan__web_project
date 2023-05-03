@@ -34,7 +34,7 @@
                 <a href="tenant-choose-place.html">Explore places</a>
                 <a href="../index.html">Log out</a>
             </div>
-          </div>
+        </div>
 
     </header>
     <!-- main -->
@@ -58,7 +58,7 @@
                 <input type="datetime-local" id="start-time" required><br><br>
                 <label for="time-end">End-time</label>&nbsp;&nbsp;&nbsp;
                 <input type="datetime-local" id="End-time" required><br><br>
-                
+
                 <!-- <label>Enter registered email</label>
                 <input type="email" id="emil" required> -->
                 <br>
@@ -97,6 +97,7 @@
         </div>
     </footer>
 </body>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
     const leaser_details = JSON.parse(localStorage.getItem("leaser"))
 
@@ -150,6 +151,13 @@
             }
         })
 
+        let user_emil = details["email"];
+        let user_name = details["firstname"];
+        console.log(user_emil);
+        let user_nam = key["Firstname"];
+        let user_phno = key["phone_number"];
+        let veh_img = key["upload_image"];
+
         let star_time = document.getElementById("start-time").value;
         let end_time = document.getElementById("End-time").value;
 
@@ -161,10 +169,28 @@
 
 
         localStorage.setItem("Tenanat", JSON.stringify(tenant_details))
-        window.location.href = "tenant-request.html";
 
+
+        Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "srikann.2003@gmail.com",
+            Password: "4DB5AD9DEC3E8A5B5E3951B381AC456C5CBD",
+            To: user_emil,
+            From: "parkinn2023.sri@gmail.com",
+            Subject: "New Tenant Request",
+            Body : `Hi ${user_name} <br><br>
+                    You got a new parking request from your nearby tenant(Vehicle user).<br> Your requested person's name is ${user_nam}. He wants to park his vehicle between the times of ${star_time} to ${end_time}. And ${parking_amount} rupees is your receiving money if you accept this request. So If you like to accept this request, Go to your Parkin profile by using this link https://deploy-preview-1--parkin.netlify.app/pages/leaser-log.htm and accept your tenant request.
+                    <br><br>
+                    Thank you.`
+            
+        }).then((message)=>{
+            alert("Request sended sucessfully")
+            window.location.href = "tenant-request.html"
+
+        } 
+        )
+        
     })
-
 
 
     document.getElementById("ques").addEventListener("click", e => {
@@ -206,6 +232,11 @@
     })
 
 
+    let stardatetime = document.getElementById("start-time");
+    let endtime = document.getElementById("End-time");
+    let currentDatetime = new Date().toISOString().slice(0, 16);
+    endtime.setAttribute("min", currentDatetime);
+    stardatetime.setAttribute("min", currentDatetime);
 
 
 </script>

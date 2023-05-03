@@ -93,7 +93,16 @@
           <label for="subject">Address</label>
         </div>
         <div class="col-75">
-          <textarea id="subject" name="subject" placeholder="Write something.."  style="height:50px"></textarea>
+          <textarea id="subject" name="subject" placeholder="Write address.."  style="height:50px"></textarea>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-25">
+          <label for="subject">Parking location</label>
+        </div>
+        <div class="col-75">
+          <textarea id="sub" name="subject" placeholder="location link"  style="height:40px"></textarea>
         </div>
       </div>
 
@@ -168,6 +177,7 @@
       let numb = document.getElementById("numb")
       let number = document.getElementById("number")
       let address = document.getElementById("subject")
+      let locat = document.getElementById("sub")
       let pass = document.getElementById("pass")
       let password = document.getElementById("password")
       let land_img = document.getElementById("land_img")
@@ -193,6 +203,7 @@
       numb.value=check["phone_number"]
       number.value=check["phone_number1"]
       address.value=check["address"]
+      locat.value=check["location"]
       pass.value=check["password"]
       password.value=check["confirm_password"]
       if(check["upload_image"]=="undefined"){
@@ -275,6 +286,7 @@
         check["phone_number"]=document.getElementById("numb").value;
         check["phone_number1"]=document.getElementById("number").value;
         check["address"]=document.getElementById("subject").value;
+        check["location"]=document.getElementById("sub").value;
         check["password"]=document.getElementById("pass").value;
         check["confirm_password"]=document.getElementById("password").value;
         check["upload_image"]=document.getElementById("land_img").value;

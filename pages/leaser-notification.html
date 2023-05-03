@@ -63,6 +63,7 @@
         </div>
     </footer>
 </body>
+<script src="https://smtpjs.com/v3/smtp.js"></script>
 <script>
 
     let main_box = document.querySelector(".present_box")
@@ -79,6 +80,9 @@
     let amont;
     let htag;
     let but;
+
+    let req_feed;
+
     let history;
     let him;
     let hi;
@@ -148,6 +152,11 @@
         but.innerText = "Accept";
         detail.append(but)
     }
+    else{
+        req_feed = document.createElement("h2")
+        req_feed.innerText = "You dont have any request !"
+        main_box.append(req_feed)
+    }
 
     let ans;
     tenan.find(e => {
@@ -190,6 +199,8 @@
     // console.log(act);
     let act;
 
+    let tenan_emil = ans["Email"];
+
     act = JSON.parse(localStorage.getItem("Accepted_Tenant")) ?? [];
     but.addEventListener("click", e => {
         e.preventDefault()
@@ -201,10 +212,21 @@
         act.push(ans)
         localStorage.setItem("Accepted_Tenant", JSON.stringify(act));
 
-        window.location.href = "leaser-accept.html";
-
-
-
+        Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "srikann.2003@gmail.com",
+            Password: "4DB5AD9DEC3E8A5B5E3951B381AC456C5CBD",
+            To: tenan_emil,
+            From: "parkinn2023.sri@gmail.com",
+            Subject: "Accepting Request",
+            Body: `Hi ${ans["Firstname"]},<br><br> You Request was accepted. Let's ready to park your vehicle in the leaser place on the time`  
+            
+        }).then((message)=>{
+            alert("Accepted sucessfully")
+            window.location.href = "leaser-accept.html"
+        }
+        )
+        // window.location.href = "leaser-accept.html";
     });
 
     display_history()

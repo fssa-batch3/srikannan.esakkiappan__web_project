@@ -125,7 +125,8 @@ img#imag{
         width: 70%;
         height: 20%;
         margin-top: 40%;
-        margin-left: -224%;
+        margin-left: -188%;
+        transform: scale(.9);
     }
     a{
         transform: scale(.9);
