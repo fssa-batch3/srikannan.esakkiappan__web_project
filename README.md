@@ -70,6 +70,9 @@ Live server:https://sri-inovator.github.io/parkin/
 <p>When the leaser accept your request, you get notify by Email</p>
 
 <h3>Showing Tenant request</h3>
-<p>In 
+<p>In leaser profile, you seen request navigation link in the header you click that link to seen the requests of your place and accept the request by using accept button, it automatically notify the tenant via email.</p>
+
+<h3>History</h3>
+<p>After accept, when you see the request page, you seen the history section below, you seen the past accepted requests</p>
 
 
