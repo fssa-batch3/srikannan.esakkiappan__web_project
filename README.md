@@ -35,7 +35,7 @@ Live server:https://sri-inovator.github.io/parkin/
 <p>Listing the leaser place</p>
 <p>Search bar</p>
 <p>Showing Tenant Request</p>
-<p>Choosing Accept or unaccept</p>
+<p>Choosing Accept</p>
 <p>History</p>
 
 <h3>Tenant module</h3>
@@ -61,3 +61,18 @@ Live server:https://sri-inovator.github.io/parkin/
 
 <h3>Tenant place searching page</h3>
 <p>Go to tenant account profile and click the parking places and then you seen the new account created Leaser details</p> 
+<p>In that page you seen search bar in the header, you use that to search the parking places using the area or street name.</p>
+<p>Also you seen nearby button in the header, You click the button after that It ask's to allow your location If you allow the location it acess your location to show's nearby places of your location  </p>
+
+<h3>Give request to Leaser</h3>
+<p>After you click any one of the place box it navigate to another page, In that page you seen the place details and also you give request to leaser with the parking period time and also you seen the amount of you paid for the parking</p>
+<p>After that , your request will notify the leaser via email</p>
+<p>When the leaser accept your request, you get notify by Email</p>
+
+<h3>Showing Tenant request</h3>
+<p>In leaser profile, you seen request navigation link in the header you click that link to seen the requests of your place and accept the request by using accept button, it automatically notify the tenant via email.</p>
+
+<h3>History</h3>
+<p>After accept, when you see the request page, you seen the history section below, you seen the past accepted requests</p>
+
+

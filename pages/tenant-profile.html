@@ -40,6 +40,8 @@
         <button id="edi" >Edit</button> -->
         <div class="profile">
             <div id="avatar_img" ></div>
+            <img id="def_img" src="../assets/images/upload_template.jpeg" title="clic
+            Edit profile to upload your image">
             
             <div class="details">
             <h3 id="name">Name:&nbsp;&nbsp;<span id="input1"></span></h3>
@@ -48,8 +50,9 @@
             </div>
         </div>
         <!-- <div id="bike-img"> -->
+            
             <div id="bike1"></div>
-          <!--  <img id="bike2" src="../assets/Images/bik2..jpg" alt="bike1"> -->
+           <img id="bik1" src="../assets/Images/defa.jpg">
         <!-- </div> -->
     </main>
     <script>
@@ -83,7 +86,7 @@
         vehicle.innerHTML = `<img src="${res["upload_image"]}" border="0" id="prof_bike" height=500px width=300px>`
 
         let user_img = document.getElementById("avatar_img");
-        user_img.innerHTML = `<br><img src="${res["user_image"]}" border="0" height=130px width=120px>`
+        user_img.innerHTML = `<br><img src="${res["user_image"]}" id="user_im" border="0" height=130px width=120px>`
         
 
         document.getElementById("edi").addEventListener("click",(e)=>{

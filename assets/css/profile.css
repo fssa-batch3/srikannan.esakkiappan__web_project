@@ -13,7 +13,7 @@ header {
     top: 0;
     left: 0;
     right: 7.9px;
-    z-index: 2;
+    z-index: 8;
     color: white;
 }
 
@@ -60,7 +60,13 @@ main{
     height: 130px;
     width: 120px;
     margin-top: 25%;
-   
+   z-index: 5;
+}
+#def_img{
+    height: 110px;
+    width: 115px;
+    margin-top: -25%;
+    z-index: 3;
 }
 .profile{
     border-radius: 25px;
@@ -82,10 +88,28 @@ main{
 #bike1{
     margin-left: 19%;
     margin-top: 17%;
+    z-index: 3;
+}
+#bik1{
+    height: 460px;
+    width: 280px;
+    position: absolute;
+    left: 19%;
+    top: 30%;
+    z-index: 2;
 }
 #park_place{
     margin-left: 12%;
     margin-top: 21%;
+    z-index: 3;
+}
+#parkk{
+    position:absolute;
+    height: 390px;
+    width: 590px;
+    top: 36%;
+    left: 12%;
+    z-index: 2;
 }
 .details{
      margin-left: -12%;
@@ -98,7 +122,6 @@ main{
 #phn,#addres{
    margin-top: 20%;
 }
-
 @media only screen and (max-width: 800px){
     header{
         width: 100%;
@@ -158,20 +181,37 @@ main{
         flex-direction: column-reverse;
     }
     #plac_img{
-        width: 90%;
-        height: 60%;
+        width: 100%;
+        height: 70%;
         margin-top: 45%;
         border-radius: 5px;
+        margin-left: -6%;
+    }
+    #parkk{
+        width: 80%;
+        height: 27%;
+        margin-top: -5%;
+    
+    }
+    #def_img{
+        margin-top: -35%;
     }
     .profile{
         transform: scale(.9);
         width: 100%;
     }
+    #user_im{
+        margin-top: -16%;
+    }
     #prof_bike{
-        width: 70%;
+        width: 80%;
         height: 60%;
         margin-top: 65%;
         border-radius: 5px;
+    }
+    #bik1{
+        transform: scale(.6);
+        margin-left: -10%;
     }
 
 }
