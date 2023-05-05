@@ -19,6 +19,7 @@
             <img id="head_logo" src="../assets/images/lgo.png" alt="logo">
         </div>
         <!-- <a id="h" href="#">Home</a> -->
+        <h1 id="lf">Leaser profile</h1>
         <nav id="nav">
             <!-- Navigation links -->
             <a href="leaser-notification.html">Requests</a>
@@ -40,7 +41,7 @@
         <button id="edi" >Edit</button> -->
         <div class="profile">
             <div id="avatar_img"></div>
-            <img id="def_img" src="../assets/images/upload_template.jpeg">
+            <img id="def_img" src="../assets/images/upload_template.jpeg" alt="upload_template">
             <div class="details">
             <h3 id="name">Name:&nbsp;&nbsp;<span id="input1"></span></h3>
             <h3 id="phn">Phone number:&nbsp;&nbsp;<span id="input2"></span></h3>
@@ -49,7 +50,7 @@
         </div>
         <!-- <div id="bike-img"> -->
             <div id="park_place"></div>
-            <img id="parkk" src="../assets/images/defauu.jpg">
+            <img id="parkk" src="../assets/images/defauu.jpg" alt="upload_template">
     </main>
     <script>
 
@@ -76,10 +77,10 @@
                     input3.innerText=res["address"]
         
         let place = document.getElementById("park_place")
-        place.innerHTML = `<img src="${res["upload_image"]}" border="0" id="plac_img" height=400px width=600px>`
+        place.innerHTML = `<img src="${res["upload_image"]}" alt="parking_place" border="0" id="plac_img" height=400px width=600px>`
 
         let user_img = document.getElementById("avatar_img");
-        user_img.innerHTML = `<img src="${res["user_image"]}" border="0" height=130px width=120px>`
+        user_img.innerHTML = `<img src="${res["user_image"]}" alt="user_img" border="0" height=130px width=120px>`
                 
         document.getElementById("edi").addEventListener("click",(e)=>{
             console.log("clicked")

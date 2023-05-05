@@ -70,6 +70,8 @@
 
     let histo = document.querySelector(".history_box")
 
+    let nava;
+
     let image;
     let img;
     let detail;
@@ -202,6 +204,12 @@
     let tenan_emil = ans["Email"];
 
     act = JSON.parse(localStorage.getItem("Accepted_Tenant")) ?? [];
+
+    nava = document.createElement("a");
+    nava.setAttribute("id" , "nav");
+    nava.setAttribute("href", "tenant-payment.html?mail=" + tenan_emil);
+    console.log(nava);
+
     but.addEventListener("click", e => {
         e.preventDefault()
         // alert("hi")
@@ -219,14 +227,14 @@
             To: tenan_emil,
             From: "parkinn2023.sri@gmail.com",
             Subject: "Accepting Request",
-            Body: `Hi ${ans["Firstname"]},<br><br> You Request was accepted. Let's ready to park your vehicle in the leaser place on the time`  
+            Body: `Hi ${ans["Firstname"]},<br>Congrats!, You Request was accepted. Lets ready to park and If you want to pay the parking amount via online click <a href=${nava}>this </a> link.`  
             
         }).then((message)=>{
             alert("Accepted sucessfully")
             window.location.href = "leaser-accept.html"
         }
         )
-        // window.location.href = "leaser-accept.html";
+        
     });
 
     display_history()
