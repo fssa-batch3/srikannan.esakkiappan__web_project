@@ -196,6 +196,12 @@
       })
 
       console.log(check)
+
+   
+      // check["upload_image"]=" ",
+      // check["upload_docs"]=" ",
+      // check["user_image"]=" "
+      // localStorage.setItem("leaser",JSON.stringify(data))
     
       fname.value=check["firstname"]
       lname.value=check["lastname"]
@@ -206,18 +212,9 @@
       locat.value=check["location"]
       pass.value=check["password"]
       password.value=check["confirm_password"]
-      if(check["upload_image"]=="undefined"){
-        land_img.value = "";
-        land_docs.value = "";
-        user_img.value = "";
-      }
-      else{
       land_img.value=check["upload_image"]
       land_docs.value=check["upload_docs"]
       user_img.value=check["user_image"]
-      }
-      
-
 
 
 // upload land image..........................................

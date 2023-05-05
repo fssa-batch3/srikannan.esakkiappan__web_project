@@ -137,6 +137,7 @@
     console.log(tenant_login);
 
     let parking_amount;
+    let duration_hours;
 
     // validation of Email
 
@@ -151,18 +152,12 @@
             }
         })
 
-        let user_emil = details["email"];
-        let user_name = details["firstname"];
-        console.log(user_emil);
-        let user_nam = key["Firstname"];
-        let user_phno = key["phone_number"];
-        let veh_img = key["upload_image"];
-
         let star_time = document.getElementById("start-time").value;
         let end_time = document.getElementById("End-time").value;
 
         key["parking_start_time"] = star_time;
         key["parking_end_time"] = end_time;
+        key["Park_duration_hours"] = duration_hours;
         key["Request_person_email"] = details["email"];
         key["Request status"] = "pending";
         key["parking_amount"] = parking_amount;
@@ -175,16 +170,16 @@
             Host: "smtp.elasticemail.com",
             Username: "srikann.2003@gmail.com",
             Password: "4DB5AD9DEC3E8A5B5E3951B381AC456C5CBD",
-            To: user_emil,
+            To: details["email"],
             From: "parkinn2023.sri@gmail.com",
             Subject: "New Tenant Request",
-            Body : `Hi ${user_name} <br><br>
-                    You got a new parking request from your nearby tenant(Vehicle user).<br> Your requested person's name is ${user_nam}. He wants to park his vehicle between the times of ${star_time} to ${end_time}. And ${parking_amount} rupees is your receiving money if you accept this request. So If you like to accept this request, Go to your Parkin profile by using this link https://deploy-preview-1--parkin.netlify.app/pages/leaser-log.htm and accept your tenant request.
+            Body : `Hi ${details["firstname"]} <br><br>
+                    You got a new parking request from your nearby tenant(Vehicle user).<br> Your requested person's name is ${key["Firstname"]}. He wants to park his vehicle between the times of ${star_time} to ${end_time}. And ${parking_amount} rupees is your receiving money if you accept this request. So If you like to accept this request, Go to your Parkin profile by using this<a href="https://deploy-preview-1--parkin.netlify.app/pages/leaser-log.htm"> link</a> and accept your tenant request.
                     <br><br>
                     Thank you.`
             
         }).then((message)=>{
-            alert("Request sended sucessfully")
+            alert("Request send sucessfully")
             window.location.href = "tenant-request.html"
 
         } 
@@ -224,6 +219,9 @@
         }
         var minut = convertH2M(output);
         console.log(minut);
+
+        let tim = minut / 60;
+        duration_hours = Math.floor(tim);
 
         let money = minut / 4;
         parking_amount = money;

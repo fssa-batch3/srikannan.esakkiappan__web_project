@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,60 +10,133 @@
     <link rel="icon" href="../assets/images/Logo.png">
     <title>parkin</title>
 </head>
+
 <body>
     <header>
         <!-- header -->
         <div class="header_logo">
             <img id="head_logo" src="../assets/images/lgo.png" alt="logo">
         </div>
-        
+
         <nav id="nav">
             <!-- Navigation links -->
-            <a href="Tenant-log.html">Log out</a>
-            <a href="../index.html">Back to home</a>
+            
         </nav>
     </header>
     <main>
+        <div class="alter_main">
+
+        </div>
         <div class="main-container">
-            <div id="head">Amount Details</div>
-            <div class="amount-details">
-                <div id="duration">Parking duration</div>
-                <div id="time">1 Hour</div><br>
-                <hr>
-                <p id="amount">Payable Amount</p>
-                <div id="rupee">&#8377; 25</div>
-              
+            <div class="pay">
+                <div id="head">Amount Details</div>
+                <div class="amount-details">
+                    <div id="duration">Parking duration</div>
+                    <div id="time"></div><br>
+                    <hr>
+                    <p id="amount">Payable Amount</p>
+                    <div id="rupee"></div>
+                </div>
+                <button id="btn" type="submit">Proceed</button>
+                <!-- href="../index.html" -->
             </div>
-            <a id="btn" href="../index.html">Proceed</a>
             <div class="payment_options">
-                <div id="upi">Please select your UPI:</div>
-                <form >
-                    <div id="phon_box">
-                    <input type="radio" id="phonpay" name="options">
-                    <label for="phonpay"><img id="phon_pay" src="../assets/images/phonpay.png" alt="phon_pay"></label><br>
-                    </div>
-                    <div id="g_box">
-                    <input type="radio" id="gpay" name="options">
-                    <label for="gpay"><img id="g_pay" src="../assets/images/gpay.png" alt="gpay"></label><br>
-                    </div>
-                    <div id="pay_box">
-                    <input type="radio" id="paytm" name="options">
-                    <label for="paytm"><img id="pay_tm" src="../assets/images/paytm.png" alt="paytm"></label>
-                    </div>
-                </form>
-                  <hr>
-                  <p id="enter">Enter your UPI Number or UPI ID:</p>
+                <h2 id="h">Enter your UPI Number or UPI ID:</h2>
                 <form>
-                    <input type="search" id="searc">
-                    <label for="sear"></label><br>
-                    <div class="or">
-                    <div id="choice"><span class="check" >or</span>
-                    </div>
+                    <label id="lab" for="search"></label>
+                    <input type="text" id="searc" name="search" required><br>
+                    <a id="verify" type="submit">Verify</a>
                 </form>
+                <hr>
+                <!-- <div class="or">
+                    <div id="choice"><span class="check">or</span>
+                </div> -->
                 <img id="qr" src="../assets/images/parkqr.png" alt="qr-code">
                 <p id="qrcode">Scan this QR code and pay the amount</p>
             </div>
         </div>
     </main>
+
+    <script>
+
+        // let form = document.getElementById("form")
+        // form.onsubmit = function(){
+        //     console.log("required");
+        //     window.location.href = "#"
+        // }
+
+       let container = document.querySelector(".main-container");
+
+       let alt_container = document.querySelector(".alter_main");
+
+    //    const searc = document.getElementById("searc").value;
+
+        
+
+    //    if(searc == " "){
+    //     document.getElementById("btn").disabled = true;
+    //    }
+    //    else{
+    //     document.getElementById("btn").disabled = false;
+    //    }
+
+       let htag;
+       let back;
+
+       htag = document.createElement("h1");
+       htag.setAttribute("id", "hdd");
+       htag.innerHTML = `(Now you no have any paymenrts)<br><br>`
+       alt_container.append(htag);
+
+       back = document.createElement("a")
+       back.setAttribute("id", "prof");
+       back.setAttribute("href", "tenant-profile.html")
+       back.innerHTML = `Back to profile`;
+       htag.append(back);
+
+
+        let user = JSON.parse(localStorage.getItem("Tenanat"));
+        console.log(user);
+
+        let tenan_log=JSON.parse(localStorage.getItem("Tenant_details"))
+        console.log(tenan_log);
+
+        
+
+        const url = window.location.search;
+        const urlParams = new URLSearchParams(url)
+        let mail = urlParams.get('mail');
+
+        let data = user.find(e => {
+            let email = e["Email"]
+
+            if(mail == email) {
+                return true
+            }
+            else{
+                return false
+            }
+        });
+
+        console.log(data);
+
+        if(data == undefined){
+            container.style.display = "none";
+            alt_container.style.display = "flex";
+        }
+        else{
+            container.style.display = "flex";
+            alt_container.style.display = "none";
+        }
+
+        let duration = document.getElementById("time");
+        let amount = document.getElementById("rupee");
+
+        duration.innerHTML = `<p> ${data["Park_duration_hours"]} Hour</p>`
+        amount.innerHTML = `<p> &#8377;${data["parking_amount"]}</p>`
+
+        
+    </script>
 </body>
+
 </html>

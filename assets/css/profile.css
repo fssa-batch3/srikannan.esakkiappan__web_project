@@ -21,8 +21,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 500px;
-    margin-right: 80px;
+    width: 600px;
+    margin-right: 50px;
     font-family: 'Open Sans', sans-serif;
     letter-spacing: 2px;
 }
@@ -49,6 +49,10 @@ header {
     width: 120px;
     background-color: #0d131f;
     margin: 10px 0 10px 80px; 
+}
+#lf{
+    margin-top: 3%;
+    font-size: 40px;
 }
 main{
     display: flex;
