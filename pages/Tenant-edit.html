@@ -174,17 +174,33 @@
       let bike_img = document.getElementById("bike_img")
       let bike_docs = document.getElementById("bike_docs")
       let user_img = document.getElementById("user_img")
+      let tenan_sign = JSON.parse(localStorage.getItem("Tenant_sign"));
       let datas = JSON.parse(localStorage.getItem("Tenant"))
       let profile = JSON.parse(localStorage.getItem("Tenant_details"));
       console.log(datas)
       console.log(profile)
-      let check;
-      datas.find(e => {
-        if (e["Email"] == profile["Email"]) {
 
-          return check = e;
+    const url = window.location.search;
+    const urlParams = new URLSearchParams(url)
+    let mail = urlParams.get('mail');
+      let check;
+      check = datas.find(e => {
+        let e_mai = e["Email"]
+        if ( mail == e_mai) {
+          return true;
         }
+
       })
+
+      console.log(check)
+
+      if(check==undefined){
+        datas.find(l =>{
+          if(l["Email"] == profile["Email"]){
+            return check = l;
+          }
+        })
+      }
       console.log(check);
 
       fname.value = check["Firstname"]
@@ -280,7 +296,7 @@
         check["user_image"] = document.getElementById("user_img").value;
 
         localStorage.setItem("Tenant", JSON.stringify(datas))
-        window.location.href = "tenant-profile.html"
+        window.location.href = "tenant-profile.html?mail="+ check["Email"]
       })
       document.getElementById("del").addEventListener("click", e => {
         e.preventDefault();

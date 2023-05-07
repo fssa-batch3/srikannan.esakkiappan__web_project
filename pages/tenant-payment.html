@@ -37,7 +37,7 @@
                     <p id="amount">Payable Amount</p>
                     <div id="rupee"></div>
                 </div>
-                <button id="btn" type="submit">Proceed</button>
+                
                 <!-- href="../index.html" -->
             </div>
             <div class="payment_options">
@@ -45,7 +45,7 @@
                 <form>
                     <label id="lab" for="search"></label>
                     <input type="text" id="searc" name="search" required><br>
-                    <a id="verify" type="submit">Verify</a>
+                    <button id="btn" type="submit">Proceed</button>
                 </form>
                 <hr>
                 <!-- <div class="or">
@@ -59,33 +59,16 @@
 
     <script>
 
-        // let form = document.getElementById("form")
-        // form.onsubmit = function(){
-        //     console.log("required");
-        //     window.location.href = "#"
-        // }
-
        let container = document.querySelector(".main-container");
 
        let alt_container = document.querySelector(".alter_main");
-
-    //    const searc = document.getElementById("searc").value;
-
-        
-
-    //    if(searc == " "){
-    //     document.getElementById("btn").disabled = true;
-    //    }
-    //    else{
-    //     document.getElementById("btn").disabled = false;
-    //    }
 
        let htag;
        let back;
 
        htag = document.createElement("h1");
        htag.setAttribute("id", "hdd");
-       htag.innerHTML = `(Now you no have any paymenrts)<br><br>`
+       htag.innerHTML = `(Now you dont have pending amount to pay)<br><br>`
        alt_container.append(htag);
 
        back = document.createElement("a")
@@ -95,7 +78,7 @@
        htag.append(back);
 
 
-        let user = JSON.parse(localStorage.getItem("Tenanat"));
+        let user = JSON.parse(localStorage.getItem("Tenant_additional_det"));
         console.log(user);
 
         let tenan_log=JSON.parse(localStorage.getItem("Tenant_details"))
@@ -107,7 +90,7 @@
         const urlParams = new URLSearchParams(url)
         let mail = urlParams.get('mail');
 
-        let data = user.find(e => {
+        let data = user.find((e) => {
             let email = e["Email"]
 
             if(mail == email) {
@@ -134,6 +117,14 @@
 
         duration.innerHTML = `<p> ${data["Park_duration_hours"]} Hour</p>`
         amount.innerHTML = `<p> &#8377;${data["parking_amount"]}</p>`
+
+        proceed = document.getElementById("btn");
+
+        proceed.addEventListener("click", e => {
+            e.preventDefault()
+
+            
+        })
 
         
     </script>

@@ -130,7 +130,7 @@
     phon_num.innerText = details["phone_number"]
     parkin_img.innerHTML = `<img src="${details["upload_image"]}" alt="Hv4a2Tv.jpg" border="0" height="255px" width="430px" id="parking_image1">`
 
-    const tenant_details = JSON.parse(localStorage.getItem("Tenant"))
+    const tenant_details = JSON.parse(localStorage.getItem("Tenant_additional_det"))
     console.log(tenant_details);
 
     const tenant_login = JSON.parse(localStorage.getItem("Tenant_details"))
@@ -146,24 +146,130 @@
 
         let valid;
         let key;
-        tenant_details.find(e => {
-            if (e["Email"] == tenant_login["Email"]) {
-                return key = e;
-            }
-        })
-
         let star_time = document.getElementById("start-time").value;
         let end_time = document.getElementById("End-time").value;
+      
+        tenant_details.find(e => {
+            if (e["Email"] == tenant_login["Email"]) {
+                e["parking_start_time"] = star_time;
+                e["parking_end_time"] = end_time;
+                e["Park_duration_hours"] = duration_hours;
+                e["Request status"] = "pending";
+                e["parking_amount"] = parking_amount;
 
-        key["parking_start_time"] = star_time;
-        key["parking_end_time"] = end_time;
-        key["Park_duration_hours"] = duration_hours;
-        key["Request_person_email"] = details["email"];
-        key["Request status"] = "pending";
-        key["parking_amount"] = parking_amount;
+
+                    let obj = {
+                        "Request_person_email": details["email"]
+                    }
+                    e["request_receive_people"].push(obj)
+
+                    // let second = JSON.parse(key["request_receive_people"])
+
+                    // key["request_receive_people"] = []
+                    // key["Request_person_email"]= details["email"]
+                    // if (second) {
+                    // console.log(s)
+
+                    // second.find(el => {
+
+                    // if (s["Request_person_email"] != details["email"]) {
+                    //     let obj = {
+                    //         "Request_person_email": details["email"]
+                    //     }
+                    //     e["request_receive_people"].push(obj)
+                    //     console.log("matched 3")
+                    //     console.log(s["request_receive_people"])
+                    //     // key["request_receive_people"] = person_e
+
+                    // }
+                    // else {
+                    //     let obj = {
+                    //         "Request_person_email": details["email"]
+                    //     }
+                    //     e["request_receive_people"].push(obj)
+                    //     // e["request_receive_people"] = person_e
+                    //     console.log("2")
+                    //     console.log(e["request_receive_people"])
+                    // }
 
 
-        localStorage.setItem("Tenanat", JSON.stringify(tenant_details))
+                    // })
+                    // }
+                    // else {
+                    //     let obj = {
+                    //         "Request_person_email": details["email"]
+                    //     }
+                    //     person_e.push(obj)
+                    //     key["request_receive_people"] = person_e
+                    //     console.log("1")
+                    //     console.log(key["request_receive_people"])
+                    // }
+
+                    // console.log(s)
+                // })
+
+            }
+            return key = e;
+        })
+
+        // console.log(key);
+
+
+
+        // key["parking_start_time"] = star_time;
+        // key["parking_end_time"] = end_time;
+        // key["Park_duration_hours"] = duration_hours;
+        // console.log(key["request_receive_people"]);
+        // let second=JSON.parse(key["request_receive_people"])
+
+        // // key["request_receive_people"] = []
+        // // key["Request_person_email"]= details["email"]
+        // if (second) {
+
+
+        //     second.find(el => {
+
+        //         if (el("Request_person_email") != details["email"]) {
+        //             let obj = {
+        //                 "Request_person_email": details["email"]
+        //             }
+        //             key["request_receive_people"].push(obj)
+        //             console.log("matched 3")
+        //             console.log(key["request_receive_people"])
+        //             // key["request_receive_people"] = person_e
+
+        //         }
+        //         else {
+        //             let obj = {
+        //                 "Request_person_email": details["email"]
+        //             }
+        //             person_e.push(obj)
+        //             key["request_receive_people"] = person_e
+        //             console.log("2")
+        //             console.log(key["request_receive_people"])
+        //         }
+
+
+        //     })
+        // }
+        // else {
+        //     let obj = {
+        //         "Request_person_email": details["email"]
+        //     }
+        //     person_e.push(obj)
+        //     key["request_receive_people"] = person_e
+        //     console.log("1")
+        //     console.log(key["request_receive_people"])
+        // }
+
+
+
+
+        // key["Request status"] = "pending";
+        // key["parking_amount"] = parking_amount;
+
+
+        localStorage.setItem("Tenant_additional_det", JSON.stringify(tenant_details))
 
 
         Email.send({
@@ -173,18 +279,18 @@
             To: details["email"],
             From: "parkinn2023.sri@gmail.com",
             Subject: "New Tenant Request",
-            Body : `Hi ${details["firstname"]} <br><br>
+            Body: `Hi ${details["firstname"]} <br><br>
                     You got a new parking request from your nearby tenant(Vehicle user).<br> Your requested person's name is ${key["Firstname"]}. He wants to park his vehicle between the times of ${star_time} to ${end_time}. And ${parking_amount} rupees is your receiving money if you accept this request. So If you like to accept this request, Go to your Parkin profile by using this<a href="https://deploy-preview-1--parkin.netlify.app/pages/leaser-log.htm"> link</a> and accept your tenant request.
                     <br><br>
                     Thank you.`
-            
-        }).then((message)=>{
+
+        }).then((message) => {
             alert("Request send sucessfully")
             window.location.href = "tenant-request.html"
 
-        } 
+        }
         )
-        
+
     })
 
 

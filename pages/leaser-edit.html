@@ -8,8 +8,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;600;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="../assets/css/signup-edit.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Parkin</title>
   <link rel="icon" href="../assets/images/Logo.png">
 </head>
@@ -23,7 +23,7 @@
     <nav id="nav">
 
       <!-- Navigation links -->
-      <a href="leaser-profile.html" id="save">Save</a>
+      <a id="save">Save</a>
       <a href="leaser-log.html" id="del">Delete</a>
       <a href="../index.html">Log out</a>
 
@@ -31,9 +31,9 @@
     <div class="respons_nav">
       <i class="fa-solid fa-bars" id="btttn"></i>
       <div class="menu-list">
-      <a href="leaser-profile.html" id="save">Save</a>
-      <a href="leaser-log.html" id="del">Delete</a>
-      <a href="../index.html">Log out</a>
+        <a id="save">Save</a>
+        <a href="leaser-log.html" id="del">Delete</a>
+        <a href="../index.html">Log out</a>
       </div>
     </div>
 
@@ -48,7 +48,7 @@
           <label for="fname">First Name</label>
         </div>
         <div class="col-75">
-          <input type="text" id="fname" name="firstname" placeholder="Your name.." >
+          <input type="text" id="fname" name="firstname" placeholder="Your name..">
         </div>
       </div>
 
@@ -57,7 +57,7 @@
           <label for="lname">Last Name</label>
         </div>
         <div class="col-75">
-          <input type="text" id="lname" name="lastname" placeholder="Your last name.." >
+          <input type="text" id="lname" name="lastname" placeholder="Your last name..">
         </div>
       </div>
 
@@ -75,7 +75,7 @@
           <label for="name">Phone number</label>
         </div>
         <div class="col-75">
-          <input type="number" id="numb" name="numb" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" >
+          <input type="number" id="numb" name="numb" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}">
         </div>
       </div>
 
@@ -84,7 +84,7 @@
           <label for="name">Another number</label>
         </div>
         <div class="col-75">
-          <input type="number" id="number" name="numb" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}" >
+          <input type="number" id="number" name="numb" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}">
         </div>
       </div>
 
@@ -93,7 +93,7 @@
           <label for="subject">Address</label>
         </div>
         <div class="col-75">
-          <textarea id="subject" name="subject" placeholder="Write address.."  style="height:50px"></textarea>
+          <textarea id="subject" name="subject" placeholder="Write address.." style="height:50px"></textarea>
         </div>
       </div>
 
@@ -102,7 +102,7 @@
           <label for="subject">Parking location</label>
         </div>
         <div class="col-75">
-          <textarea id="sub" name="subject" placeholder="location link"  style="height:40px"></textarea>
+          <textarea id="sub" name="subject" placeholder="location link" style="height:40px"></textarea>
         </div>
       </div>
 
@@ -111,7 +111,7 @@
           <label for="name">Password</label>
         </div>
         <div class="col-75">
-          <input type="password" id="pass" name="numb" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" >
+          <input type="password" id="pass" name="numb" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
         </div>
       </div>
 
@@ -120,7 +120,7 @@
           <label for="name">Confirm Password</label>
         </div>
         <div class="col-75">
-          <input type="password" id="password" name="numb" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$" >
+          <input type="password" id="password" name="numb" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
         </div>
       </div>
 
@@ -134,7 +134,7 @@
           <a class="uplod" id="land_prev">Preview</a>
         </div>
       </div>
-      
+
       <div id="display_image">
 
       </div>
@@ -151,7 +151,7 @@
       </div>
 
       <div id="display_docs">
-      
+
       </div>
 
       <div class="row">
@@ -165,8 +165,8 @@
         </div>
       </div>
 
-      <div  id="display_photo">
-       
+      <div id="display_photo">
+
       </div>
 
     </form>
@@ -183,125 +183,139 @@
       let land_img = document.getElementById("land_img")
       let land_docs = document.getElementById("land_docs")
       let user_img = document.getElementById("user_img")
+      let leas_sign = JSON.parse(localStorage.getItem("leas_signup"));
+      console.log(leas_sign);
       let data = JSON.parse(localStorage.getItem("leaser"))
       let profile = JSON.parse(localStorage.getItem("profile_details"));
       console.log(data)
       console.log(profile)
+
+    const url = window.location.search;
+    const urlParams = new URLSearchParams(url)
+    let mail = urlParams.get('mail');
+
       let check;
-    data.find(e=>{
-      if(e["email"]==profile["username"]){
-      
-        return check=e;
-      }
+      check = data.find(e => {
+        let e_mai = e["email"]
+        if ( mail == e_mai) {
+          return true;
+        }
+
       })
 
       console.log(check)
 
-   
+      if(check==undefined){
+        data.find(l =>{
+          if(l["email"] == profile["username"]){
+            return check = l;
+          }
+        })
+      }
       // check["upload_image"]=" ",
       // check["upload_docs"]=" ",
       // check["user_image"]=" "
       // localStorage.setItem("leaser",JSON.stringify(data))
-    
-      fname.value=check["firstname"]
-      lname.value=check["lastname"]
-      email.value=check["email"]
-      numb.value=check["phone_number"]
-      number.value=check["phone_number1"]
-      address.value=check["address"]
-      locat.value=check["location"]
-      pass.value=check["password"]
-      password.value=check["confirm_password"]
-      land_img.value=check["upload_image"]
-      land_docs.value=check["upload_docs"]
-      user_img.value=check["user_image"]
+
+      fname.value = check["firstname"]
+      lname.value = check["lastname"]
+      email.value = check["email"]
+      numb.value = check["phone_number"]
+      number.value = check["phone_number1"]
+      address.value = check["address"]
+      locat.value = check["location"]
+      pass.value = check["password"]
+      password.value = check["confirm_password"]
+      land_img.value = check["upload_image"]
+      land_docs.value = check["upload_docs"]
+      user_img.value = check["user_image"]
 
 
-// upload land image..........................................
+      // upload land image..........................................
 
 
       document.getElementById("land_prev").addEventListener("click", e => {
         e.preventDefault();
         const upload_img = document.getElementById("land_img").value;
 
-        check["upload_image"]=upload_img;
+        check["upload_image"] = upload_img;
 
-        localStorage.setItem("leaser",JSON.stringify(data))
+        localStorage.setItem("leaser", JSON.stringify(data))
 
-         preview1()
+        preview1()
       })
 
-// upload land docs..........................................
+      // upload land docs..........................................
 
       document.getElementById("land_doc_prev").addEventListener("click", e => {
         e.preventDefault();
         const upload_docs = document.getElementById("land_docs").value;
 
-        check["upload_docs"]=upload_docs;
+        check["upload_docs"] = upload_docs;
 
-        localStorage.setItem("leaser",JSON.stringify(data))
+        localStorage.setItem("leaser", JSON.stringify(data))
 
         preview2()
       })
 
-// upload user image..........................................
+      // upload user image..........................................
 
       document.getElementById("user_prev").addEventListener("click", e => {
         e.preventDefault();
         const user_image = document.getElementById("user_img").value;
 
-        check["user_image"]=user_image;
+        check["user_image"] = user_image;
 
-        localStorage.setItem("leaser",JSON.stringify(data))
+        localStorage.setItem("leaser", JSON.stringify(data))
 
         preview3()
       })
 
       let landpic = document.getElementById("display_image")
       function preview1() {
-        landpic.innerHTML = `<br><img src="${check["upload_image"]}" alt="Hv4a2Tv.jpg" border="0" id="lnd" height="255px" width="430px" >`                  
+        landpic.innerHTML = `<br><img src="${check["upload_image"]}" alt="Hv4a2Tv.jpg" border="0" id="lnd" height="255px" width="430px" >`
       }
 
       let landdoc = document.getElementById("display_docs")
       function preview2() {
-        landdoc.innerHTML = `<br><img src="${check["upload_docs"]}" alt="Hv4a2Tv.jpg" border="0"  id="lnd_doc" height="335px" width="390px" >`                  
+        landdoc.innerHTML = `<br><img src="${check["upload_docs"]}" alt="Hv4a2Tv.jpg" border="0"  id="lnd_doc" height="335px" width="390px" >`
       }
 
       let userimg = document.getElementById("display_photo")
       function preview3() {
-        userimg.innerHTML = `<br><img src="${check["user_image"]}" alt="Hv4a2Tv.jpg" border="0" id="use" height="255px" width="200px" >`                  
+        userimg.innerHTML = `<br><img src="${check["user_image"]}" alt="Hv4a2Tv.jpg" border="0" id="use" height="255px" width="200px" >`
       }
-      
 
 
-    
-      document.getElementById("save").addEventListener("click",e=>{
+
+
+      document.getElementById("save").addEventListener("click", e => {
         e.preventDefault();
-        check["firstname"]=document.getElementById("fname").value;
-        check["lastname"]=document.getElementById("lname").value;
-        check["email"]=document.getElementById("email").value;
-        check["phone_number"]=document.getElementById("numb").value;
-        check["phone_number1"]=document.getElementById("number").value;
-        check["address"]=document.getElementById("subject").value;
-        check["location"]=document.getElementById("sub").value;
-        check["password"]=document.getElementById("pass").value;
-        check["confirm_password"]=document.getElementById("password").value;
-        check["upload_image"]=document.getElementById("land_img").value;
-        check["upload_docs"]=document.getElementById("land_docs").value;
-        check["user_image"]=document.getElementById("user_img").value;
+        check["firstname"] = document.getElementById("fname").value;
+        check["lastname"] = document.getElementById("lname").value;
+        check["email"] = document.getElementById("email").value;
+        check["phone_number"] = document.getElementById("numb").value;
+        check["phone_number1"] = document.getElementById("number").value;
+        check["address"] = document.getElementById("subject").value;
+        check["location"] = document.getElementById("sub").value;
+        check["password"] = document.getElementById("pass").value;
+        check["confirm_password"] = document.getElementById("password").value;
+        check["upload_image"] = document.getElementById("land_img").value;
+        check["upload_docs"] = document.getElementById("land_docs").value;
+        check["user_image"] = document.getElementById("user_img").value;
 
-        localStorage.setItem("leaser",JSON.stringify(data))
-        window.location.href = "leaser-profile.html"
+        localStorage.setItem("leaser", JSON.stringify(data))
+        window.location.href = "leaser-profile.html?mail="+ check["email"]
       })
-    document.getElementById("del").addEventListener("click",e=>{
+      document.getElementById("del").addEventListener("click", e => {
         e.preventDefault();
-        console.log(check) 
-        let num=data.indexOf(check) 
-        data.splice(num,1)
-        localStorage.setItem("leaser",JSON.stringify(data))
+        console.log(check)
+        let num = data.indexOf(check)
+        data.splice(num, 1)
+        localStorage.setItem("leaser", JSON.stringify(data))
         alert("It's ok to delete your account")
         window.location.href = "leaser-log.html"
-    })
+      })
 
     </script>
 </body>

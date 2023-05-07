@@ -42,7 +42,7 @@
 
 
         let lease = JSON.parse(localStorage.getItem("leaser"))
-        console.log(lease);
+       
         let main_lists = document.querySelector(".main_list");
 
 
@@ -118,7 +118,7 @@
         const locat = document.getElementById("locat")
         locat.addEventListener("click", function () {
             if (navigator.geolocation) {
-                navigator.geolocation.getCurrentPosition(showPosition);
+                navigator.geolocation.watchPosition(showPosition);
             } else {
                 alert("Geolocation is not supported by this browser.")
             }
@@ -126,7 +126,9 @@
 
                 let latitud = position.coords.latitude
                 let longitud = position.coords.longitude
+                let accur = position.coords.accuracy
                 console.log(latitud, longitud); // 13.0963045  80.2865916
+                console.log(Math.round(accur));
 
                 let near="";
                 for (let s = 0; s < lease.length; s++) {
@@ -134,9 +136,9 @@
                     let lon2 = lease[s]["Longitude"];
 
                     const distan_km = distance(latitud, longitud, lat2, lon2);
-                    console.log(distan_km);
+                    
 
-                    if (distan_km <= 1) {
+                    if (distan_km <= 5) {
                         console.log(lease[s]);
                         near += `<a id="link" href="tenant-chooseduration.html?name=${lease[s]["firstname"]}">
                             <div class="profile_box">
@@ -151,7 +153,7 @@
                             </div>
                                 </a>`
                         main_lists.innerHTML = near;
-                        console.log("sucess");
+                        console.log(distan_km);
                     }
                 }
             }

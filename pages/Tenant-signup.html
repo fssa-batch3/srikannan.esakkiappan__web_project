@@ -171,14 +171,18 @@
               "Address": Address,
               "password": password_1,
               "confirm_password": password_2,
+              "request_receive_people": [],
               "upload_image": "",
               "upload_docs":"",
               "user_image":" "
             }
             Tenant.push(user_data)
+            localStorage.setItem("Tenant_sign", JSON.stringify(user_data))
+            let tenasign = JSON.parse(localStorage.getItem("Tenant_sign"))
+            localStorage.setItem("Tenant_additional_det", JSON.stringify(Tenant))
             localStorage.setItem("Tenant", JSON.stringify(Tenant))
-            window.location.href = "Tenant-log.html"
-            console.log(user_data);
+            window.location.href = "tenant-profile.html?mail=" +tenasign["Email"]
+            // console.log(user_data);
           }
         }
       })

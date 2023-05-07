@@ -92,24 +92,31 @@
     let hp;
     let hp1;
     let acp;
-    const tenan = JSON.parse(localStorage.getItem("Tenanat"))
+    const tenan = JSON.parse(localStorage.getItem("Tenant_additional_det"))
     const leaser_log = JSON.parse(localStorage.getItem("profile_details"))
     const loger_mail = leaser_log["username"];
     console.log(loger_mail);
+    console.log(tenan);
 
     console.log(leaser_log);
     let res = 0;
 
-    tenan.find(e => {
-        if (e["Request_person_email"] != loger_mail) {
+    // for(let j=0;j<4;j++){
+        tenan.find(e => {
+        e["request_receive_people"].find(j =>{
+            
+           if(j["Request_person_email"] != loger_mail) {
 
             main_box.style.display = "flex";
         }
         else {
             return res = 1;
-
         }
     })
+    })
+    // }
+    
+    // console.log(e);
     console.log(res);
     if (res == 1) {
         htag = document.createElement("h2");
@@ -161,10 +168,13 @@
     }
 
     let ans;
-    tenan.find(e => {
-        if (e["Request_person_email"] == leaser_log["username"]) {
+  
+        tenan.find(e => {
+        e["request_receive_people"].find(m =>{
+           if(m["Request_person_email"] == leaser_log["username"]) {
             return ans = e;
         }
+    })
     })
 
     console.log(ans);
@@ -230,10 +240,12 @@
             Body: `Hi ${ans["Firstname"]},<br>Congrats!, You Request was accepted. Lets ready to park and If you want to pay the parking amount via online click <a href=${nava}>this </a> link.`  
             
         }).then((message)=>{
-            alert("Accepted sucessfully")
+            alert("Accepted sucessfully, Please check your Email")
             window.location.href = "leaser-accept.html"
         }
         )
+
+        // but.setAttribute("disabled")
         
     });
 
