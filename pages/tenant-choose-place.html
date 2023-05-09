@@ -17,8 +17,9 @@
     <!-- Navigation link -->
     <nav id="nav">
         <input id="search" type="search" placeholder=" Use your location to search">
-        <a id="log" href="../index.html">Log out</a>
         <button id="locat">Near by</button>
+        <a id="log" href="../index.html">Log out</a>
+        
     </nav>
 
 </header>
@@ -34,6 +35,7 @@
     <script>
         let div_list;
         let div_profile_box;
+        let available;
         let div_image;
         let imag;
         let div_detail;
@@ -57,6 +59,8 @@
             div_profile_box = document.createElement("div");
             div_profile_box.setAttribute("class", "profile_box");
             a.append(div_profile_box);
+
+          
 
             div_image = document.createElement("div");
             div_image.setAttribute("class", "image");
@@ -85,6 +89,9 @@
             phon_num.setAttribute("id", "phon")
             phon_num.innerHTML = `<p>Phone number : ${lease[i]["phone_number"]}</p>`;
             div_detail.append(phon_num);
+
+            // available = document.createElement("p");
+            // available.setAttribute("id","")
 
             main_lists.prepend(a)
         }

@@ -27,6 +27,13 @@ header{
     width: 40%;
     margin-left: 70%;
 }
+a#log{
+    margin-left: 13%;
+    font-size: 19px;
+   height: 45%;
+   width: 390%;
+   
+}
 #nav a:hover{
     background-color: #0182ff;
     color: white;
@@ -45,7 +52,7 @@ header{
 }
 #search{
     position: absolute;
-    left: 880px;
+    left: 840px;
     height: 50px;
     width: 300px;
 }
@@ -56,6 +63,9 @@ a{
 }
 #locat{
     cursor: pointer;
+    margin-left: 60%;
+    height: 35%;
+    width: 710%;
 }
 #link{
     color: black;

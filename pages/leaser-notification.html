@@ -102,20 +102,20 @@
     let res = 0;
 
     // for(let j=0;j<4;j++){
-        tenan.find(e => {
-        e["request_receive_people"].find(j =>{
-            
-           if(j["Request_person_email"] != loger_mail) {
+    tenan.find(e => {
+        e["request_receive_people"].find(j => {
 
-            main_box.style.display = "flex";
-        }
-        else {
-            return res = 1;
-        }
-    })
+            if (j["Request_person_email"] != loger_mail) {
+
+                main_box.style.display = "flex";
+            }
+            else {
+                return res = 1;
+            }
+        })
     })
     // }
-    
+
     // console.log(e);
     console.log(res);
     if (res == 1) {
@@ -161,20 +161,20 @@
         but.innerText = "Accept";
         detail.append(but)
     }
-    else{
+    else {
         req_feed = document.createElement("h2")
         req_feed.innerText = "You dont have any request !"
         main_box.append(req_feed)
     }
 
     let ans;
-  
-        tenan.find(e => {
-        e["request_receive_people"].find(m =>{
-           if(m["Request_person_email"] == leaser_log["username"]) {
-            return ans = e;
-        }
-    })
+
+    tenan.find(e => {
+        e["request_receive_people"].find(m => {
+            if (m["Request_person_email"] == leaser_log["username"]) {
+                return ans = e;
+            }
+        })
     })
 
     console.log(ans);
@@ -216,14 +216,13 @@
     act = JSON.parse(localStorage.getItem("Accepted_Tenant")) ?? [];
 
     nava = document.createElement("a");
-    nava.setAttribute("id" , "nav");
+    nava.setAttribute("id", "nav");
     nava.setAttribute("href", "tenant-payment.html?mail=" + tenan_emil);
     console.log(nava);
 
     but.addEventListener("click", e => {
         e.preventDefault()
         // alert("hi")
-
 
         ans["Request status"] = "accepted";
         histo.style.display = "flex";
@@ -237,16 +236,16 @@
             To: tenan_emil,
             From: "parkinn2023.sri@gmail.com",
             Subject: "Accepting Request",
-            Body: `Hi ${ans["Firstname"]},<br>Congrats!, You Request was accepted. Lets ready to park and If you want to pay the parking amount via online click <a href=${nava}>this </a> link.`  
-            
-        }).then((message)=>{
-            alert("Accepted sucessfully, Please check your Email")
+            Body: `Hi ${ans["Firstname"]},<br>Congrats!, You Request was accepted. Lets ready to park and If you want to pay the parking amount via online click <a href=${nava}>this </a> link.`
+
+        }).then((message) => {
+            alert("Accepted sucessfully")
             window.location.href = "leaser-accept.html"
         }
         )
 
         // but.setAttribute("disabled")
-        
+
     });
 
     display_history()
@@ -255,44 +254,53 @@
 
         for (let i = 0; i < act.length; i++) {
 
-            if (act[i]["Request_person_email"] == loger_mail) {
+            act.find(k => {
+                k["request_receive_people"].find(l => {
+                    if (l["Request_person_email"] == loger_mail) {
+                        history = document.createElement("div")
+                        history.setAttribute("class", "history")
+                        histo.append(history)
 
-                history = document.createElement("div")
-                history.setAttribute("class", "history")
-                histo.append(history)
+                        him = document.createElement("div")
+                        him.setAttribute("class", "image")
+                        history.append(him)
 
-                him = document.createElement("div")
-                him.setAttribute("class", "image")
-                history.append(him)
+                        hi = document.createElement("div")
+                        hi.setAttribute("id", "imag")
+                        hi.innerHTML = `<img src=${act[i]["upload_image"]} height=180px width=110px>`
+                        him.append(hi)
 
-                hi = document.createElement("div")
-                hi.setAttribute("id", "imag")
-                hi.innerHTML = `<img src=${act[i]["upload_image"]} height=180px width=110px>`
-                him.append(hi)
+                        det = document.createElement("div")
+                        det.setAttribute("class", "detail")
+                        history.append(det)
 
-                det = document.createElement("div")
-                det.setAttribute("class", "detail")
-                history.append(det)
+                        hp = document.createElement("p")
+                        hp.setAttribute("id", "hname")
+                        hp.innerHTML = `<p> ${act[i]["Firstname"]}</p>`
+                        det.append(hp)
 
-                hp = document.createElement("p")
-                hp.setAttribute("id", "hname")
-                hp.innerHTML = `<p> ${act[i]["Firstname"]}</p>`
-                det.append(hp)
+                        hp1 = document.createElement("p")
+                        hp1.setAttribute("id", "hnum")
+                        hp1.innerHTML = `<p> ${act[i]["phone_number"]} </p>`
+                        det.append(hp1)
 
-                hp1 = document.createElement("p")
-                hp1.setAttribute("id", "hnum")
-                hp1.innerHTML = `<p> ${act[i]["phone_number"]} </p>`
-                det.append(hp1)
+                        acp = document.createElement("p")
+                        acp.setAttribute("id", "acp")
+                        acp.innerHTML = `<p> ${z}`
+                        det.append(acp)
+                    }
+                })
+            })
 
-                acp = document.createElement("p")
-                acp.setAttribute("id", "acp")
-                acp.innerHTML = `<p> ${z}`
-                det.append(acp)
-            }
+            
+
         }
 
 
     }
+
+
+    
 
 </script>
 

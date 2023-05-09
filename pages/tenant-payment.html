@@ -16,11 +16,12 @@
         <!-- header -->
         <div class="header_logo">
             <img id="head_logo" src="../assets/images/lgo.png" alt="logo">
+           
+           
         </div>
 
         <nav id="nav">
             <!-- Navigation links -->
-            
         </nav>
     </header>
     <main>
@@ -41,6 +42,10 @@
                 <!-- href="../index.html" -->
             </div>
             <div class="payment_options">
+                <hr>
+                <div id="prof_nam"></div>
+                <div id="prof_mail"></div>
+                <hr>
                 <h2 id="h">Enter your UPI Number or UPI ID:</h2>
                 <form>
                     <label id="lab" for="search"></label>
@@ -65,6 +70,10 @@
 
        let htag;
        let back;
+       let prof_nam;
+       let prof_mail;
+
+       
 
        htag = document.createElement("h1");
        htag.setAttribute("id", "hdd");
@@ -105,12 +114,21 @@
 
         if(data == undefined){
             container.style.display = "none";
+            // prof_nam.style.display = "none";
             alt_container.style.display = "flex";
         }
         else{
             container.style.display = "flex";
             alt_container.style.display = "none";
+            // prof_nam.style.display = "flex";
         }
+
+       prof_nam = document.getElementById("prof_nam")
+       prof_nam.innerHTML = `<p> Name : ${data["Firstname"]} </p>`
+       console.log(prof_nam);
+
+       prof_mail = document.getElementById("prof_mail")
+       prof_mail.innerHTML = `<p> Email : ${data["Email"]} </p>`
 
         let duration = document.getElementById("time");
         let amount = document.getElementById("rupee");
