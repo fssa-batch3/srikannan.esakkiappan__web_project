@@ -19,7 +19,7 @@
         <input id="search" type="search" placeholder=" Use your location to search">
         <button id="locat">Near by</button>
         <a id="log" href="../index.html">Log out</a>
-        
+
     </nav>
 
 </header>
@@ -33,6 +33,12 @@
 
     </main>
     <script>
+
+        const url = window.location.search;
+        const urlParams = new URLSearchParams(url)
+        let mail = urlParams.get('mail');
+
+
         let div_list;
         let div_profile_box;
         let available;
@@ -42,9 +48,20 @@
         let parag;
         let parag1;
 
+        let tenant = JSON.parse(localStorage.getItem("Tenant"));
+
+        let result;
+
+        tenant.find(e=>{
+            let Emai = e["Email"];
+            if(mail==Emai){
+                result = e;
+            }
+        })
+
 
         let lease = JSON.parse(localStorage.getItem("leaser"))
-       
+
         let main_lists = document.querySelector(".main_list");
 
 
@@ -53,14 +70,13 @@
 
             let a = document.createElement("a");
             a.setAttribute("id", "link");
-            a.setAttribute("href", "tenant-chooseduration.html?name=" + lease[i]["firstname"]);
+            a.setAttribute("href", "tenant-chooseduration.html?name=" + lease[i]["firstname"]+"&Tenant="+ result["Email"] );
             console.log(a)
 
             div_profile_box = document.createElement("div");
             div_profile_box.setAttribute("class", "profile_box");
             a.append(div_profile_box);
 
-          
 
             div_image = document.createElement("div");
             div_image.setAttribute("class", "image");
@@ -119,7 +135,6 @@
 
             });
 
-
         })
 
         const locat = document.getElementById("locat")
@@ -137,17 +152,17 @@
                 console.log(latitud, longitud); // 13.0963045  80.2865916
                 console.log(Math.round(accur));
 
-                let near="";
+                let near = "";
                 for (let s = 0; s < lease.length; s++) {
                     let lat2 = lease[s]["Lattitude"];
                     let lon2 = lease[s]["Longitude"];
 
                     const distan_km = distance(latitud, longitud, lat2, lon2);
-                    
 
-                    if (distan_km <= 5) {
+
+                    if (distan_km <= 15) {
                         console.log(lease[s]);
-                        near += `<a id="link" href="tenant-chooseduration.html?name=${lease[s]["firstname"]}">
+                        near += `<a id="link" href="tenant-chooseduration.html?name=${lease[s]["firstname"]}&Tenant=${result["Email"]}">
                             <div class="profile_box">
                               <div class="image">
                                 <img id="imag" src="${lease[s]["upload_image"]}">
@@ -177,7 +192,7 @@
             const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
             const d = R * c; // distance in km
             return d;
-            
+
         }
 
         function deg2rad(deg) {

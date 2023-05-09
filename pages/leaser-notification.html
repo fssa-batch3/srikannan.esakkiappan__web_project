@@ -92,20 +92,34 @@
     let hp;
     let hp1;
     let acp;
+
+    const url = window.location.search;
+        const urlParams = new URLSearchParams(url)
+        let mail = urlParams.get('mail');
+
+    // const leaserr = JSON.parse(localStorage.getItem("leaser"))    
     const tenan = JSON.parse(localStorage.getItem("Tenant_additional_det"))
     const leaser_log = JSON.parse(localStorage.getItem("profile_details"))
     const loger_mail = leaser_log["username"];
     console.log(loger_mail);
     console.log(tenan);
 
-    console.log(leaser_log);
+    // console.log(leaser_log);
+
+    // let leaser_d;
+    // leaserr.find(le =>{
+    //     if(le["email"]==mail){
+    //         return leaser_d=le;
+    //     }
+    // })
+    // console.log(leaser_d);
     let res = 0;
 
     // for(let j=0;j<4;j++){
     tenan.find(e => {
         e["request_receive_people"].find(j => {
 
-            if (j["Request_person_email"] != loger_mail) {
+            if (j["Request_person_email"] != mail) {
 
                 main_box.style.display = "flex";
             }
@@ -240,19 +254,21 @@
 
         }).then((message) => {
             alert("Accepted sucessfully")
+            display_history();
             window.location.href = "leaser-accept.html"
         }
         )
 
-        // but.setAttribute("disabled")
+       
+  // but.setAttribute("disabled")
 
     });
-
-    display_history()
+    display_history();
+   
 
     function display_history() {
 
-        for (let i = 0; i < act.length; i++) {
+        for (let i = 1; i < act.length; i++) {
 
             act.find(k => {
                 k["request_receive_people"].find(l => {
@@ -290,6 +306,7 @@
                         det.append(acp)
                     }
                 })
+                
             })
 
             

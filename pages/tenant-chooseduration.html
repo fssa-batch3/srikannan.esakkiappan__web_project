@@ -26,14 +26,14 @@
         <nav id="nav">
 
             <!-- Navigation links -->
-            <a href="tenant-choose-place.html">Explore other places</a>
+            <a id="explo">Explore other places</a>
             <a href="../index.html">Log out</a>
 
         </nav>
         <div class="respons_nav">
             <i class="fa-solid fa-bars" id="bttn"></i>
             <div class="menu-list">
-                <a href="tenant-choose-place.html">Explore places</a>
+                <a id="explo">Explore places</a>
                 <a href="../index.html">Log out</a>
             </div>
         </div>
@@ -106,17 +106,27 @@
         enableTime: true,
         dateFormat: "Y-m-d H:i",
         altInput: true,
-        altFormat: "F j, Y (h:S K)"
+        altFormat: "F j, Y (h:S K)",
+        minDate: new Date().toISOString().slice(0, 10)
     }
+    
 
     flatpickr("input[type=datetime-local]", config);
 
     const leaser_details = JSON.parse(localStorage.getItem("leaser"))
 
+    console.log(leaser_details);
+
 
     const url = window.location.search;
     const urlParams = new URLSearchParams(url)
     let name = urlParams.get('name');
+
+    const urlp = window.location.search;
+    const urlpara = new URLSearchParams(urlp)
+    let ten = urlpara.get('Tenant');
+
+    console.log(name);
 
     let details = leaser_details.find(el => {
 
@@ -145,68 +155,13 @@
     const tenant_details = JSON.parse(localStorage.getItem("Tenant_additional_det"))
     console.log(tenant_details);
 
-    const tenant_login = JSON.parse(localStorage.getItem("Tenant_details"))
-    console.log(tenant_login);
+    // const tenant_login = JSON.parse(localStorage.getItem("Tenant_details"))
+    // console.log(tenant_login);
 
     let parking_amount;
     let duration_hours;
     let money;
     let minut;
-
-    // validation of Email
-
-    document.querySelector("form").addEventListener("submit", l => {
-        l.preventDefault();
-
-        let valid;
-        let key;
-        let star_time = document.getElementById("start-time").value;
-        let end_time = document.getElementById("End-time").value;
-
-        tenant_details.find(e => {
-            if (e["Email"] == tenant_login["Email"]) {
-                e["parking_start_time"] = star_time;
-                e["parking_end_time"] = end_time;
-                e["Park_duration_hours"] = duration_hours;
-                e["Request status"] = "pending";
-                e["parking_amount"] = parking_amount;
-
-
-                let obj = {
-                    "Request_person_email": details["email"]
-                }
-                e["request_receive_people"].push(obj)
-
-
-            }
-            return key = e;
-        })
-
-
-
-        localStorage.setItem("Tenant_additional_det", JSON.stringify(tenant_details))
-
-
-        Email.send({
-            Host: "smtp.elasticemail.com",
-            Username: "srikann.2003@gmail.com",
-            Password: "4DB5AD9DEC3E8A5B5E3951B381AC456C5CBD",
-            To: details["email"],
-            From: "parkinn2023.sri@gmail.com",
-            Subject: "New Tenant Request",
-            Body: `Hi ${details["firstname"]} <br><br>
-                    You got a new parking request from your nearby tenant(Vehicle user).<br> Your requested person's name is ${key["Firstname"]}. He wants to park his vehicle between the times of ${star_time} to ${end_time}. And ${parking_amount} rupees is your receiving money if you accept this request. So If you like to accept this request, Go to your Parkin profile by using this<a href="https://deploy-preview-1--parkin.netlify.app/pages/leaser-log.htm"> link</a> and accept your tenant request.
-                    <br><br>
-                    Thank you.`
-
-        }).then((message) => {
-            alert("Request send sucessfully")
-            window.location.href = "tenant-request.html"
-
-        }
-        )
-
-    })
 
 
     document.getElementById("ques").addEventListener("click", e => {
@@ -291,12 +246,79 @@
         return Number(thpart[0]) * 60 + Number(thpart[1]);
     }
 
+    // validation of Email
 
-    let stardatetime = document.getElementById("start-time");
-    let endtime = document.getElementById("End-time");
-    let currentDatetime = new Date().toISOString().slice(0, 16);
-    endtime.setAttribute("min", currentDatetime);
-    stardatetime.setAttribute("min", currentDatetime);
+    let valid;
+    let key;
+
+    document.querySelector("form").addEventListener("submit", l => {
+        l.preventDefault();
+
+        // let valid;
+        // let key;
+        let star_time = document.getElementById("start-time").value;
+        let end_time = document.getElementById("End-time").value;
+
+        tenant_details.find(e => {
+            // let mai = e["Email"];
+            if (e["Email"] == ten) {
+                e["parking_start_time"] = star_time;
+                e["parking_end_time"] = end_time;
+                e["Park_duration_hours"] = duration_hours;
+                e["Request status"] = "pending";
+                e["parking_amount"] = parking_amount;
+
+
+                let obj = {
+                    "Request_person_email": details["email"]
+                }
+                e["request_receive_people"].push(obj)
+
+                // tenant_details.push(e);
+
+                return key = e;
+            }
+            // return key = e;
+        })
+
+
+        console.log(key);
+
+        Email.send({
+            Host: "smtp.elasticemail.com",
+            Username: "srikann.2003@gmail.com",
+            Password: "4DB5AD9DEC3E8A5B5E3951B381AC456C5CBD",
+            To: details["email"],
+            From: "parkinn2023.sri@gmail.com",
+            Subject: "New Tenant Request",
+            Body: `Hi ${details["firstname"]} <br><br>
+                    You got a new parking request from your nearby tenant(Vehicle user).<br> Your requested person's name is ${key["Firstname"]}. He wants to park his vehicle between the times of ${star_time} to ${end_time}. And ${parking_amount} rupees is your receiving money if you accept this request. So If you like to accept this request, Go to your Parkin profile by using this<a href="https://deploy-preview-1--parkin.netlify.app/pages/leaser-log.htm"> link</a> and accept your tenant request.
+                    <br><br>
+                    Thank you.`
+
+        }).then((message) => {
+            alert("Request send sucessfully")
+            window.location.href = "tenant-request.html"
+
+        }
+        )
+
+        localStorage.setItem("Tenant_additional_det", JSON.stringify(tenant_details))
+
+    })
+
+
+    document.querySelector("#explo").addEventListener("click",(k)=>{
+        k.preventDefault();
+        window.location.href = "tenant-choose-place.html?mail=" + ten;
+    })
+
+
+    // let stardatetime = document.getElementById("start-time");
+    // let endtime = document.getElementById("End-time");
+    // let currentDatetime = new Date().toISOString().slice(0, 16);
+    // endtime.setAttribute("min", currentDatetime);
+    // stardatetime.setAttribute("min", currentDatetime);
 
 
 </script>

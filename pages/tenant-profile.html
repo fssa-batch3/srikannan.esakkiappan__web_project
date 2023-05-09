@@ -24,17 +24,17 @@
         <!-- <a id="h" href="#">Home</a> -->
         <nav id="nav">
             <!-- Navigation links -->
-            <a href="tenant-choose-place.html">Parking places</a>
+            <a id="park_pl">Parking places</a>
             <a id="edi">Edit profile</a>
-            <a href="tenant-payment.html">Payment</a>
+            <a id="paym">Payment</a>
             <a href="../index.html">Log out</a>
         </nav>
         <div class="respons_nav">
             <i class="fa-solid fa-bars" id="bttn"></i>
             <div class="menu-list">
-                <a href="tenant-choose-place.html">Parking places</a>
+                <a id="park_pl">Parking places</a>
                 <a id="edi">Edit profile</a>
-                <a href="tenant-payment.html">Payment</a>
+                <a id="paym">Payment</a>
                 <a href="../index.html">Log out</a>
             </div>
         </div>
@@ -109,6 +109,15 @@
         document.getElementById("edi").addEventListener("click", (e) => {
             console.log("clicked")
             window.location.href = "Tenant-edit.html?mail=" + res["Email"]
+        })
+
+        document.getElementById("park_pl").addEventListener("click", (j)=>{
+            window.location.href = "tenant-choose-place.html?mail=" + res["Email"]
+        })
+
+        document.getElementById("paym").addEventListener("click", (b)=>{
+            window.location.href = "tenant-payment.html?name=" + res["Firstname"]
+
         })
 
     </script>

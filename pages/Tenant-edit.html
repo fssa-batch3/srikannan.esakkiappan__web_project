@@ -174,6 +174,7 @@
       let bike_img = document.getElementById("bike_img")
       let bike_docs = document.getElementById("bike_docs")
       let user_img = document.getElementById("user_img")
+      let tenant = JSON.parse(localStorage.getItem("Tenant_additional_det"))
       let tenan_sign = JSON.parse(localStorage.getItem("Tenant_sign"));
       let datas = JSON.parse(localStorage.getItem("Tenant"))
       let profile = JSON.parse(localStorage.getItem("Tenant_details"));
@@ -295,6 +296,7 @@
         check["upload_docs"] = document.getElementById("bike_docs").value;
         check["user_image"] = document.getElementById("user_img").value;
 
+        localStorage.setItem("Tenant_additional_det", JSON.stringify(datas))
         localStorage.setItem("Tenant", JSON.stringify(datas))
         window.location.href = "tenant-profile.html?mail="+ check["Email"]
       })

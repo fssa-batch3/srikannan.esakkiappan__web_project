@@ -24,14 +24,14 @@
         <h1 id="lf">Leaser profile</h1>
         <nav id="nav">
             <!-- Navigation links -->
-            <a href="leaser-notification.html">Requests</a>
+            <a id="requests">Requests</a>
             <a  id="edi">Edit profile</a>
             <a href="../index.html">Log out</a>
         </nav>
         <div class="respons_nav">
             <i class="fa-solid fa-bars" id="bttn"></i>
             <div class="menu-list">
-                <a href="leaser-notification.html">Requests</a>
+                <a id="requests">Requests</a>
                 <a  id="edi">Edit profile</a>
                 <a href="../index.html">Log out</a>
             </div>
@@ -125,6 +125,10 @@
         document.getElementById("edi").addEventListener("click", (e) => {
             console.log("clicked")
             window.location.href =  "leaser-edit.html?mail=" + res["email"]
+        })
+
+        document.getElementById("requests").addEventListener("click", (r) =>{
+            window.location.href = "leaser-notification.html?mail=" + res["email"]
         })
 
     </script>
