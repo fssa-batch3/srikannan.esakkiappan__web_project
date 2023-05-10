@@ -106,16 +106,12 @@
         enableTime: true,
         dateFormat: "Y-m-d H:i",
         altInput: true,
-        altFormat: "F j, Y (h:S K)",
-        minDate: new Date().toISOString().slice(0, 10)
+        altFormat: "F j, Y (h:S K)"
     }
-    
 
     flatpickr("input[type=datetime-local]", config);
 
     const leaser_details = JSON.parse(localStorage.getItem("leaser"))
-
-    console.log(leaser_details);
 
 
     const url = window.location.search;
@@ -125,8 +121,6 @@
     const urlp = window.location.search;
     const urlpara = new URLSearchParams(urlp)
     let ten = urlpara.get('Tenant');
-
-    console.log(name);
 
     let details = leaser_details.find(el => {
 
@@ -296,13 +290,13 @@
                     <br><br>
                     Thank you.`
 
-        }).then((message) => {
-            alert("Request send sucessfully")
-            window.location.href = "tenant-request.html"
-
-        }
-        )
-
+        })
+        // .then((message) => {
+        //     alert("Request send sucessfully")
+        //     window.location.href = "tenant-request.html?mail=" + key["Email"];
+        // }
+        // )
+        window.location.href = "tenant-request.html?mail=" + key["Email"];
         localStorage.setItem("Tenant_additional_det", JSON.stringify(tenant_details))
 
     })

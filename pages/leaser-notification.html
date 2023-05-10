@@ -185,7 +185,7 @@
 
     tenan.find(e => {
         e["request_receive_people"].find(m => {
-            if (m["Request_person_email"] == leaser_log["username"]) {
+            if (m["Request_person_email"] == mail) {
                 return ans = e;
             }
         })
@@ -237,11 +237,14 @@
     but.addEventListener("click", e => {
         e.preventDefault()
         // alert("hi")
-
+        ans["Accepted_leaser"] = mail;
         ans["Request status"] = "accepted";
         histo.style.display = "flex";
         act.push(ans)
         localStorage.setItem("Accepted_Tenant", JSON.stringify(act));
+
+        ans["request_receive_people"].splice(0,8);
+        localStorage.setItem("Tenant_additional_det", JSON.stringify(ans));
 
         Email.send({
             Host: "smtp.elasticemail.com",

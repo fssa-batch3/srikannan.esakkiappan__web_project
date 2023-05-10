@@ -160,9 +160,9 @@
                     const distan_km = distance(latitud, longitud, lat2, lon2);
 
 
-                    if (distan_km <= 15) {
+                    if (distan_km <= 5) {
                         console.log(lease[s]);
-                        near += `<a id="link" href="tenant-chooseduration.html?name=${lease[s]["firstname"]}&Tenant=${result["Email"]}">
+                        near += `<a id="link" href="tenant-chooseduration.html?name=${lease[s]["firstname"]}">
                             <div class="profile_box">
                               <div class="image">
                                 <img id="imag" src="${lease[s]["upload_image"]}">

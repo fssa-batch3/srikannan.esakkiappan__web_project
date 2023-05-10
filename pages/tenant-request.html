@@ -21,7 +21,7 @@
         </div>
         <nav id="nav">
             <!-- Navigation links -->
-            <a href="tenant-choose-place.html">Give another request</a>
+            <a id="Anot_req">Give another request</a>
             <a href="../index.html">Log out</a>
         </nav>
         <div class="respons_nav">
@@ -66,5 +66,17 @@
         <div id="blk">
         </div>
     </footer>
+
+    <script>
+
+const url = window.location.search;
+    const urlParams = new URLSearchParams(url)
+    let mail = urlParams.get('mail');
+
+        let request = document.getElementById("Anot_req");
+        request.addEventListener("click", e=>{
+            window.location.href = "tenant-choose-place.html?mail=" + mail;
+        })
+    </script>
 </body>
 </html>
