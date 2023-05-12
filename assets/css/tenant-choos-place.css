@@ -61,6 +61,13 @@ a{
     text-decoration: none;
     width: 100%;
 }
+.avail{
+    position: absolute;
+    margin-left: 38%;
+    margin-top: -19%;
+    /* left: 51%;
+    top: 38%; */
+}
 #locat{
     cursor: pointer;
     margin-left: 60%;
@@ -101,6 +108,7 @@ img#imag{
 }
 .detail{
     margin-left: 20%;
+    margin-top: 2%;
     
 }
 #request{

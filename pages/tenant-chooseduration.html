@@ -106,7 +106,8 @@
         enableTime: true,
         dateFormat: "Y-m-d H:i",
         altInput: true,
-        altFormat: "F j, Y (h:S K)"
+        altFormat: "F j, Y (h:S K)",
+        minDate: new Date()
     }
 
     flatpickr("input[type=datetime-local]", config);
@@ -146,8 +147,23 @@
     phon_num.innerText = details["phone_number"]
     parkin_img.innerHTML = `<img src="${details["upload_image"]}" alt="Hv4a2Tv.jpg" border="0" height="255px" width="430px" id="parking_image1">`
 
-    const tenant_details = JSON.parse(localStorage.getItem("Tenant_additional_det"))
+    // let tenn = JSON.parse(localStorage.getItem("Tenant_additional_det"))
+    // console.log(tenn);
+    let tenant_details;
+    // tenn.find(tn =>{
+    //     let rrp = tn["request_receive_people"];
+    //     console.log(rrp.length);
+    //     if(rrp.length>=1){
+             tenant_details = JSON.parse(localStorage.getItem("Tenant_additional_det"))
+    //     }
+    //     else{
+    //         tenant_details = JSON.parse(localStorage.getItem("Tenant"))
+    //     }
+    // })
+    // const tenant_details = JSON.parse(localStorage.getItem("Tenant"))
     console.log(tenant_details);
+
+    const sign = JSON.parse(localStorage.getItem("Tenant_sign"))
 
     // const tenant_login = JSON.parse(localStorage.getItem("Tenant_details"))
     // console.log(tenant_login);
@@ -245,6 +261,8 @@
     let valid;
     let key;
 
+
+
     document.querySelector("form").addEventListener("submit", l => {
         l.preventDefault();
 
@@ -264,7 +282,8 @@
 
 
                 let obj = {
-                    "Request_person_email": details["email"]
+                    "Request_person_email": details["email"],
+                    "status": "pending"
                 }
                 e["request_receive_people"].push(obj)
 
@@ -278,26 +297,28 @@
 
         console.log(key);
 
-        Email.send({
-            Host: "smtp.elasticemail.com",
-            Username: "srikann.2003@gmail.com",
-            Password: "4DB5AD9DEC3E8A5B5E3951B381AC456C5CBD",
-            To: details["email"],
-            From: "parkinn2023.sri@gmail.com",
-            Subject: "New Tenant Request",
-            Body: `Hi ${details["firstname"]} <br><br>
-                    You got a new parking request from your nearby tenant(Vehicle user).<br> Your requested person's name is ${key["Firstname"]}. He wants to park his vehicle between the times of ${star_time} to ${end_time}. And ${parking_amount} rupees is your receiving money if you accept this request. So If you like to accept this request, Go to your Parkin profile by using this<a href="https://deploy-preview-1--parkin.netlify.app/pages/leaser-log.htm"> link</a> and accept your tenant request.
-                    <br><br>
-                    Thank you.`
+        // Email.send({
+        //     Host: "smtp.elasticemail.com",
+        //     Username: "srikann.2003@gmail.com",
+        //     Password: "4DB5AD9DEC3E8A5B5E3951B381AC456C5CBD",
+        //     To: details["email"],
+        //     From: "parkinn2023.sri@gmail.com",
+        //     Subject: "New Tenant Request",
+        //     Body: `Hi ${details["firstname"]} <br><br>
+        //             You got a new parking request from your nearby tenant(Vehicle user).<br> Your requested person's name is ${key["Firstname"]}. He wants to park his vehicle between the times of ${star_time} to ${end_time}. And ${parking_amount} rupees is your receiving money if you accept this request. So If you like to accept this request, Go to your Parkin profile by using this<a href="https://deploy-preview-1--parkin.netlify.app/pages/leaser-log.htm"> link</a> and accept your tenant request.
+        //             <br><br>
+        //             Thank you.`
 
-        })
+        // })
         // .then((message) => {
         //     alert("Request send sucessfully")
         //     window.location.href = "tenant-request.html?mail=" + key["Email"];
         // }
         // )
-        window.location.href = "tenant-request.html?mail=" + key["Email"];
+        // window.location.href = "tenant-request.html?mail=" + key["Email"];
         localStorage.setItem("Tenant_additional_det", JSON.stringify(tenant_details))
+
+        // localStorage.setItem("Tenant_sign", JSON.stringify(key))
 
     })
 

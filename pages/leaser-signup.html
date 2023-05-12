@@ -211,6 +211,8 @@
               localStorage.setItem("leas_signup",JSON.stringify(user_data))
               let leasign = JSON.parse(localStorage.getItem("leas_signup"))
               console.log(leasign);
+              let lease_mod_data = JSON.parse(localStorage.getItem("leaser_modify_data")) ?? [];
+              localStorage.setItem("leaser_modify_data",JSON.stringify(leaser))
               localStorage.setItem("leaser",JSON.stringify(leaser))
               window.location.href = "leaser-profile.html?mail=" +leasign["email"]  
             }
