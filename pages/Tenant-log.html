@@ -10,8 +10,8 @@
   <title>Parkin</title>
   <link rel="icon" href="../assets/images/Logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
-        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../assets/css/login-style.css">
 </head>
 
@@ -90,17 +90,22 @@
         "password": password
       }
       let check;
-      User_details.find(element => {
+      if (User_details == null) {
+        check = 0;
+      }
+      else {
+        User_details.find(element => {
 
-        if (element["Email"] == email && element["password"] == password) {
-          localStorage.setItem("Tenant_details", JSON.stringify(datas))
+          if (element["Email"] == email && element["password"] == password) {
+            localStorage.setItem("Tenant_details", JSON.stringify(datas))
 
-          return check = 1
-        }
-        else {
-          return check = 0
-        }
-      })
+            return check = 1
+          }
+          else {
+            return check = 0
+          }
+        })
+      }
 
       if (check == 1) {
         window.location.href = "tenant-profile.html"
@@ -111,7 +116,7 @@
     }
     )
   </script>
-  
+
 </body>
 
 </html>
