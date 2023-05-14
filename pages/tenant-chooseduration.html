@@ -11,8 +11,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="../vendor/bootstrap-datetimepicker.css">
+
     <title>parkin</title>
 </head>
 
@@ -44,7 +50,10 @@
         <!-- parking images -->
         <div class="images">
             <div id="heading">Parking place Image</div>
-            <div id="parking_image1"></div>
+            <div class="imag">
+                <div id="parking_image1"></div>
+            </div>
+
         </div>
         <!-- Leaser details -->
         <div class="leaser_detail">
@@ -57,9 +66,9 @@
                 <h3>Choose the duration of your parking :</h3>
                 <br><br><br><br><br>
                 <label for="time-start">start-time</label>&nbsp;&nbsp;&nbsp;
-                <input type="datetime-local" id="start-time" placeholder="Select your parking time" required><br><br>
+                <input class="tim" type="text" id="start-time" placeholder="Select your parking time" required><br><br>
                 <label for="time-end">End-time</label>&nbsp;&nbsp;&nbsp;
-                <input type="datetime-local" id="End-time" placeholder="Select your parking time" required><br><br>
+                <input class="tim" type="text" id="End-time" placeholder="Select your parking time" required><br><br>
 
                 <!-- <label>Enter registered email</label>
                 <input type="email" id="emil" required> -->
@@ -99,243 +108,10 @@
         </div>
     </footer>
 </body>
+<script src="../vendor/bootstrap-datetimepicker.js"></script>
+
+<script src="../assets/js/tenant_choos_duration.js"></script>
+
 <script src="https://smtpjs.com/v3/smtp.js"></script>
-<script>
-
-    config = {
-        enableTime: true,
-        dateFormat: "Y-m-d H:i",
-        altInput: true,
-        altFormat: "F j, Y (h:S K)",
-        minDate: new Date()
-    }
-
-    flatpickr("input[type=datetime-local]", config);
-
-    const leaser_details = JSON.parse(localStorage.getItem("leaser"))
-
-
-    const url = window.location.search;
-    const urlParams = new URLSearchParams(url)
-    let name = urlParams.get('name');
-
-    const urlp = window.location.search;
-    const urlpara = new URLSearchParams(urlp)
-    let ten = urlpara.get('Tenant');
-
-    let details = leaser_details.find(el => {
-
-        let first_name = el["firstname"]
-
-        if (name == first_name) {
-            return true
-        }
-        else {
-            return false
-        }
-
-    });
-
-    console.log(details)
-
-
-    let first_name = document.getElementById("leaser_name")
-    let phon_num = document.getElementById("leaser_number")
-    let parkin_img = document.getElementById("parking_image1")
-
-    first_name.innerText = details["firstname"]
-    phon_num.innerText = details["phone_number"]
-    parkin_img.innerHTML = `<img src="${details["upload_image"]}" alt="Hv4a2Tv.jpg" border="0" height="255px" width="430px" id="parking_image1">`
-
-    // let tenn = JSON.parse(localStorage.getItem("Tenant_additional_det"))
-    // console.log(tenn);
-    let tenant_details;
-    // tenn.find(tn =>{
-    //     let rrp = tn["request_receive_people"];
-    //     console.log(rrp.length);
-    //     if(rrp.length>=1){
-             tenant_details = JSON.parse(localStorage.getItem("Tenant_additional_det"))
-    //     }
-    //     else{
-    //         tenant_details = JSON.parse(localStorage.getItem("Tenant"))
-    //     }
-    // })
-    // const tenant_details = JSON.parse(localStorage.getItem("Tenant"))
-    console.log(tenant_details);
-
-    const sign = JSON.parse(localStorage.getItem("Tenant_sign"))
-
-    // const tenant_login = JSON.parse(localStorage.getItem("Tenant_details"))
-    // console.log(tenant_login);
-
-    let parking_amount;
-    let duration_hours;
-    let money;
-    let minut;
-
-
-    document.getElementById("ques").addEventListener("click", e => {
-        let star_time = document.getElementById("start-time").value;
-        let end_time = document.getElementById("End-time").value;
-
-        e.preventDefault();
-
-        //time to money
-
-        let date_start = star_time.substring(8, 10)
-        let date_star = Number(date_start);
-
-        let date_end = end_time.substring(8, 10)
-        let date_ed = Number(date_end);
-
-        let date_diff = date_ed - date_star;
-        console.log(date_diff);
-
-        let datdf = date_diff * 24 * 100;
-        console.log(datdf);
-
-        let end = end_time.substring(11, 16)
-        end = end.split(":")
-        let ed = Number(end[0] + end[1]);
-
-        let start = star_time.substring(11, 16)
-        start = start.split(":")
-        let st = Number(start[0] + start[1]);
-
-        let min = (ed - st);
-        console.log(min);
-
-        let mi = datdf + min;
-        console.log(mi);
-
-        if (date_diff == 0) {
-            let out = Numtomin(min);
-
-            minut = convertH2M(out);
-            console.log(minut);
-
-            money = Math.round(minut / 6);
-            parking_amount = money;
-        }
-
-        else if (date_diff > 0) {
-            let out = Numtomin(mi);
-
-            minut = convertH2M(out);
-            console.log(minut);
-
-            money = Math.round(minut / 9);
-            parking_amount = money;
-        }
-
-
-        let tim = minut / 60;
-        duration_hours = Math.floor(tim);
-
-        // let money = minut / 5;
-        // parking_amount = money;
-
-        document.getElementById("rupee").innerText = money;
-    })
-
-    function Numtomin(mi) {
-
-        let minu = String(mi);
-
-        if (minu.length == 3) {
-            minu = "0" + minu;
-        }
-        var u = ":";
-        var output = [minu.slice(0, 2), u, minu.slice(2)].join('');
-        return output;
-
-    }
-
-    function convertH2M(th) {
-        var thpart = th.split(":");
-        return Number(thpart[0]) * 60 + Number(thpart[1]);
-    }
-
-    // validation of Email
-
-    let valid;
-    let key;
-
-
-
-    document.querySelector("form").addEventListener("submit", l => {
-        l.preventDefault();
-
-        // let valid;
-        // let key;
-        let star_time = document.getElementById("start-time").value;
-        let end_time = document.getElementById("End-time").value;
-
-        tenant_details.find(e => {
-            // let mai = e["Email"];
-            if (e["Email"] == ten) {
-                e["parking_start_time"] = star_time;
-                e["parking_end_time"] = end_time;
-                e["Park_duration_hours"] = duration_hours;
-                e["Request status"] = "pending";
-                e["parking_amount"] = parking_amount;
-
-
-                let obj = {
-                    "Request_person_email": details["email"],
-                    "status": "pending"
-                }
-                e["request_receive_people"].push(obj)
-
-                // tenant_details.push(e);
-
-                return key = e;
-            }
-            // return key = e;
-        })
-
-
-        console.log(key);
-
-        // Email.send({
-        //     Host: "smtp.elasticemail.com",
-        //     Username: "srikann.2003@gmail.com",
-        //     Password: "4DB5AD9DEC3E8A5B5E3951B381AC456C5CBD",
-        //     To: details["email"],
-        //     From: "parkinn2023.sri@gmail.com",
-        //     Subject: "New Tenant Request",
-        //     Body: `Hi ${details["firstname"]} <br><br>
-        //             You got a new parking request from your nearby tenant(Vehicle user).<br> Your requested person's name is ${key["Firstname"]}. He wants to park his vehicle between the times of ${star_time} to ${end_time}. And ${parking_amount} rupees is your receiving money if you accept this request. So If you like to accept this request, Go to your Parkin profile by using this<a href="https://deploy-preview-1--parkin.netlify.app/pages/leaser-log.htm"> link</a> and accept your tenant request.
-        //             <br><br>
-        //             Thank you.`
-
-        // })
-        // .then((message) => {
-        //     alert("Request send sucessfully")
-        //     window.location.href = "tenant-request.html?mail=" + key["Email"];
-        // }
-        // )
-        // window.location.href = "tenant-request.html?mail=" + key["Email"];
-        localStorage.setItem("Tenant_additional_det", JSON.stringify(tenant_details))
-
-        // localStorage.setItem("Tenant_sign", JSON.stringify(key))
-
-    })
-
-
-    document.querySelector("#explo").addEventListener("click",(k)=>{
-        k.preventDefault();
-        window.location.href = "tenant-choose-place.html?mail=" + ten;
-    })
-
-
-    // let stardatetime = document.getElementById("start-time");
-    // let endtime = document.getElementById("End-time");
-    // let currentDatetime = new Date().toISOString().slice(0, 16);
-    // endtime.setAttribute("min", currentDatetime);
-    // stardatetime.setAttribute("min", currentDatetime);
-
-
-</script>
 
 </html>

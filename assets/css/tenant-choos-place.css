@@ -68,6 +68,10 @@ a{
     /* left: 51%;
     top: 38%; */
 }
+.avail{
+    margin-left: 39%;
+    font-size: 17px;
+}
 #locat{
     cursor: pointer;
     margin-left: 60%;

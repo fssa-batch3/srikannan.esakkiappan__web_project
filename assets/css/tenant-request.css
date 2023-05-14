@@ -103,6 +103,10 @@ h5#fc{
     display: flex;
     flex-direction: column;
 }
+#ftnav a{
+    color: white;
+    text-decoration: none;
+}
 #blk{
     background-color: black;
     border: 2px solid black;

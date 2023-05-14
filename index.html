@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <header>
 
@@ -110,13 +111,13 @@
         <div id="fdbx">
             <img id="phone" src="assets/images/phon.png" alt="phone">
             <form id="formm">
-                <h2 id="ask">Ask us anything you want</h2><br>
+                <h2 id="ask">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comment Box</h2><br>
                 <label for="fname">Name</label>
-                <input type="text" id="feedname" name="firstname" placeholder="Your name.."><br><br>
+                <input type="text" id="feedname" name="firstname" placeholder="Your name.." required ><br><br>
                 <label for="email">Email</label>
-                <input type="email" id="feedemail" name="user_email" placeholder="Your Email"><br><br>
+                <input type="email" id="feedemail" name="user_email" placeholder="Your Email" required><br><br>
                 <label for="subject">Feedback</label>
-                <textarea id="fedname" name="subject" placeholder="Write your Feedback.." style="height:80px"></textarea>
+                <textarea id="fedname" name="subject" placeholder="Write your Feedback.." required style="height:80px"></textarea>
             </form>
 
         </div>
@@ -148,41 +149,6 @@
     <div id="blk">
     </div>
 </footer>
+<script src="assets/js/index.js"></script>
 <script src="https://smtpjs.com/v3/smtp.js"></script>
-<script>
-    var acc = document.getElementsByClassName("accordion");
-    var i;
-
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            var panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        });
-    }
-
-    let form = document.querySelector("#btn")
-
-    form.addEventListener("click" , function() {
-
-      Email.send({
-      Host: "smtp.elasticemail.com",
-      Username: "srikann.2003@gmail.com",
-      Password: "4DB5AD9DEC3E8A5B5E3951B381AC456C5CBD",
-      To: 'parkinn2023.sri@gmail.com',
-      From:"srikann.2003@gmail.com",
-      Subject: "User Feedback", 
-      Body: "My name is"+document.getElementById("feedname").value + "my Email is"+ document.getElementById("fedname").value + document.getElementById("feedemail").value
-    }).then(
-      message => alert(message)
-    );
-
-    })
-
-</script>
-
 </html>
