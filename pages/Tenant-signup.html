@@ -10,7 +10,7 @@
   <link rel="icon" href="../assets/images/Logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer">
   <title>Parkin</title>
 </head>
 
@@ -131,7 +131,7 @@
       //  document.getElementById("sig").addEventListener("click",(e)=>{
       //   console.log("clicked")
       //   window.location.href="Tenant-log.html"
-      let form = document.querySelector("form")
+      const form = document.querySelector("form")
       form.addEventListener("submit", e => {
         e.preventDefault()
        
@@ -150,10 +150,10 @@
           alert("Oops !! password and confirm password doesn't match.")
         }
         else {
-          let Tenant = JSON.parse(localStorage.getItem("Tenant")) ?? [];
+          const Tenant = JSON.parse(localStorage.getItem("Tenant")) ?? [];
           let j = 0;
           for (let i = 0; i < Tenant.length; i++) {
-            if (Tenant[i]["Email"] === email) {
+            if (Tenant[i].Email === email) {
               j = 1;
               break;
             }
@@ -162,27 +162,27 @@
             alert("email already registered")
           }
           else {
-            let user_data = {
-              "Firstname": first_name,
-              "Lastname": last_name,
-              "Email": email,
-              "phone_number": number_1,
-              "phone_number1": number_2,
-              "Address": Address,
-              "password": password_1,
-              "confirm_password": password_2,
-              "request_receive_people": [],
-              "upload_image": "",
-              "upload_docs":"",
-              "user_image":" "
-            }
+            const user_data = {
+        "Firstname": first_name,
+        "Lastname": last_name,
+        "Email": email,
+        "phone_number": number_1,
+        "phone_number1": number_2,
+        Address,
+        "password": password_1,
+        "confirm_password": password_2,
+        "request_receive_people": [],
+        "upload_image": "",
+        "upload_docs":"",
+        "user_image":" "
+      }
             Tenant.push(user_data)
             localStorage.setItem("Tenant_sign", JSON.stringify(user_data))
-            let tenasign = JSON.parse(localStorage.getItem("Tenant_sign"))
+            const tenasign = JSON.parse(localStorage.getItem("Tenant_sign"))
             JSON.parse(localStorage.getItem("Tenant_additional_det")) ?? [];
             localStorage.setItem("Tenant_additional_det", JSON.stringify(Tenant))
             localStorage.setItem("Tenant", JSON.stringify(Tenant))
-            window.location.href = "tenant-profile.html?mail=" +tenasign["Email"]
+            window.location.href = `tenant-profile.html?mail=${ tenasign.Email}`
             // console.log(user_data);
           }
         }
@@ -203,7 +203,6 @@
       //     longitud = longitude;
       //   }
       // }
-    
     </script>
 </body>
 

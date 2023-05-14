@@ -32,11 +32,9 @@
         </div>
 
     </main>
-    <script>
-
-        const url = window.location.search;
+    <script>        const url = window.location.search;
         const urlParams = new URLSearchParams(url)
-        let mail = urlParams.get('mail');
+        const mail = urlParams.get('mail');
 
         let i;
         let div_list;
@@ -48,43 +46,22 @@
         let parag;
         let parag1;
 
-        let tenant = JSON.parse(localStorage.getItem("Tenant"));
+        const tenant = JSON.parse(localStorage.getItem("Tenant"));
 
-        let accept = JSON.parse(localStorage.getItem("Accepted_Tenant"));
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        const accept = JSON.parse(localStorage.getItem("Accepted_Tenant"));
 
         let result;
 
         tenant.find(e=>{
-            let Emai = e["Email"];
+            const Emai = e.Email;
             if(mail==Emai){
                 result = e;
             }
         })
 
+        const lease = JSON.parse(localStorage.getItem("leaser_modify_data"))
 
-        let lease = JSON.parse(localStorage.getItem("leaser_modify_data"))
-
-        let main_lists = document.querySelector(".main_list");
-
+        const main_lists = document.querySelector(".main_list");
 
         let non_avil;
         let hr;
@@ -92,9 +69,9 @@
 
         for (i = 0; i < lease.length; i++) {
 
-            let a = document.createElement("a");
+            const a = document.createElement("a");
             a.setAttribute("id", "link");
-            a.setAttribute("href", "tenant-chooseduration.html?name=" + lease[i]["firstname"]+"&Tenant="+ result["Email"] );
+            a.setAttribute("href", `tenant-chooseduration.html?name=${  lease[i].firstname}&Tenant=${ result.Email}` );
             console.log(a)
 
             div_profile_box = document.createElement("div");
@@ -107,10 +84,8 @@
 
             cont = document.createElement("p");
             cont.setAttribute("id", "availa");
-            cont.innerHTML = `This place is Not Available till :${lease[i]["firstname"]} `
+            cont.innerHTML = `This place is Not Available till :${lease[i].firstname} `
             non_avil.append(cont);
-
-            
 
             div_image = document.createElement("div");
             div_image.setAttribute("class", "image");
@@ -118,7 +93,7 @@
 
             imag = document.createElement("img");
             imag.setAttribute("id", "imag");
-            imag.setAttribute("src", lease[i]["upload_image"]);
+            imag.setAttribute("src", lease[i].upload_image);
             div_image.append(imag);
 
             div_detail = document.createElement("div");
@@ -127,17 +102,17 @@
 
             parag = document.createElement("p");
             parag.setAttribute("id", "nam")
-            parag.innerHTML = `<p>Name : ${lease[i]["firstname"]}</p>`;
+            parag.innerHTML = `<p>Name : ${lease[i].firstname}</p>`;
             div_detail.append(parag);
 
             parag1 = document.createElement("p");
             parag1.setAttribute("id", "addr")
-            parag1.innerHTML = `<p>Address : ${lease[i]["address"]}</p>`;
+            parag1.innerHTML = `<p>Address : ${lease[i].address}</p>`;
             div_detail.append(parag1);
 
             phon_num = document.createElement("p");
             phon_num.setAttribute("id", "phon")
-            phon_num.innerHTML = `<p>Phone number : ${lease[i]["phone_number"]}</p>`;
+            phon_num.innerHTML = `<p>Phone number : ${lease[i].phone_number}</p>`;
             div_detail.append(phon_num);
 
             // available = document.createElement("p");
@@ -146,17 +121,15 @@
             main_lists.prepend(a)
         }
 
-
-        let search = document.getElementById("search");
+        const search = document.getElementById("search");
         search.addEventListener("keyup", (e) => {
 
-            let search_value = e.target.value.toLowerCase();
-            let places = document.querySelectorAll(".profile_box");
-
+            const search_value = e.target.value.toLowerCase();
+            const places = document.querySelectorAll(".profile_box");
 
             places.forEach(element => {
 
-                let details = element.children[1].children[1].textContent.toLowerCase();
+                const details = element.children[1].children[1].textContent.toLowerCase();
 
                 if (details.includes(search_value)) {
 
@@ -172,7 +145,7 @@
         })
 
         const locat = document.getElementById("locat")
-        locat.addEventListener("click", function () {
+        locat.addEventListener("click", () => {
             if (navigator.geolocation) {
                 navigator.geolocation.watchPosition(showPosition);
             } else {
@@ -180,31 +153,30 @@
             }
             function showPosition(position) {
 
-                let latitud = position.coords.latitude
-                let longitud = position.coords.longitude
-                let accur = position.coords.accuracy
+                const latitud = position.coords.latitude
+                const longitud = position.coords.longitude
+                const accur = position.coords.accuracy
                 console.log(latitud, longitud); // 13.0963045  80.2865916
                 console.log(Math.round(accur));
 
                 let near = "";
                 for (let s = 0; s < lease.length; s++) {
-                    let lat2 = lease[s]["Lattitude"];
-                    let lon2 = lease[s]["Longitude"];
+                    const lat2 = lease[s].Lattitude;
+                    const lon2 = lease[s].Longitude;
 
                     const distan_km = distance(latitud, longitud, lat2, lon2);
 
-
                     if (distan_km <= 5) {
                         console.log(lease[s]);
-                        near += `<a id="link" href="tenant-chooseduration.html?name=${lease[s]["firstname"]}">
+                        near += `<a id="link" href="tenant-chooseduration.html?name=${lease[s].firstname}">
                             <div class="profile_box">
                               <div class="image">
-                                <img id="imag" src="${lease[s]["upload_image"]}">
+                                <img id="imag" src="${lease[s].upload_image}">
                               </div>
                              <div class="detail">
-                                <p>Name : ${lease[s]["firstname"]}</p>
-                                <p>Address : ${lease[s]["address"]}</p>
-                                <p>Phone number : ${lease[s]["phone_number"]}</p>
+                                <p>Name : ${lease[s].firstname}</p>
+                                <p>Address : ${lease[s].address}</p>
+                                <p>Phone number : ${lease[s].phone_number}</p>
                              </div>
                             </div>
                                 </a>`
@@ -232,9 +204,6 @@
         function deg2rad(deg) {
             return deg * (Math.PI / 180)
         }
-
-
-
     </script>
 </body>
 

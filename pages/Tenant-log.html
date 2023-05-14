@@ -11,7 +11,7 @@
   <link rel="icon" href="../assets/images/Logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="../assets/css/login-style.css">
 </head>
 
@@ -38,15 +38,16 @@
       </div>
     </div>
   </header>
-  <div id="hd"><br>
+  <div id="hd">
+<br>
     <a href="#" id="bak-hom">Back to Home</a>
   </div>
   <main>
-    <h2 class="content-leftside">&nbsp; &nbsp; &nbsp;Choose the best parking spot on the map, and<br>
+    <h2 class="content-leftside">
+&nbsp; &nbsp; &nbsp;Choose the best parking spot on the map, and<br>
       connect directly with the owner of the space through
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Parkin.com</h2>
-
 
     <!-- login box -->
     <form class="formm">
@@ -54,41 +55,53 @@
         <img src="../assets/images/tenant-log-imag.png" alt="Avatar" class="avatar-img">
       </div>
       <div class="container1">
-        <label for="uname"><b>Email</b></label>
-        <input id="email" type="Email" placeholder="Email" name="uname" required><br><br>
+        <label for="uname">
+<b>Email</b>
+</label>
+        <input id="email" type="Email" placeholder="Email" name="uname" required>
+<br>
+<br>
 
-        <label for="psw"><b>Password</b></label>
+        <label for="psw">
+<b>Password</b>
+</label>
         <input id="password_" type="password" required placeholder="Enter Password" name="psw"
           pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-          title="Your password must be at least 8 characters long, contain at least one digit or special character, one uppercase letter, and one lowercase letter, and must not contain dots or newline characters."><br>
+          title="Your password must be at least 8 characters long, contain at least one digit or special character, one uppercase letter, and one lowercase letter, and must not contain dots or newline characters.">
+<br>
 
-        <button type="submit">Login</button><br>
+        <button type="submit">Login</button>
+<br>
       </div>
       <div class="container2">
         <a id="cancelbtn" href="../index.html"> cancel</a>
-        <div><a id="forgot-password" href="#">Forgot password?</a></div>
+        <div>
+<a id="forgot-password" href="#">Forgot password?</a>
+</div>
       </div>
     </form>
   </main>
   <div class="sign">
     <h3>
       If you are a new user create a account using
-    </h3><br><br>
+    </h3>
+<br>
+<br>
     <a id="sign-up" href="Tenant-signup.html">Sign up</a>
     <br>
   </div>
   <script>
-    let form = document.querySelector("form")
+    const form = document.querySelector("form")
     form.addEventListener("submit", e => {
       e.preventDefault()
       const email = document.getElementById("email").value
       const password = document.getElementById("password_").value
 
       const User_details = JSON.parse(localStorage.getItem("Tenant"))
-      let datas = {
-        "Email": email,
-        "password": password
-      }
+      const datas = {
+    "Email": email,
+    password
+  }
       let check;
       if (User_details == null) {
         check = 0;
@@ -96,15 +109,15 @@
       else {
         User_details.find(element => {
 
-          if (element["Email"] == email && element["password"] == password) {
-            localStorage.setItem("Tenant_details", JSON.stringify(datas))
+      if (element.Email == email && element.password == password) {
+        localStorage.setItem("Tenant_details", JSON.stringify(datas))
 
-            return check = 1
-          }
-          else {
-            return check = 0
-          }
-        })
+        return check = 1
+      }
+      
+        return check = 0
+      
+    })
       }
 
       if (check == 1) {

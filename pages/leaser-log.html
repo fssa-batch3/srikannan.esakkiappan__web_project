@@ -11,7 +11,7 @@
   <link rel="icon" href="../assets/images/Logo.png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer">
   <link rel="stylesheet" href="../assets/css/login-style.css">
 </head>
 
@@ -40,17 +40,18 @@
       </div>
     </div>
 </header>
-  <div id="hd"><br>
+  <div id="hd">
+<br>
     <a href="../index.html" id="bak-hom">Back to Home</a>
   </div>
   <main>
-    <h2 class="content-leftside"> &nbsp; &nbsp; &nbsp; If you have an unused parking space,<br> Garage or piece of land
+    <h2 class="content-leftside">
+ &nbsp; &nbsp; &nbsp; If you have an unused parking space,<br> Garage or piece of land
       that you are not using,<br>
       &nbsp; &nbsp; you can rent your parking space using
       <br>&nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;&nbsp; &nbsp;
       &nbsp; &nbsp; &nbsp;Parkin.com
     </h2>
-
 
     <!-- login box -->
     <form class="formm">
@@ -58,49 +59,61 @@
         <img src="../assets/images/leaser-log-imag.png" alt="Avatar" class="avatar-img">
       </div>
       <div class="container1">
-        <label for="uname"><b>Email</b></label>
-        <input id="emai" type="email" value="ramesh.2003@gmail.com" placeholder="Email" name="uname" required><br><br>
+        <label for="uname">
+<b>Email</b>
+</label>
+        <input id="emai" type="email" value="ramesh.2003@gmail.com" placeholder="Email" name="uname" required>
+<br>
+<br>
 
-        <label for="psw"><b>Password</b></label>
-        <input id="password" type="password" value="Kumar@2003" placeholder="Enter Password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="Your password must be at least 8 characters long, contain at least one digit or special character, one uppercase letter, and one lowercase letter, and must not contain dots or newline characters." required><br>
+        <label for="psw">
+<b>Password</b>
+</label>
+        <input id="password" type="password" value="Kumar@2003" placeholder="Enter Password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" title="Your password must be at least 8 characters long, contain at least one digit or special character, one uppercase letter, and one lowercase letter, and must not contain dots or newline characters." required>
+<br>
 
-        <button type="submit" id="log">Login</button><br>
+        <button type="submit" id="log">Login</button>
+<br>
       </div>
       <div class="container2">
         <a id="cancelbtn" href="../index.html"> cancel</a>
-        <div><a id="forgot-password" href="#">Forgot password?</a></div>
+        <div>
+<a id="forgot-password" href="#">Forgot password?</a>
+</div>
       </div>
     </form>
   </main>
   <div class="sign">
     <h3>
       If you are a new user create a account using
-    </h3><br><br>
+    </h3>
+<br>
+<br>
     <a id="sign-up" href="leaser-signup.html">Sign up</a>
   </div>
   <script>
-    let form = document.querySelector("form")
+    const form = document.querySelector("form")
     form.addEventListener("submit", e => {
       e.preventDefault()
       const email = document.getElementById("emai").value
       const pass_word = document.getElementById("password").value
 
       const User_details = JSON.parse(localStorage.getItem("leaser"))
-      let datas = {
-        "username": email,
-        "password": pass_word
-      }
+      const datas = {
+    "username": email,
+    "password": pass_word
+  }
       let check;
       User_details.find(element => {
 
-        if (element["email"] == email && element["password"] == pass_word) {
-          localStorage.setItem("profile_details", JSON.stringify(datas))
-          return check = 1
-        }
-        else {
-          return check = 0
-        }
-      })
+    if (element.email == email && element.password == pass_word) {
+      localStorage.setItem("profile_details", JSON.stringify(datas))
+      return check = 1
+    }
+    
+      return check = 0
+    
+  })
 
       if (check == 1) {
         

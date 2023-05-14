@@ -10,7 +10,7 @@
     <link rel="icon" href="../assets/images/Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <title>parkin</title>
@@ -49,17 +49,30 @@
         <!-- Leaser details -->
         <div class="leaser_detail">
             <div id="name-number">
-                <p>Name: <span id="leaser_name"></span></p><br>
-                <p>Phone&nbsp;Number:<span id="leaser_number"></span></p>
+                <p>
+Name: <span id="leaser_name"></span>
+</p>
+<br>
+                <p>
+Phone&nbsp;Number:<span id="leaser_number"></span>
+</p>
             </div>
             <!-- Time choosing space -->
             <form>
                 <h3>Choose the duration of your parking :</h3>
-                <br><br><br><br><br>
+                <br>
+<br>
+<br>
+<br>
+<br>
                 <label for="time-start">start-time</label>&nbsp;&nbsp;&nbsp;
-                <input type="datetime-local" id="start-time" placeholder="Select your parking time" required><br><br>
+                <input type="datetime-local" id="start-time" placeholder="Select your parking time" required>
+<br>
+<br>
                 <label for="time-end">End-time</label>&nbsp;&nbsp;&nbsp;
-                <input type="datetime-local" id="End-time" placeholder="Select your parking time" required><br><br>
+                <input type="datetime-local" id="End-time" placeholder="Select your parking time" required>
+<br>
+<br>
 
                 <!-- <label>Enter registered email</label>
                 <input type="email" id="emil" required> -->
@@ -69,7 +82,9 @@
             </form>
             <button id="ques">How much </button>
             <div class="money">
-                <div id="amount">Rs: <span id="rupee"></span></div>
+                <div id="amount">
+Rs: <span id="rupee"></span>
+</div>
             </div>
         </div>
     </main>
@@ -78,21 +93,29 @@
         <div id="foot">
             <div id="park">
                 <img id="flogo" src="../assets/images/lgo.png" alt="logo">
-                <p>Parkin is an website that helps<br> to connect both Tenant and Leaser</p>
+                <p>
+Parkin is an website that helps<br> to connect both Tenant and Leaser
+</p>
             </div>
             <div id="contact">
                 <h2>Get in touch</h2>
                 <img id="flt" src="../assets/images/lt.png" alt="symbol">
                 <div id="ct">
-                    <h5 id="fc">Taramani,chennai</h5><br>
+                    <h5 id="fc">Taramani,chennai</h5>
+<br>
                     <h5 id="ftc">www.parkin.com</h5>
                 </div>
             </div>
-            <div id="ftnav"><br>
-                <a href="#">Home</a><br>
-                <a href="leaser-log.html">Leaser</a><br>
-                <a href="Tenant-log.html">Tenant</a><br>
-                <a href="about.html">About</a><br>
+            <div id="ftnav">
+<br>
+                <a href="#">Home</a>
+<br>
+                <a href="leaser-log.html">Leaser</a>
+<br>
+                <a href="Tenant-log.html">Tenant</a>
+<br>
+                <a href="about.html">About</a>
+<br>
             </div>
         </div>
         <div id="blk">
@@ -100,9 +123,7 @@
     </footer>
 </body>
 <script src="https://smtpjs.com/v3/smtp.js"></script>
-<script>
-
-    config = {
+<script>    config = {
         enableTime: true,
         dateFormat: "Y-m-d H:i",
         altInput: true,
@@ -114,38 +135,35 @@
 
     const leaser_details = JSON.parse(localStorage.getItem("leaser"))
 
-
     const url = window.location.search;
     const urlParams = new URLSearchParams(url)
-    let name = urlParams.get('name');
+    const name = urlParams.get('name');
 
     const urlp = window.location.search;
     const urlpara = new URLSearchParams(urlp)
-    let ten = urlpara.get('Tenant');
+    const ten = urlpara.get('Tenant');
 
-    let details = leaser_details.find(el => {
+    const details = leaser_details.find(el => {
 
-        let first_name = el["firstname"]
+    const first_name = el.firstname
 
-        if (name == first_name) {
-            return true
-        }
-        else {
-            return false
-        }
+    if (name == first_name) {
+return true
+    }
+    
+return false
 
-    });
+});
 
     console.log(details)
 
+    const first_name = document.getElementById("leaser_name")
+    const phon_num = document.getElementById("leaser_number")
+    const parkin_img = document.getElementById("parking_image1")
 
-    let first_name = document.getElementById("leaser_name")
-    let phon_num = document.getElementById("leaser_number")
-    let parkin_img = document.getElementById("parking_image1")
-
-    first_name.innerText = details["firstname"]
-    phon_num.innerText = details["phone_number"]
-    parkin_img.innerHTML = `<img src="${details["upload_image"]}" alt="Hv4a2Tv.jpg" border="0" height="255px" width="430px" id="parking_image1">`
+    first_name.innerText = details.firstname
+    phon_num.innerText = details.phone_number
+    parkin_img.innerHTML = `<img src="${details.upload_image}" alt="Hv4a2Tv.jpg" border="0" height="255px" width="430px" id="parking_image1">`
 
     // let tenn = JSON.parse(localStorage.getItem("Tenant_additional_det"))
     // console.log(tenn);
@@ -173,43 +191,42 @@
     let money;
     let minut;
 
-
     document.getElementById("ques").addEventListener("click", e => {
-        let star_time = document.getElementById("start-time").value;
-        let end_time = document.getElementById("End-time").value;
+        const star_time = document.getElementById("start-time").value;
+        const end_time = document.getElementById("End-time").value;
 
         e.preventDefault();
 
         //time to money
 
-        let date_start = star_time.substring(8, 10)
-        let date_star = Number(date_start);
+        const date_start = star_time.substring(8, 10)
+        const date_star = Number(date_start);
 
-        let date_end = end_time.substring(8, 10)
-        let date_ed = Number(date_end);
+        const date_end = end_time.substring(8, 10)
+        const date_ed = Number(date_end);
 
-        let date_diff = date_ed - date_star;
+        const date_diff = date_ed - date_star;
         console.log(date_diff);
 
-        let datdf = date_diff * 24 * 100;
+        const datdf = date_diff * 24 * 100;
         console.log(datdf);
 
         let end = end_time.substring(11, 16)
         end = end.split(":")
-        let ed = Number(end[0] + end[1]);
+        const ed = Number(end[0] + end[1]);
 
         let start = star_time.substring(11, 16)
         start = start.split(":")
-        let st = Number(start[0] + start[1]);
+        const st = Number(start[0] + start[1]);
 
-        let min = (ed - st);
+        const min = (ed - st);
         console.log(min);
 
-        let mi = datdf + min;
+        const mi = datdf + min;
         console.log(mi);
 
         if (date_diff == 0) {
-            let out = Numtomin(min);
+            const out = Numtomin(min);
 
             minut = convertH2M(out);
             console.log(minut);
@@ -219,7 +236,7 @@
         }
 
         else if (date_diff > 0) {
-            let out = Numtomin(mi);
+            const out = Numtomin(mi);
 
             minut = convertH2M(out);
             console.log(minut);
@@ -228,8 +245,7 @@
             parking_amount = money;
         }
 
-
-        let tim = minut / 60;
+        const tim = minut / 60;
         duration_hours = Math.floor(tim);
 
         // let money = minut / 5;
@@ -243,16 +259,16 @@
         let minu = String(mi);
 
         if (minu.length == 3) {
-            minu = "0" + minu;
+            minu = `0${  minu}`;
         }
-        var u = ":";
-        var output = [minu.slice(0, 2), u, minu.slice(2)].join('');
+        const u = ":";
+        const output = [minu.slice(0, 2), u, minu.slice(2)].join('');
         return output;
 
     }
 
     function convertH2M(th) {
-        var thpart = th.split(":");
+        const thpart = th.split(":");
         return Number(thpart[0]) * 60 + Number(thpart[1]);
     }
 
@@ -261,31 +277,28 @@
     let valid;
     let key;
 
-
-
     document.querySelector("form").addEventListener("submit", l => {
         l.preventDefault();
 
         // let valid;
         // let key;
-        let star_time = document.getElementById("start-time").value;
-        let end_time = document.getElementById("End-time").value;
+        const star_time = document.getElementById("start-time").value;
+        const end_time = document.getElementById("End-time").value;
 
         tenant_details.find(e => {
             // let mai = e["Email"];
-            if (e["Email"] == ten) {
-                e["parking_start_time"] = star_time;
-                e["parking_end_time"] = end_time;
-                e["Park_duration_hours"] = duration_hours;
+            if (e.Email == ten) {
+                e.parking_start_time = star_time;
+                e.parking_end_time = end_time;
+                e.Park_duration_hours = duration_hours;
                 e["Request status"] = "pending";
-                e["parking_amount"] = parking_amount;
+                e.parking_amount = parking_amount;
 
-
-                let obj = {
-                    "Request_person_email": details["email"],
-                    "status": "pending"
-                }
-                e["request_receive_people"].push(obj)
+                const obj = {
+                "Request_person_email": details.email,
+                "status": "pending"
+            }
+                e.request_receive_people.push(obj)
 
                 // tenant_details.push(e);
 
@@ -293,7 +306,6 @@
             }
             // return key = e;
         })
-
 
         console.log(key);
 
@@ -322,20 +334,16 @@
 
     })
 
-
     document.querySelector("#explo").addEventListener("click",(k)=>{
         k.preventDefault();
-        window.location.href = "tenant-choose-place.html?mail=" + ten;
+        window.location.href = `tenant-choose-place.html?mail=${  ten}`;
     })
-
 
     // let stardatetime = document.getElementById("start-time");
     // let endtime = document.getElementById("End-time");
     // let currentDatetime = new Date().toISOString().slice(0, 16);
     // endtime.setAttribute("min", currentDatetime);
     // stardatetime.setAttribute("min", currentDatetime);
-
-
 </script>
 
 </html>

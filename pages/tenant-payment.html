@@ -17,7 +17,6 @@
         <div class="header_logo">
             <img id="head_logo" src="../assets/images/lgo.png" alt="logo">
 
-
         </div>
 
         <nav id="nav">
@@ -33,7 +32,8 @@
                 <div id="head">Amount Details</div>
                 <div class="amount-details">
                     <div id="duration">Parking duration</div>
-                    <div id="time"></div><br>
+                    <div id="time"></div>
+<br>
                     <hr>
                     <p id="amount">Payable Amount</p>
                     <div id="rupee"></div>
@@ -49,7 +49,8 @@
                 <h2 id="h">Enter your UPI Number or UPI ID:</h2>
                 <form>
                     <label id="lab" for="search"></label>
-                    <input type="text" id="searc" name="search" required><br>
+                    <input type="text" id="searc" name="search" required>
+<br>
                     <button id="btn" type="submit">Proceed</button>
                 </form>
                 <hr>
@@ -62,13 +63,11 @@
         </div>
     </main>
 
-    <script>
+    <script>        const ur = window.location.search
 
-        const ur = window.location.search
+        const container = document.querySelector(".main-container");
 
-        let container = document.querySelector(".main-container");
-
-        let alt_container = document.querySelector(".alter_main");
+        const alt_container = document.querySelector(".alter_main");
 
         let htag;
         let back;
@@ -76,30 +75,27 @@
         let prof_mail;
         let dat;
 
-
-
-        let user = JSON.parse(localStorage.getItem("Tenant_additional_det"));
+        const user = JSON.parse(localStorage.getItem("Tenant_additional_det"));
         console.log(user);
 
-        let tenan_log = JSON.parse(localStorage.getItem("Tenant_details"))
+        const tenan_log = JSON.parse(localStorage.getItem("Tenant_details"))
         console.log(tenan_log);
 
         const ul = window.location.search;
         const upara = new URLSearchParams(ul)
-        let name = upara.get('name');
+        const name = upara.get('name');
 
         dat = user.find((a) => {
-            let Name = a["Firstname"]
+    const Name = a.Firstname
 
-            if (Name == name) {
-                return true
-            }
-            else {
-                return false
-            }
-        });
+    if (Name == name) {
+        return true
+    }
+    
+        return false
+    
+});
         console.log(dat);
-
 
         htag = document.createElement("h1");
         htag.setAttribute("id", "hdd");
@@ -112,27 +108,26 @@
             back.setAttribute("href", "#")
         }
         else{
-            back.setAttribute("href", "tenant-profile.html?mail=" + dat["Email"])
+            back.setAttribute("href", `tenant-profile.html?mail=${  dat.Email}`)
         }
        
         back.innerHTML = `Back to profile`;
         htag.append(back);
 
-
         const url = window.location.search;
         const urlParams = new URLSearchParams(url)
-        let mail = urlParams.get('mail');
+        const mail = urlParams.get('mail');
 
         data = user.find((e) => {
-            let email = e["Email"]
+    const email = e.Email
 
-            if (mail == email) {
-                return true
-            }
-            else {
-                return false
-            }
-        });
+    if (mail == email) {
+        return true
+    }
+    
+        return false
+    
+});
 
         console.log(data);
 
@@ -151,27 +146,24 @@
         }
 
         prof_nam = document.getElementById("prof_nam")
-        prof_nam.innerHTML = `<p> Name : ${data["Firstname"]} </p>`
+        prof_nam.innerHTML = `<p> Name : ${data.Firstname} </p>`
         console.log(prof_nam);
 
         prof_mail = document.getElementById("prof_mail")
-        prof_mail.innerHTML = `<p> Email : ${data["Email"]} </p>`
+        prof_mail.innerHTML = `<p> Email : ${data.Email} </p>`
 
-        let duration = document.getElementById("time");
-        let amount = document.getElementById("rupee");
+        const duration = document.getElementById("time");
+        const amount = document.getElementById("rupee");
 
-        duration.innerHTML = `<p> ${data["Park_duration_hours"]} Hour</p>`
-        amount.innerHTML = `<p> &#8377;${data["parking_amount"]}</p>`
+        duration.innerHTML = `<p> ${data.Park_duration_hours} Hour</p>`
+        amount.innerHTML = `<p> &#8377;${data.parking_amount}</p>`
 
         proceed = document.getElementById("btn");
 
         proceed.addEventListener("click", e => {
             e.preventDefault()
 
-
         })
-
-
     </script>
 </body>
 
