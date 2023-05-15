@@ -32,6 +32,7 @@ header {
     text-decoration: none;
     color: black;
     padding: 6px 15px;
+    cursor: pointer;
 }
 
 .respons_nav{
