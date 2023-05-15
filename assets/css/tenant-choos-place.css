@@ -26,6 +26,7 @@ header{
     z-index: 4;
     width: 40%;
     margin-left: 70%;
+    cursor: pointer;
 }
 a#log{
     margin-left: 13%;
@@ -40,6 +41,7 @@ a#log{
     display: inline;
     padding: 6px 12px;  
     border-radius: 5px;
+    
 }
 #nav{
     display: flex;
