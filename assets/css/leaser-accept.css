@@ -36,6 +36,7 @@ background-color: #0d131f;
     text-decoration: none;
     color: white;
     padding: 6px 15px;
+    cursor: pointer;
 }
 #nav a:hover{
     background-color: #0182ff;
