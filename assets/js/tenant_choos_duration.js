@@ -148,6 +148,9 @@ function Numtomin(mi) {
     else if (minu.length === 2) {
         minu = "00" + minu;
     }
+    else{
+        minu = "000" + minu;
+    }
     var u = ":";
     var output = [minu.slice(0, 2), u, minu.slice(2)].join('');
     return output;
