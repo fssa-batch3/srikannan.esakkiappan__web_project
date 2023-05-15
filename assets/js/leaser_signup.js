@@ -27,7 +27,7 @@ form.addEventListener("submit", e => {
         break;
       }
     }
-    if (j == 1) {
+    if (j === 1) {
       alert("email already registered")
     }
     else {
