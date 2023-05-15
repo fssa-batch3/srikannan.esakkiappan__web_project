@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="../assets/css/signup-edit.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-    crossorigin="anonymous" referrerpolicy="no-referrer">
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <title>Parkin</title>
   <link rel="icon" href="../assets/images/Logo.png">
 </head>
@@ -129,8 +129,7 @@
           <label for="name">Land Image</label>
         </div>
         <div class="col-75">
-          <input type="url" id="land_img" name="numb" accept="image/jpeg, image/png, image/jpg">
-<br>
+          <input type="url" id="land_img" name="numb" accept="image/jpeg, image/png, image/jpg"><br>
           <small id="land_image">Land_img_url...</small>
           <a class="uplod" id="land_prev">Preview</a>
         </div>
@@ -145,8 +144,7 @@
           <label for="name">Land document</label>
         </div>
         <div class="col-75">
-          <input type="url" id="land_docs" name="numb" accept="image/jpeg, image/png, image/jpg">
-<br>
+          <input type="url" id="land_docs" name="numb" accept="image/jpeg, image/png, image/jpg"><br>
           <small id="land_image">Land_doc_url...</small>
           <a class="uplod" id="land_doc_prev">Preview</a>
         </div>
@@ -161,8 +159,7 @@
           <label for="name">User image</label>
         </div>
         <div class="col-75">
-          <input type="url" id="user_img" name="numb" accept="image/jpeg, image/png, image/jpg">
-<br>
+          <input type="url" id="user_img" name="numb" accept="image/jpeg, image/png, image/jpg"><br>
           <small id="land_image">user_img_url...</small>
           <a class="uplod" id="user_prev">Preview</a>
         </div>
@@ -173,148 +170,7 @@
       </div>
 
     </form>
-    <script>
-      const fname = document.getElementById("fname")
-      const lname = document.getElementById("lname")
-      const email = document.getElementById("email")
-      const numb = document.getElementById("numb")
-      const number = document.getElementById("number")
-      const address = document.getElementById("subject")
-      const locat = document.getElementById("sub")
-      const pass = document.getElementById("pass")
-      const password = document.getElementById("password")
-      const land_img = document.getElementById("land_img")
-      const land_docs = document.getElementById("land_docs")
-      const user_img = document.getElementById("user_img")
-      const leas_sign = JSON.parse(localStorage.getItem("leas_signup"));
-      console.log(leas_sign);
-      const data = JSON.parse(localStorage.getItem("leaser"))
-      const profile = JSON.parse(localStorage.getItem("profile_details"));
-      console.log(data)
-      console.log(profile)
-
-    const url = window.location.search;
-    const urlParams = new URLSearchParams(url)
-    const mail = urlParams.get('mail');
-
-      let check;
-      check = data.find(e => {
-        const e_mai = e.email
-        if ( mail == e_mai) {
-          return true;
-        }
-
-      })
-
-      console.log(check)
-
-      if(check==undefined){
-        data.find(l =>{
-          if(l.email == profile.username){
-            return check = l;
-          }
-        })
-      }
-      // check["upload_image"]=" ",
-      // check["upload_docs"]=" ",
-      // check["user_image"]=" "
-      // localStorage.setItem("leaser",JSON.stringify(data))
-
-      fname.value = check.firstname
-      lname.value = check.lastname
-      email.value = check.email
-      numb.value = check.phone_number
-      number.value = check.phone_number1
-      address.value = check.address
-      locat.value = check.location
-      pass.value = check.password
-      password.value = check.confirm_password
-      land_img.value = check.upload_image
-      land_docs.value = check.upload_docs
-      user_img.value = check.user_image
-
-      // upload land image..........................................
-
-      document.getElementById("land_prev").addEventListener("click", e => {
-        e.preventDefault();
-        const upload_img = document.getElementById("land_img").value;
-
-        check.upload_image = upload_img;
-
-        localStorage.setItem("leaser", JSON.stringify(data))
-
-        preview1()
-      })
-
-      // upload land docs..........................................
-
-      document.getElementById("land_doc_prev").addEventListener("click", e => {
-        e.preventDefault();
-        const upload_docs = document.getElementById("land_docs").value;
-
-        check.upload_docs = upload_docs;
-
-        localStorage.setItem("leaser", JSON.stringify(data))
-
-        preview2()
-      })
-
-      // upload user image..........................................
-
-      document.getElementById("user_prev").addEventListener("click", e => {
-        e.preventDefault();
-        const user_image = document.getElementById("user_img").value;
-
-        check.user_image = user_image;
-
-        localStorage.setItem("leaser", JSON.stringify(data))
-
-        preview3()
-      })
-
-      const landpic = document.getElementById("display_image")
-      function preview1() {
-        landpic.innerHTML = `<br><img src="${check.upload_image}" alt="Hv4a2Tv.jpg" border="0" id="lnd" height="255px" width="430px" >`
-      }
-
-      const landdoc = document.getElementById("display_docs")
-      function preview2() {
-        landdoc.innerHTML = `<br><img src="${check.upload_docs}" alt="Hv4a2Tv.jpg" border="0"  id="lnd_doc" height="335px" width="390px" >`
-      }
-
-      const userimg = document.getElementById("display_photo")
-      function preview3() {
-        userimg.innerHTML = `<br><img src="${check.user_image}" alt="Hv4a2Tv.jpg" border="0" id="use" height="255px" width="200px" >`
-      }
-
-      document.getElementById("save").addEventListener("click", e => {
-        e.preventDefault();
-        check.firstname = document.getElementById("fname").value;
-        check.lastname = document.getElementById("lname").value;
-        check.email = document.getElementById("email").value;
-        check.phone_number = document.getElementById("numb").value;
-        check.phone_number1 = document.getElementById("number").value;
-        check.address = document.getElementById("subject").value;
-        check.location = document.getElementById("sub").value;
-        check.password = document.getElementById("pass").value;
-        check.confirm_password = document.getElementById("password").value;
-        check.upload_image = document.getElementById("land_img").value;
-        check.upload_docs = document.getElementById("land_docs").value;
-        check.user_image = document.getElementById("user_img").value;
-
-        localStorage.setItem("leaser", JSON.stringify(data))
-        window.location.href = `leaser-profile.html?mail=${ check.email}`
-      })
-      document.getElementById("del").addEventListener("click", e => {
-        e.preventDefault();
-        console.log(check)
-        const num = data.indexOf(check)
-        data.splice(num, 1)
-        localStorage.setItem("leaser", JSON.stringify(data))
-        alert("It's ok to delete your account")
-        window.location.href = "leaser-log.html"
-      })
-    </script>
 </body>
+<script src="../assets/js/leaser_edit.js"></script>
 
 </html>

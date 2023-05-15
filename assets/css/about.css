@@ -87,12 +87,13 @@ h1{
 }
 #ct{
     float: right;
-    margin-left: -10%;
+    margin-right: -18%;
 }
 h5#ftc{
     float: right;
     margin-top: -29%;
-    margin-left: -50%;
+    /* margin-left: 5%; */
+    /* margin-left: 100%; */
 }
 h5#fc{
     float:right;
@@ -101,6 +102,11 @@ h5#fc{
 #ftnav{
     display: flex;
     flex-direction: column;
+
+}
+#ftnav a{
+    color: white;
+    text-decoration: none;
 }
 #blk{
     background-color: black;

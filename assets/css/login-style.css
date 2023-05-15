@@ -68,6 +68,13 @@ main{
     font-size: 20px;
     background-image: url("../images/background2.jpg");
 }
+#h{
+    margin-top: 3.5%;
+}
+#pk{
+    margin-top: 15%;
+    margin-left: -60%;
+}
 /* img#logo{
     height: 105%;
     width: 90%;
@@ -100,6 +107,7 @@ a#sign-up{
     
     border-radius: 50%;
     color: #0182ff;
+    font-size: 24px;
     padding: 10px;
     margin-top: 20%;
     margin-left: 43%;

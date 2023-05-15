@@ -10,7 +10,8 @@
     <link rel="icon" href="../assets/images/Logo.png">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
         integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
-        crossorigin="anonymous" referrerpolicy="no-referrer">
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
 </head>
 <header>
 
@@ -58,20 +59,16 @@
     </main>
     <div class="child1">
         <img id="gif1" src="assets/images/parkplace.gif" alt="img">
-        <div class="ct">
-<br>
-            <h4 id="cot">
-Check nearest available parking spaces here<br>
+        <div class="ct"><br>
+            <h4 id="cot">Check nearest available parking spaces here<br>
                 Get affortable garage or parking place<br> on rent for your vehicle.
             </h4>
         </div>
     </div>
     <div class="faq">
-        <h3 id="q">FAQ</h3>
-<br>
+        <h3 id="q">FAQ</h3><br>
         <p id="qt">(Click the question and get the answer)</p>
-    </div>
-<br>
+    </div><br>
     <div id="faq">
         <button class="accordion">Who is leaser?</button>
         <div class="panel">
@@ -90,18 +87,14 @@ Check nearest available parking spaces here<br>
 
         <button class="accordion">How this website is helping for Tenant?</button>
         <div class="panel">
-            <p>
-Tenant can find the good and secure parking place in their nearby location<br> with in a minute.
-</p>
+            <p>Tenant can find the good and secure parking place in their nearby location<br> with in a minute.</p>
         </div>
     </div>
 
     <div class="child2">
         <img id="gif2" src="assets/images/placepark.gif" alt="img">
-        <div class="fq">
-<br>
-            <h4 id="cont">
-Take advantage of unused space in your home or <br>office in order to earn money.
+        <div class="fq"><br>
+            <h4 id="cont">Take advantage of unused space in your home or <br>office in order to earn money.
                 Get in touch with<br> people quickly for parking needs.
             </h4>
         </div>
@@ -118,18 +111,13 @@ Take advantage of unused space in your home or <br>office in order to earn money
         <div id="fdbx">
             <img id="phone" src="assets/images/phon.png" alt="phone">
             <form id="formm">
-                <h2 id="ask">Ask us anything you want</h2>
-<br>
+                <h2 id="ask">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Comment Box</h2><br>
                 <label for="fname">Name</label>
-                <input type="text" id="feedname" name="firstname" placeholder="Your name..">
-<br>
-<br>
+                <input type="text" id="feedname" name="firstname" placeholder="Your name.." required ><br><br>
                 <label for="email">Email</label>
-                <input type="email" id="feedemail" name="user_email" placeholder="Your Email">
-<br>
-<br>
+                <input type="email" id="feedemail" name="user_email" placeholder="Your Email" required><br><br>
                 <label for="subject">Feedback</label>
-                <textarea id="fedname" name="subject" placeholder="Write your Feedback.." style="height:80px"></textarea>
+                <textarea id="fedname" name="subject" placeholder="Write your Feedback.." required style="height:80px"></textarea>
             </form>
 
         </div>
@@ -141,69 +129,26 @@ Take advantage of unused space in your home or <br>office in order to earn money
     <div id="foot">
         <div id="park">
             <img id="flogo" src="assets/images/lgo.png" alt="logo">
-            <p>
-Parkin is an website that helps<br> to connect both Tenant and Leaser
-</p>
+            <p>Parkin is an website that helps<br> to connect both Tenant and Leaser</p>
         </div>
-        <div id="contact">
-<br>
+        <div id="contact"><br>
             <h2>Get in touch</h2>
             <img id="flt" src="assets/images/lt.png" alt="symbol">
             <div id="ct">
-                <h5 id="fc">Taramani,chennai</h5>
-<br>
+                <h5 id="fc">Taramani,chennai</h5><br>
                 <h5 id="ftc">parkinn2023.sri@gmail.com</h5>
             </div>
         </div>
-        <div id="ftnav">
-<br>
-            <a href="#">Home</a>
-<br>
-            <a href="pages/leaser-log.html">Leaser</a>
-<br>
-            <a href="pages/Tenant-log.html">Tenant</a>
-<br>
-            <a href="pages/about.html">About</a>
-<br>
+        <div id="ftnav"><br>
+            <a href="#">Home</a><br>
+            <a href="pages/leaser-log.html">Leaser</a><br>
+            <a href="pages/Tenant-log.html">Tenant</a><br>
+            <a href="pages/about.html">About</a><br>
         </div>
     </div>
     <div id="blk">
     </div>
 </footer>
+<script src="assets/js/index.js"></script>
 <script src="https://smtpjs.com/v3/smtp.js"></script>
-<script>
-    const acc = document.getElementsByClassName("accordion");
-    let i;
-
-    for (i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function () {
-            this.classList.toggle("active");
-            const panel = this.nextElementSibling;
-            if (panel.style.display === "block") {
-                panel.style.display = "none";
-            } else {
-                panel.style.display = "block";
-            }
-        });
-    }
-
-    const form = document.querySelector("#btn")
-
-    form.addEventListener("click" , () => {
-
-      Email.send({
-      Host: "smtp.elasticemail.com",
-      Username: "srikann.2003@gmail.com",
-      Password: "4DB5AD9DEC3E8A5B5E3951B381AC456C5CBD",
-      To: 'parkinn2023.sri@gmail.com',
-      From:"srikann.2003@gmail.com",
-      Subject: "User Feedback", 
-      Body: `My name is${document.getElementById("feedname").value  }my Email is${ document.getElementById("fedname").value  }${document.getElementById("feedemail").value}`
-    }).then(
-      message => alert(message)
-    );
-
-    })
-</script>
-
 </html>

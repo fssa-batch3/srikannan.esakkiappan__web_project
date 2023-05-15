@@ -116,7 +116,7 @@ a{
 }
 #ct{
     float: right;
-    margin-left: -10%;
+    margin-right: -18%;
 }
 h5#ftc{
     float: right;
@@ -126,6 +126,10 @@ h5#ftc{
 h5#fc{
     float:right;
     margin-top: -47%;
+}
+#ftnav a{
+    color: white;
+    text-decoration: none;
 }
 #ftnav{
     display: flex;

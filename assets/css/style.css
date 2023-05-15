@@ -261,11 +261,12 @@ div#fdbx{
     padding: 2%;
     padding-bottom: 8%;
 }
-form{
+#formm{
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 70%;
+    height: 96%;
+    width: 30%;
 }
 #ask{
     width: 100%;
