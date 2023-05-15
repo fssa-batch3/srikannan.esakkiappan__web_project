@@ -206,7 +206,7 @@ search.addEventListener("keyup", (e) => {
 
     places.forEach(element => {
 
-        let details = element.children[1].children[1].textContent.toLowerCase();
+        let details = element.children[2].textContent.toLowerCase();
 
         if (details.includes(search_value)) {
 
