@@ -186,13 +186,13 @@ document.querySelector("form").addEventListener("submit", (l) => {
     To: details.email,
     From: "parkinn2023.sri@gmail.com",
     Subject: "New Tenant Request",
-    Body: `Hi ${details[firstname]} <br><br>
-                You got a new parking request from your nearby tenant(Vehicle user).<br> Your requested person's name is ${key[Firstname]}. He wants to park his vehicle between the times of ${star_time} to ${end_time}. And ${parking_amount} rupees is your receiving money if you accept this request. So If you like to accept this request, Go to your Parkin profile by using this<a href="https://deploy-preview-1--parkin.netlify.app/pages/leaser-log.htm"> link</a> and accept your tenant request.
+    Body: `Hi ${details["firstname"]} <br><br>
+                You got a new parking request from your nearby tenant(Vehicle user).<br> Your requested person's name is ${key["Firstname"]}. He wants to park his vehicle between the times of ${star_time} to ${end_time}. And ${parking_amount} rupees is your receiving money if you accept this request. So If you like to accept this request, Go to your Parkin profile by using this<a href="https://deploy-preview-1--parkin.netlify.app/pages/leaser-log.htm"> link</a> and accept your tenant request.
                 <br><br>
                 Thank you.`,
   }).then((message) => {
     alert("Request send sucessfully");
-    window.location.href = `tenant-request.html?mail=${key[Email]}`;
+    window.location.href = `tenant-request.html?mail=${key["Email"]}`;
   });
 
   localStorage.setItem("Tenant_additional_det", JSON.stringify(tenant_details));
