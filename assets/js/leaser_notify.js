@@ -34,8 +34,7 @@ let mail = urlParams.get('mail');
 const tenan = JSON.parse(localStorage.getItem("Tenant_additional_det"))
 const leaser_log = JSON.parse(localStorage.getItem("profile_details"))
 const lease = JSON.parse(localStorage.getItem("leaser_modify_data"))
-// const loger_mail = leaser_log["username"];
-// console.log(loger_mail);
+
 console.log(tenan);
 let res = 0;
 

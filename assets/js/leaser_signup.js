@@ -27,7 +27,7 @@ form.addEventListener("submit", e => {
         break;
       }
     }
-    if (j === 1) {
+    if (j == 1) {
       alert("email already registered")
     }
     else {
@@ -59,11 +59,11 @@ form.addEventListener("submit", e => {
           "upload_docs":" ",
           "user_image" : " "
         }
+
         leaser.push(user_data)
         localStorage.setItem("leas_signup",JSON.stringify(user_data))
         let leasign = JSON.parse(localStorage.getItem("leas_signup"))
         console.log(leasign);
-        JSON.parse(localStorage.getItem("leaser_modify_data")) ?? [];
         localStorage.setItem("leaser_modify_data",JSON.stringify(leaser))
         localStorage.setItem("leaser",JSON.stringify(leaser))
         window.location.href = "leaser-profile.html?mail=" +leasign["email"]  
@@ -71,3 +71,4 @@ form.addEventListener("submit", e => {
     }
   }
 })
+

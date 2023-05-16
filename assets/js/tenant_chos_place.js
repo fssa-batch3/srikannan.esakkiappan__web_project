@@ -207,6 +207,7 @@ search.addEventListener("keyup", (e) => {
     places.forEach(element => {
 
         let details = element.children[2].textContent.toLowerCase();
+        // console.log(details);
 
         if (details.includes(search_value)) {
 
@@ -224,7 +225,7 @@ search.addEventListener("keyup", (e) => {
 const locat = document.getElementById("locat")
 locat.addEventListener("click", function () {
     if (navigator.geolocation) {
-        navigator.geolocation.watchPosition(showPosition);
+        navigator.geolocation.getCurrentPosition(showPosition);
     } else {
         alert("Geolocation is not supported by this browser.")
     }
@@ -234,18 +235,19 @@ locat.addEventListener("click", function () {
         let longitud = position.coords.longitude
         let accur = position.coords.accuracy
         console.log(latitud, longitud); // 13.0963045  80.2865916
-        console.log(Math.round(accur));
+        // console.log(Math.round(accur));
 
         let near = "";
         for (let s = 0; s < lease.length; s++) {
             let lat2 = lease[s]["Lattitude"];
+            // console.log(lat2);
             let lon2 = lease[s]["Longitude"];
 
             const distan_km = distance(latitud, longitud, lat2, lon2);
 
-
-            if (distan_km <= 5) {
-                console.log(lease[s]);
+            
+            if(distan_km <= 21){
+                console.log(distan_km); 
                 near += `<a id="link" href="tenant-chooseduration.html?name=${lease[s]["firstname"]}">
                     <div class="profile_box">
                       <div class="image">

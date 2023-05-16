@@ -46,7 +46,7 @@ form.addEventListener("submit", e => {
       Tenant.push(user_data)
       localStorage.setItem("Tenant_sign", JSON.stringify(user_data))
       let tenasign = JSON.parse(localStorage.getItem("Tenant_sign"))
-      let tet = JSON.parse(localStorage.getItem("Tenant_additional_det")) ?? [];
+      // let tet = JSON.parse(localStorage.getItem("Tenant_additional_det")) ?? [];
       localStorage.setItem("Tenant_additional_det", JSON.stringify(Tenant))
       localStorage.setItem("Tenant", JSON.stringify(Tenant))
       window.location.href = "tenant-profile.html?mail=" +tenasign["Email"]

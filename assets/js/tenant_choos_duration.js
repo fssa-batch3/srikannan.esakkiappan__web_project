@@ -221,7 +221,7 @@ document.querySelector("form").addEventListener("submit", l => {
             window.location.href = "tenant-request.html?mail=" + key["Email"];
         }
         )
-    window.location.href = "tenant-request.html?mail=" + key["Email"];
+    
     localStorage.setItem("Tenant_additional_det", JSON.stringify(tenant_details))
 
 
