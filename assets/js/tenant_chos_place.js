@@ -223,7 +223,7 @@ locat.addEventListener("click", () => {
       const lon2 = lease[s].Longitude;
 
       const distan_km = distance(latitud, longitud, lat2, lon2);
-      if (distan_km <= 21) {
+      if (distan_km <= 15) {
         console.log(distan_km);
         near += `<a id="link" href="tenant-chooseduration.html?name=${lease[s].firstname}">
                     <div class="profile_box">
