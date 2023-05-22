@@ -185,6 +185,9 @@ h5#fc{
         margin-left: -60%;
         font-size: 17px;
     }
+    #flt{
+        margin-left: -20%;
+    }
     #ftnav{
         display: none;
     }

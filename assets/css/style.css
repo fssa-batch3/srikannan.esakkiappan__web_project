@@ -7,8 +7,10 @@
 header {
     display: flex;
     justify-content: space-between;
-    height: 130px;
-    width: 1500px;
+    /* height: 130px; */
+    /* width: 1500px; */
+    height: 14%;
+    width: 100%;
     background-color: white;
     position: fixed;
     top: 0;
@@ -365,7 +367,8 @@ h5#fc{
 @media only screen and (max-width: 800px){
     header{
         width: 100%;
-        height: 25%;
+        height: 20%;
+        position: absolute;
         /* transform: scale(1.4); */
     }
     #head_logo{
@@ -378,7 +381,7 @@ h5#fc{
     }
     #bttn{
         position: relative;
-        top: 70%;
+        top: 30%;
         left: 180%;
         transform: scale(1.2);
     }
@@ -399,7 +402,7 @@ h5#fc{
         text-decoration: none;
         color: black;
         font-size: 26px;
-        margin: 10px 0 10px 10px;
+        margin: 1px 0 10px 10px;
         font-weight: 100;
         font-family: 'Source Sans Pro', sans-serif;
     }
@@ -409,7 +412,7 @@ h5#fc{
     .menu-list{
         visibility: hidden;
         position: absolute;
-        top: 30px;
+        top: 20px;
         right: 490%;
         width: 5%;
         height: 45%;

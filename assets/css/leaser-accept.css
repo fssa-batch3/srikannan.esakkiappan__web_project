@@ -1,51 +1,58 @@
-body{
+body {
     font-size: 20px;
 }
-header{
-display:flex;
-justify-content: space-between;
-height: 115px;
-background-color: #0d131f;
-position: fixed;
-top: 0;
-left: 0;
-right: 7.5px;
-z-index: 2;
-color: white;
+
+header {
+    display: flex;
+    justify-content: space-between;
+    height: 115px;
+    background-color: #0d131f;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 7.5px;
+    z-index: 2;
+    color: white;
 }
-a{
-color: white;
-text-decoration: none;
+
+a {
+    color: white;
+    text-decoration: none;
 }
-#nav{
-display: flex;
-justify-content: space-between;
-align-items: center;
-width: 500px;
-margin-right: -200px;
-font-family: 'Luckiest Guy', cursive;
-letter-spacing: 2px;
+
+#nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 500px;
+    margin-right: -200px;
+    font-family: 'Luckiest Guy', cursive;
+    letter-spacing: 2px;
 }
-#logo{
-height: 120px;
-width: 160px;
-background-color: #0d131f;
- margin: -10px 0 10px 20px; 
+
+#logo {
+    height: 120px;
+    width: 160px;
+    background-color: #0d131f;
+    margin: -10px 0 10px 20px;
 }
-#nav a{
+
+#nav a {
     text-decoration: none;
     color: white;
     padding: 6px 15px;
     cursor: pointer;
 }
-#nav a:hover{
+
+#nav a:hover {
     background-color: #0182ff;
     color: white;
     display: inline;
-    padding: 6px 15px;  
+    padding: 6px 15px;
     border-radius: 5px;
 }
-#thumb-image{
+
+#thumb-image {
     margin-left: 6%;
     height: 240px;
     animation-name: emoji;
@@ -54,26 +61,48 @@ background-color: #0d131f;
     animation-fill-mode: both;
     animation-iteration-count: infinite;
 }
-@keyframes emoji{
-    0%{transform: rotate(0deg);}
-    50%{transform: rotate(-20deg)}
-    60%{transform: rotate(-10deg)}
-    70%{transform: rotate(-5deg)}
-    80%{transform: rotate(0deg)}
-    90%{transform: rotate(10deg)}
+
+@keyframes emoji {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    50% {
+        transform: rotate(-20deg)
+    }
+
+    60% {
+        transform: rotate(-10deg)
+    }
+
+    70% {
+        transform: rotate(-5deg)
+    }
+
+    80% {
+        transform: rotate(0deg)
+    }
+
+    90% {
+        transform: rotate(10deg)
+    }
 }
-.main_container{
+
+.main_container {
     margin-top: 180px;
     margin-left: 40%;
     margin-bottom: 158px;
 }
-h1{
+
+h1 {
     margin-left: -15%;
 }
-h3{
+
+h3 {
     margin-left: -3%;
 }
-#foot{
+
+#foot {
     margin-top: 10%;
     background-color: #0d1e38;
     padding: 3%;
@@ -82,46 +111,105 @@ h3{
     flex-direction: row;
     justify-content: space-evenly;
 }
-#park{
+
+#park {
     margin-left: -10%;
 }
-#flogo{
+
+#flogo {
     height: 60%;
     width: 32%;
 }
-#contact{
+
+#contact {
     margin-left: -30%;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
-#flt{
+
+#flt {
     height: 60%;
     width: 20%;
 }
-#ct{
+
+#ct {
     float: right;
     margin-left: -10%;
 }
-h5#ftc{
+
+h5#ftc {
     float: right;
     margin-top: -29%;
     margin-left: -50%;
 }
-h5#fc{
-    float:right;
+
+h5#fc {
+    float: right;
     margin-top: -47%;
 }
-#ftnav{
+
+#ftnav {
     display: flex;
     flex-direction: column;
 }
-#ftnav a{
+
+#ftnav a {
     color: white;
     text-decoration: none;
 }
-#blk{
+
+#blk {
     background-color: black;
     border: 2px solid black;
     padding: 2%;
+}
+
+@media only screen and (max-width: 800px) {
+
+    #logo {
+        transform: scale(.7);
+        margin-left: -9%;
+    }
+
+    #nav a {
+        transform: scale(.8);
+        margin-left: 10%;
+    }
+
+    #thumb-image {
+        transform: scale(.7);
+        animation: none;
+        margin-left: -34%;
+    }
+    h1{
+        transform: scale(.5);
+        width: 280%;
+        margin-left: -120%;
+    }
+    h3{
+        transform: scale(.8); 
+        width: 160%;
+        margin-left: -60%;
+    }
+    #flt{
+        margin-left: -20%;
+    }
+    #ftnav{
+        display: none;
+    }
+    #foot{
+        width: 94%;
+        display: flex;
+        height: 200%;
+    }
+    #contact,#fc,#ftc{
+        transform: scale(1);
+        margin-left: 1%;
+    }
+    #park{
+        display: none;
+    }
+   
+
 }

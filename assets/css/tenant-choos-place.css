@@ -147,8 +147,8 @@ img#imag{
         
         width: 70%;
         height: 20%;
-        margin-top: 40%;
-        margin-left: -188%;
+        margin-top: 43%;
+        margin-left: -208%;
         transform: scale(.9);
     }
     a{
@@ -164,15 +164,17 @@ img#imag{
     }
     a#log{
        margin-left: 32%;
-       margin-top: -140%;
+       margin-top: -110%;
+       height: 20%;
     }
     main{
         margin-top: 85%;
     }
     img#imag{
-        width: 320px;
+        width: 300px;
         height: 160px;
         margin-left: 5%;
+        margin-top: 5%;
         border-radius: 5px;
     }
     .profile_box{
@@ -184,5 +186,6 @@ img#imag{
     }
     .detail{
         margin-top: 5%;
+        margin-left: 1%;
     }
 }

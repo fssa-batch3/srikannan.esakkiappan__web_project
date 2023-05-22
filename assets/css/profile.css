@@ -132,7 +132,7 @@ main{
 @media only screen and (max-width: 800px){
     header{
         width: 100%;
-        height: 28%;
+        height: 30%;
     }
     #head_logo{
         transform: scale(1.2);
@@ -144,8 +144,8 @@ main{
     }
     #bttn{
         position: relative;
-        top: 30%;
-        left: 180%;
+        top: 20%;
+        left:190%;
         color: white;
     }
     .respons_nav{
@@ -153,8 +153,9 @@ main{
         margin-left: auto;
         font-size: 24px;
         z-index: 5;
+        margin-top: -13px;
         color: black;
-        margin-right: 60px;
+        margin-right: 48px;
         position: relative;
     }
     .respons_nav:hover .menu-list{
@@ -188,11 +189,11 @@ main{
         flex-direction: column-reverse;
     }
     #plac_img{
-        width: 100%;
+        width: 70%;
         height: 70%;
-        margin-top: 45%;
+        margin-top: 15%;
         border-radius: 5px;
-        margin-left: -6%;
+        margin-left: 29%;
     }
     #parkk{
         width: 80%;
@@ -206,6 +207,14 @@ main{
     .profile{
         transform: scale(.9);
         width: 100%;
+        margin-top: 35%;
+    }
+    #lf{
+        margin-top: 30%;
+        margin-left: 2%;
+        /* width: 190%; */
+        height: 25%;
+        transform: scale(.7);
     }
     #user_im{
         margin-top: -16%;
