@@ -11,6 +11,7 @@ let imag;
 let div_detail;
 let parag;
 let parag1;
+let a;
 
 let tenant = JSON.parse(localStorage.getItem("Tenant"));
 
@@ -93,7 +94,7 @@ let cont;
 
 for (i = 0; i < lease.length; i++) {
 
-    let a = document.createElement("a");
+    a = document.createElement("a");
     a.setAttribute("id", "link");
     a.setAttribute("href", "tenant-chooseduration.html?name=" + lease[i]["firstname"] + "&Tenant=" + result["Email"]);
     // console.log(a)
@@ -159,9 +160,6 @@ for (i = 0; i < lease.length; i++) {
         console.log("available");
         non_avil.style.display = "none";
     }
-
-
-
     div_image = document.createElement("div");
     div_image.setAttribute("class", "image");
     div_profile_box.append(div_image);
@@ -190,10 +188,8 @@ for (i = 0; i < lease.length; i++) {
     phon_num.innerHTML = `<p>Phone number : ${lease[i]["phone_number"]}</p>`;
     div_detail.append(phon_num);
 
-    // available = document.createElement("p");
-    // available.setAttribute("id","")
-
     main_lists.prepend(a)
+    console.log(a);
 }
 
 
@@ -248,7 +244,7 @@ locat.addEventListener("click", function () {
             
             if(distan_km <= 21){
                 console.log(distan_km); 
-                near += `<a id="link" href="tenant-chooseduration.html?name=${lease[s]["firstname"]}">
+                near += `<a id="link" href="tenant-chooseduration.html?name=${lease[s]["firstname"]}&Tenant=${result["Email"]}">
                     <div class="profile_box">
                       <div class="image">
                         <img id="imag" src="${lease[s]["upload_image"]}">
@@ -259,7 +255,7 @@ locat.addEventListener("click", function () {
                         <p>Phone number : ${lease[s]["phone_number"]}</p>
                      </div>
                     </div>
-                        </a>`
+                    </a>`
                 main_lists.innerHTML = near;
                 console.log(distan_km);
             }

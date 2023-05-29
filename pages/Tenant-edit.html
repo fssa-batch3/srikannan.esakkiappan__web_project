@@ -11,7 +11,7 @@
     integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="icon" href="../assets/images/Logo.png">
-    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.3.0/font/bootstrap-icons.css" />
   <title>Parkin</title>
 </head>
 
@@ -75,7 +75,9 @@
           <label for="name">Phone number</label>
         </div>
         <div class="col-75">
-          <input type="tel" id="numb" name="numb" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}">
+          <input name="somename" id="numb" placeholder="Enter your number" required title="please enter a valid phone number"
+            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+            type="number" maxlength="10" />
         </div>
       </div>
 
@@ -84,7 +86,9 @@
           <label for="name">Another number</label>
         </div>
         <div class="col-75">
-          <input type="tel" id="number" name="numb" pattern="[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}">
+          <input name="somename" id="number" placeholder="Enter your number" required title="please enter a valid phone number"
+          oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+          type="number" maxlength="10" />
         </div>
       </div>
 
@@ -103,6 +107,7 @@
         </div>
         <div class="col-75">
           <input type="password" id="pass" name="numb" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
+          <i class="bi bi-eye-slash" id="togglePassword"></i>
         </div>
       </div>
 
@@ -112,6 +117,7 @@
         </div>
         <div class="col-75">
           <input type="password" id="password" name="numb" pattern="^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?!.*\s).*$">
+          <i class="bi bi-eye-slash" id="togglePassword1"></i>
         </div>
       </div>
 

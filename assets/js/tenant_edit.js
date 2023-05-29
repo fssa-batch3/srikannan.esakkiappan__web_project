@@ -143,3 +143,27 @@ d.addEventListener("click", e => {
 
 })
 })
+
+const togglePass = document.querySelector("#togglePassword");
+
+const togglePass1 = document.querySelector("#togglePassword1");
+
+togglePass.addEventListener("click", function () {
+  // toggle the type attribute
+  if (pass.type === "password") {
+    pass.type = "text";
+  } else{
+    pass.type = "password";
+  }
+  this.classList.toggle("bi-eye");
+});
+
+togglePass1.addEventListener("click", function () {
+  // toggle the type attribute
+  if(password.type === "password"){
+    password.type = "text";
+  }else{
+    password.type = "password";
+  }
+  this.classList.toggle("bi-eye");
+});

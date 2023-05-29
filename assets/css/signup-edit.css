@@ -138,6 +138,11 @@ textarea{
   input[type=submit]:hover {
     background-color: #0182ff;
   }
+
+  form i {
+    margin-left: -30px;
+    cursor: pointer;
+  }
   
   /* #save{
     background-color: #0182ff;

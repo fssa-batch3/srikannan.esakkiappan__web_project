@@ -1,4 +1,19 @@
 let form = document.querySelector(".formm")
+
+let passwor = document.getElementById("password");
+
+const togglePass = document.querySelector("#togglePassword");
+
+togglePass.addEventListener("click", function () {
+    // toggle the type attribute
+    if(passwor.type === "password"){
+      passwor.type = "text";
+    }else{
+      passwor.type = "password";
+    }
+    this.classList.toggle("bi-eye");
+  });
+
 form.addEventListener("submit", e => {
     e.preventDefault()
     const email = document.getElementById("emai").value

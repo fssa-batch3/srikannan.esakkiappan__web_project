@@ -1,4 +1,32 @@
 let form = document.querySelector("form")
+
+let password = document.getElementById("pass");
+let passwor = document.getElementById("password");
+
+const togglePass = document.querySelector("#togglePassword");
+
+const togglePass1 = document.querySelector("#togglePassword1");
+
+togglePass.addEventListener("click", function () {
+  // toggle the type attribute
+  if (password.type === "password") {
+    password.type = "text";
+  } else{
+    password.type = "password";
+  }
+  this.classList.toggle("bi-eye");
+});
+
+togglePass1.addEventListener("click", function () {
+  // toggle the type attribute
+  if(passwor.type === "password"){
+    passwor.type = "text";
+  }else{
+    passwor.type = "password";
+  }
+  this.classList.toggle("bi-eye");
+});
+
 form.addEventListener("submit", e => {
   e.preventDefault()
  

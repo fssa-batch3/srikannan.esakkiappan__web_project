@@ -124,7 +124,7 @@ const default_leasr = [{
   }]
   
   if(localStorage.getItem("leaser")){
-    console.log(no);
+    console.log("no");
   }
   else{
   localStorage.setItem("leaser_modify_data",JSON.stringify(default_leasr))
